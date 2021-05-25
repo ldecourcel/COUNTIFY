@@ -1,16 +1,16 @@
 ﻿date;net_amount;issuer;client;vta;payment_method;tax_amount;total_amount;label;company_id
-15/05/2021;1064,8;Cardable;company_name;0,2;Virement;266,2;1331;;1
-09/05/2021;7038,4;company_name;Le Wagon;0,2;Virement;1759,6;8798;;1
-09/04/2021;19,92;Paul;company_name;0,2;Espèce;4,98;24,9;;1
-01/04/2021;663,2;HP;company_name;0,2;Chèque;165,8;829;;1
-30/03/2021;6850,4;Vibrary;company_name;0,2;Virement;1712,6;8563;;1
-26/02/2021;6175,2;company_name;Than;0,2;Chèque;1543,8;7719;;1
-19/02/2021;25,6;Le Wagon;company_name;0,2;Virement;6,4;32;;1
-05/02/2021;826,4;company_name;DBO;0,2;CB;206,6;1033;;1
-25/12/2020;6676,425;EDF;company_name;0,055;Virement;388,575;7065;;1
-11/11/2020;276,885;Carrefour;company_name;0,055;Espèce;16,115;293;;1
-11/11/2020;7068,8;company_name;JDS;0,2;CB;1767,2;8836;;1
-11/09/2020;6694,38;Jobify;company_name;0,055;CB;389,62;7084;;1
-08/09/2020;5358,15;Amazon;company_name;0,055;CB;311,85;5670;;1
-02/09/2020;5079,2;Friendstrip;company_name;0,2;CB;1269,8;6349;;1
-10/06/2020;7745,4;Helpling;company_name;0,1;Chèque;860,6;8606;;1
+15/05/2021;1064,8;Cardable;Vibrary;0,2;Virement;266,2;1331;;1
+09/05/2021;7038,4;Vibrary;Le Wagon;0,2;Virement;1759,6;8798;;1
+09/04/2021;19,92;Paul;Vibrary;0,2;Espèce;4,98;24,9;;1
+01/04/2021;663,2;HP;Vibrary;0,2;Chèque;165,8;829;;1
+30/03/2021;6850,4;Vibrary;Vibrary;0,2;Virement;1712,6;8563;;1
+26/02/2021;6175,2;Vibrary;Than;0,2;Chèque;1543,8;7719;;1
+19/02/2021;25,6;Le Wagon;Vibrary;0,2;Virement;6,4;32;;1
+05/02/2021;826,4;Vibrary;DBO;0,2;CB;206,6;1033;;1
+25/12/2020;6676,425;EDF;Vibrary;0,055;Virement;388,575;7065;;1
+11/11/2020;276,885;Carrefour;Vibrary;0,055;Espèce;16,115;293;;1
+11/11/2020;7068,8;Vibrary;JDS;0,2;CB;1767,2;8836;;1
+11/09/2020;6694,38;Jobify;Vibrary;0,055;CB;389,62;7084;;1
+08/09/2020;5358,15;Amazon;Vibrary;0,055;CB;311,85;5670;;1
+02/09/2020;5079,2;Friendstrip;Vibrary;0,2;CB;1269,8;6349;;1
+10/06/2020;7745,4;Helpling;Vibrary;0,1;Chèque;860,6;8606;;1

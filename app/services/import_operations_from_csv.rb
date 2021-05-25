@@ -26,6 +26,6 @@ class ImportOperationsFromCsv
       # payment.save!
       puts "Traitement de la ligne n°#{index} terminé"
     end
-    puts "🎉 Import des users terminé!"
+    puts "🎉 Import des operations terminé!"
   end
 end
