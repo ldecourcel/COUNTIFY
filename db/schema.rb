@@ -56,13 +56,14 @@ ActiveRecord::Schema.define(version: 2021_05_25_091701) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "total_amount"
+    t.string "client"
     t.index ["company_id"], name: "index_invoices_on_company_id"
   end
 
-  create_table "payments", force: :cascade do |t|
+  create_table "operations", force: :cascade do |t|
     t.date "date"
     t.float "amount"
-    t.string "payee"
+    t.string "details"
     t.string "category"
     t.bigint "account_id", null: false
     t.bigint "invoice_id", null: false
@@ -70,8 +71,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_091701) do
     t.boolean "validated", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_payments_on_account_id"
-    t.index ["invoice_id"], name: "index_payments_on_invoice_id"
+    t.index ["account_id"], name: "index_operations_on_account_id"
+    t.index ["invoice_id"], name: "index_operations_on_invoice_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,8 +96,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_091701) do
   add_foreign_key "accounts", "companies"
   add_foreign_key "companies", "accountants"
   add_foreign_key "invoices", "companies"
-  add_foreign_key "payments", "accounts"
-  add_foreign_key "payments", "invoices"
+  add_foreign_key "operations", "accounts"
+  add_foreign_key "operations", "invoices"
   add_foreign_key "users", "accountants"
   add_foreign_key "users", "companies"
 end
