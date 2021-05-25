@@ -3,4 +3,5 @@ class Company < ApplicationRecord
   has_many :accounts
 
   validates :name, :siren, :siret, :fiscal_regim, :address, :phone_number, presence: true
+
 end
