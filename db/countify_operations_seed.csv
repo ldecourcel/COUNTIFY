@@ -1,5 +1,5 @@
-﻿date;amount;description;category;validated;invoice_id;account_id;bankin_uu_id
-29/02/2021;-2854,33;VIR SEPA Vibrary.io;;;;;
+﻿date;amount;details;category;validated;invoice_id;account_id;bankin_uu_id
+28/02/2021;-2854,33;VIR SEPA Vibrary.io;;;;;
 15/05/2021;-1331;Cardable sas;;;;;
 09/05/2021;8798;VIR Wagon;;;;;
 12/04/2021;-2854,33;VIR SEPA Vibrary.io;;;;;
