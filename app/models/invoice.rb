@@ -4,5 +4,5 @@ class Invoice < ApplicationRecord
 
   validates :date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :label, :client, presence: true
 
-  has_attached :file
+  # has_attached :file
 end

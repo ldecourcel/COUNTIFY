@@ -23,8 +23,9 @@ puts "creating other stuff ..."
 
 user = User.create(accountant: accountant, first_name:"Stéphane", last_name: "De Courcel", email:"steph@mail.com", password:"123456")
 
-company = Company.create(accountant: accountant, siren: "897897906", siret: "89789790600011", fiscal_regim: "SARL", address:"Villa Gaudelet, Paris", phone_number:"0111236677")
+company = Company.create(accountant: accountant,siren: "897897906", siret: "89789790600011", fiscal_regim: "SARL", address:"Villa Gaudelet, Paris", phone_number:"0111236677")
 
 account = Account.create(iban: "FR5230003000509811414747Q31", swift: "AGFBFRCC", account_name: "Pro 1", company: company)
 
 ImportOperationsFromCsv.new(account).call
+ImportInvoicesFromCsv.new(company).call

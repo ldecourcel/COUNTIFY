@@ -1,4 +1,4 @@
-﻿date;net_amout;issuer;client;vta;payment_method;tax_amout;total_amount;label;company_id
+﻿date;net_amount;issuer;client;vta;payment_method;tax_amount;total_amount;label;company_id
 15/05/2021;1064,8;Cardable;company_name;0,2;Virement;266,2;1331;;1
 09/05/2021;7038,4;company_name;Le Wagon;0,2;Virement;1759,6;8798;;1
 09/04/2021;19,92;Paul;company_name;0,2;Espèce;4,98;24,9;;1

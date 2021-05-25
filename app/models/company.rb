@@ -4,5 +4,5 @@ class Company < ApplicationRecord
 
   validates :siren, :siret, :fiscal_regim, :address, :phone_number, presence: true
 
-  has_attached :identity_card
+  # has_attached :identity_card
 end
