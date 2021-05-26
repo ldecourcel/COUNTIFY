@@ -12,19 +12,35 @@
       <% if user_signed_in? %>
         <% unless controller_name == "companies" && action_name == "index"%>
           <li class="nav-item active">
-            <%= link_to "Mes clients", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("group.png"), companies_path, class: "nav-link" %>
+            <p>Mes clients</p>
+            </div>
           </li>
           <li class="nav-item">
-            <%= link_to "Company_name", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("rubber-duck.png"), "#", class: "nav-link" %>
+            <p>Company_name</p>
+            </div>
           </li>
           <li class="nav-item">
-            <%= link_to "Transactions", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("euro.png"), company_operations_path, class: "nav-link" %>
+            <p>Transactions</p>
+            </div>
           </li>
           <li class="nav-item">
-            <%= link_to "Justificatifs", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("invoice.png"), company_invoices_path, class: "nav-link" %>
+            <p>Justificatifs</p>
+            </div>
           </li>
           <li class="nav-item">
-            <%= link_to "Historique", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("archive.png"), "#", class: "nav-link" %>
+            <p>Historique</p>
+          </div>
+
           </li>
           <li class="nav-item">
             <%= link_to "Chat", "#", class: "nav-link" %>

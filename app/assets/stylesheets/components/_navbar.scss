@@ -9,5 +9,16 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-
 }
+
+.navbar-logo {
+  text-align: center;
+  padding: 0 32px 0 32px;
+  img{
+    height: 50px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
