@@ -1,18 +1,22 @@
 <%= link_to "Retour", companies_path  %>
 <h1><%= @company.name %><h1>
 
-
-<div class="operation-search">
-  <%= form_tag company_operations_path(@company), method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Rechercher"
-  %>
-  <%= submit_tag "Recherche", class: "btn btn-primary" %>
-<% end %>
-  
+<div class="display-form-export">
+  <div class="operation-search">
+    <%= form_tag company_operations_path(@company), method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Rechercher"
+    %>
+    <%= submit_tag "Recherche", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="export-btn">
+    <%= link_to "Export", "#" %>
+  </div>
 </div>
+
 
 <h2>Opérations</h2>
 
@@ -29,12 +33,14 @@
   </thead>
   <tbody>
     <% @operations.each do |operation| %>
-      <tr>
-        <td><%= operation.amount %></td>
-        <td><%= operation.details %></td>
-        <td><%= operation.date %></td>
-        <td><%= operation.validated %></td>
-      </tr>
+      <%= link_to operation_path(operation) do %>
+        <tr>
+          <td><%= operation.amount %></td>
+          <td><%= operation.details %></td>
+          <td><%= operation.date %></td>
+          <td><%= operation.validated %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 
