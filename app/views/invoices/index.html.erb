@@ -1,0 +1,9 @@
+<h1>Factures</h1>
+<ul>
+  <% @invoices.each do |invoice| %>
+    <li><p> Date : <%= invoice.date %></p>
+    <p>Bénéficiaire : <%= link_to "#{invoice.issuer}", invoice_path(invoice) %>
+    <p>Client : <%= invoice.client %></p>
+    <p>Montant : <%= invoice.net_amount %> €</p></li>
+  <% end %>
+</ul>

@@ -12,7 +12,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     authorize @company
-    @company.accountant_id = user
+    @company.accountant_id = current_user
     if @company.save
       redirect_to companies
     else

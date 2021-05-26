@@ -6,4 +6,12 @@ class User < ApplicationRecord
 
   belongs_to :accountant, optional: true
   belongs_to :company, optional: true
+
+  def is_accountant?
+    accountant.present?
+  end
+
+  def is_company?
+    company.present?
+  end
 end
