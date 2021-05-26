@@ -42,3 +42,23 @@
   background-color: $gold;
   height: 4px;
 }
+
+.presentation {
+}
+.cards-etape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  margin: 24px 240px 24px 240px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 8px;
+  background-color: white;
+  h3 {
+    margin: 32px;
+  }
+  img {
+    height: 70%;
+    margin: 32px;
+  }
+}
