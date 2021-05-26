@@ -9,8 +9,9 @@ class OperationPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def show
-    index
+  def show?
+    # @operation = Operation.find(params[:id])
+    record.user == user
   end
 
   def new?
@@ -21,12 +22,12 @@ class OperationPolicy < ApplicationPolicy
     ##API
   end
 
-  def edit
+  def edit?
     record.user == user
   end
 
-  def update
-    edit
+  def update?
+    edit?
   end
 
   def destroy
