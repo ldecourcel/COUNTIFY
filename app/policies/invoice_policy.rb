@@ -13,12 +13,12 @@ class InvoicePolicy < ApplicationPolicy
     index
   end
 
-  def new
-    record.user == user
+  def new?
+    user.is_accountant?
   end
 
-  def create
-    record.user == user
+  def create?
+    new?
   end
 
   def edit
