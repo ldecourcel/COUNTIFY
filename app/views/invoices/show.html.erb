@@ -8,4 +8,11 @@
 
 <p>TVA: <%= @invoice.vta%>%<p>
 
+<%= link_to "Delete",
+            invoice_path(@invoice),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+
+
+
 

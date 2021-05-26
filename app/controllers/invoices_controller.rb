@@ -8,7 +8,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     authorize @invoice
   end
-  
+
   def new
     @invoice = Invoice.new
     authorize @invoice
@@ -25,9 +25,21 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def destroy
+    @invoice = Invoice.find(params[:id])
+    authorize @invoice
+    @invoice.destroy
+    redirect_to company_invoices_path(@invoice.company)
+  end
+
   private
 
   def invoice_params
     params.require(:invoice).permit(:photo, :date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client)
   end
+
+  # def company_params
+  #   params.require(:company).permit(:id)
+  # end
+
 end

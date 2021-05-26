@@ -15,6 +15,7 @@ class InvoicePolicy < ApplicationPolicy
 
   def new?
     user.is_accountant?
+
   end
 
   def create?
@@ -30,6 +31,7 @@ class InvoicePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    # record.user == user
+    user.is_accountant?
   end
 end

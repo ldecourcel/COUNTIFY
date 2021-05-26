@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :operations, only: [ :update, :show ]
-  resources :invoices, only: [ :update, :show ]
+  resources :invoices, only: [ :update, :show, :destroy ]
 
   get :components, to: 'pages#components'
 end
