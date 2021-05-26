@@ -1,0 +1,44 @@
+.cards-disposition {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+.cards-company {
+  display: flex;
+  border: 1px black solid;
+  padding: 16px;
+  padding-left: 0px;
+  overflow: hidden;
+}
+.cards-company-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+  width: 180px;
+  img {
+    height: 80px;
+  }
+}
+
+.cards-company-name {
+    font-size: 24px;
+    margin-bottom:8px;
+}
+
+.class-company-content {
+    font-size: 8px;
+}
+
+.cards-company-progression-to-do {
+  background-color: $violet;
+  height: 4px;
+  width: 80%;
+}
+
+.cards-company-progression-done {
+  background-color: $gold;
+  height: 4px;
+}

@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Buttons</h2>
+  <%= link_to "Recherche", "#", class:"button-recherche" %>
+  <%= link_to "Export", "#", class:"button-export" %>
+  <%= link_to "Réconciliation", "#", class:"button-reconciliation" %>
+  <%= link_to image_tag('plus.png', class:"button-new-operation-plus") + "   Ajouter une transaction", "#", class:"button-new-operation" %>
+
+  <h2>Cards</h2>
+  <div class="cards-disposition">
+    <div class="cards-company">
+      <div class="cards-company-avatar">
+        <%= image_tag("rubber-duck.png") %>
+      </div>
+      <div>
+        <p class="cards-company-name"><%= "Company_name" %></p>
+        <p class="cards-company-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<p>
+        <div class="cards-company-progression-to-do">
+          <div class="cards-company-progression-done" style="width: <%= (50 / 100.0 * 100) %>%" >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards-company">
+      <div class="cards-company-avatar">
+        <%= image_tag("rubber-duck.png") %>
+      </div>
+      <div>
+        <p class="cards-company-name"><%= "Company_name" %></p>
+        <p class="cards-company-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<p>
+        <div class="cards-company-progression-to-do">
+          <div class="cards-company-progression-done" style="width: <%= (50 / 100.0 * 100) %>%" >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards-company">
+      <div class="cards-company-avatar">
+        <%= image_tag("rubber-duck.png") %>
+      </div>
+      <div>
+        <p class="cards-company-name"><%= "Company_name" %></p>
+        <p class="cards-company-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<p>
+        <div class="cards-company-progression-to-do">
+          <div class="cards-company-progression-done" style="width: <%= (50 / 100.0 * 100) %>%" >
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

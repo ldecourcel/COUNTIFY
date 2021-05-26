@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :payments, only: [ :update, :show ]
   resources :invoices, only: [ :update, :show ]
+
+  get :components, to: 'pages#components'
 end
