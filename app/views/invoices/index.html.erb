@@ -1,9 +1,28 @@
-<h1>Factures</h1>
-<ul>
-  <% @invoices.each do |invoice| %>
-    <li><p> Date : <%= invoice.date %></p>
-    <p>Bénéficiaire : <%= link_to "#{invoice.issuer}", invoice_path(invoice) %>
-    <p>Client : <%= invoice.client %></p>
-    <p>Montant : <%= invoice.net_amount %> €</p></li>
-  <% end %>
-</ul>
+<%= link_to "Retour", companies_path  %>
+<h1><%= @company.name %><h1>
+
+<h2>Factures</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Bénéficiaire</th>
+      <th>Client</th>
+      <th>Montant (€)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoices.each do |invoice| %>
+
+        <tr>
+          <td><%= invoice.date %></td>
+          <td><%= link_to "#{invoice.issuer}", invoice_path(invoice) %></td>
+          <td> <%= invoice.client %></td>
+          <td><%= invoice.net_amount %></td>
+        </tr>
+
+    <% end %>
+  </tbody>
+
+</table>
