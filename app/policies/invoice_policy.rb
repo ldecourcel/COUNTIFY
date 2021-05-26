@@ -22,11 +22,11 @@ class InvoicePolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
+    Company.find(record.company_id).accountant_id == user.id
   end
 
   def update?
-    edit
+    edit?
   end
 
   def destroy?
