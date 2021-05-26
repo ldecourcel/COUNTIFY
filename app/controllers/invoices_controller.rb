@@ -46,8 +46,4 @@ class InvoicesController < ApplicationController
     params.require(:invoice).permit(:photo, :date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client)
   end
 
-  # def company_params
-  #   params.require(:company).permit(:id)
-  # end
-
 end
