@@ -5,31 +5,31 @@ class InvoicePolicy < ApplicationPolicy
     end
   end
 
-  def index
+  def index?
+    Company.find(record.company_id).accountant_id == user.id
+  end
+
+  def show?
+    index?
+  end
+
+  def new?
     record.user == user
   end
 
-  def show
-    index
-  end
-
-  def new
+  def create?
     record.user == user
   end
 
-  def create
+  def edit?
     record.user == user
   end
 
-  def edit
-    record.user == user
-  end
-
-  def update
+  def update?
     edit
   end
 
-  def destroy
+  def destroy?
     record.user == user
   end
 end
