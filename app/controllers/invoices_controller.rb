@@ -30,8 +30,6 @@ class InvoicesController < ApplicationController
     @invoice.update(invoice_params)
     authorize @invoice
     redirect_to invoice_path(@invoice)
-  # update your resource from params
-    # render partial: 'resources/item', locals: { invoice: @invoice }
   end
 
   private
