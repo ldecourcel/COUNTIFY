@@ -1,51 +1,60 @@
 <%= link_to "Retour", companies_path  %>
-<h1><%= @company.name %><h1>
 
-<div class="display-form-export">
-  <div class="operation-search">
-    <%= form_tag company_operations_path(@company), method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Rechercher"
-    %>
-    <%= submit_tag "Recherche", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-  <div class="export-btn">
-    <%= link_to "Export", "#" %>
-  </div>
-</div>
+<div class="container-index-operation">
 
+  <h1><%= @company.name %></h1>
 
-<h2>Opérations</h2>
-
-<%= link_to "Ajouter une opération", new_company_operation_path(@company) %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Montant</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @operations.each do |operation| %>
-      <%= link_to operation_path(operation) do %>
-        <tr>
-          <td><%= operation.amount %></td>
-          <td><%= operation.details %></td>
-          <td><%= operation.date %></td>
-          <td><%= operation.validated %></td>
-        </tr>
+  <div class="display-form-export">
+    <div class="operation-search">
+      <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Rechercher"
+      %>
+      <%= submit_tag "Recherche", class: "btn btn-primary" %>
       <% end %>
-    <% end %>
-  </tbody>
+    </div>
+    <div id="export-btn">
+      <%= link_to "Export", "#" %>
+    </div>
+  </div>
 
-</table>
+  <h2 class="center">Opérations</h2>
 
+  <div class="container-btn-add-ope">
+      <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope" %>
+  </div>
 
+  <table>
+    <thead>
+      <tr>
+        <th class="th-sm"><strong>Montant</strong></th>
+        <th class="th-sm">Description</th>
+        <th class="th-sm">Date</th>
+        <th class="th-sm">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @operations.each do |operation| %>
+      <div class="link">
+        <tr onclick="window.location='/operations/<%= operation.id %>';">
+          <td><%= operation.amount %></td>
+          <td id="description"><%= operation.details %></td>
+          <td><%= operation.date %></td>
+          <% if operation.validated == true %>
+            <td><%= image_tag("checked.png") %></td>
+          <% elsif operation.invoice != nil && operation.validated == false %>
+            <td><%= image_tag("question.png") %></td>
+          <% elsif operation.validated == false %>
+            <td><%= image_tag("error.png") %></td>
+          <% end %>
+        </tr>
+      </div>
+      <% end %>
+    </tbody>
 
+  </table>
+
+</div>
 
