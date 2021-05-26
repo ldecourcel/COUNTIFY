@@ -5,7 +5,7 @@ class OperationPolicy < ApplicationPolicy
     end
   end
 
-  def index
+  def index?
     record.user == user
   end
 
@@ -13,7 +13,7 @@ class OperationPolicy < ApplicationPolicy
     index
   end
 
-  def new
+  def new?
     ##API
   end
 

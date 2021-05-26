@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   resources :companies, only: [ :index, :new, :create, :delete,] do
     resources :invoices, only: [ :index, :new,  :create ]
-    resources :payments, only: [ :index, :new,  :create ]
+    resources :operations, only: [ :index, :new,  :create ]
   end
 
-  resources :payments, only: [ :update, :show ]
+  resources :operations, only: [ :update, :show ]
   resources :invoices, only: [ :update, :show ]
 end
