@@ -21,7 +21,7 @@ default: &default
 
   static_assets_extensions:
     - .jpg
-    - .jpeg
+    - .jpg
     - .png
     - .gif
     - .tiff
@@ -45,7 +45,7 @@ default: &default
     - .png
     - .svg
     - .gif
-    - .jpeg
+    - .jpg
     - .jpg
 
 development:

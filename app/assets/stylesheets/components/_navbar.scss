@@ -17,10 +17,16 @@
   padding: 0 32px 0 32px;
   height: 70%;
   img{
-    height: 40px; // is it possible to use percentage ?
+    height: 20px; // is it possible to use percentage ?
+    margin-bottom: 2px;
   }
   p {
-    font-size: 12px;
+    font-size: 16px;
+    margin-top: 0px;
+  }
+  a {
+    margin: 0 auto;
+    padding: 0;
   }
 }
 

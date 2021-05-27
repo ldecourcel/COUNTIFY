@@ -50,7 +50,7 @@
           <%if @operation.invoice.photo.attached?%>
             <%= cl_image_tag @operation.invoice.photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
-            <%= image_tag "preview_invoice.jpeg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+            <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
           <%end%>
           <div class="carousel-content">
             <div class="carousel-text">
@@ -65,7 +65,7 @@
           <%if @invoices_to_display[1][0].photo.attached?%>
             <%= cl_image_tag @invoices_to_display[1][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
-            <%= image_tag "preview_invoice.jpeg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+            <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
           <%end%>
           <div class="carousel-content">
             <div class="carousel-text">
@@ -80,7 +80,7 @@
           <%if @invoices_to_display[2][0].photo.attached?%>
             <%= cl_image_tag @invoices_to_display[2][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
-            <%= image_tag "preview_invoice.jpeg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+            <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
           <%end%>
           <div class="carousel-content">
             <div class="carousel-text">
@@ -115,7 +115,7 @@
           <%if @invoices_to_display[0][0].photo.attached?%>
             <%= cl_image_tag @invoices_to_display[0][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
-            <%= image_tag "preview_invoice.jpeg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+            <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
           <%end%>
           <div class="carousel-content">
             <div class="carousel-text">
@@ -130,7 +130,7 @@
           <%if @invoices_to_display[1][0].photo.attached?%>
             <%= cl_image_tag @invoices_to_display[1][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
-            <%= image_tag "preview_invoice.jpeg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+            <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
           <%end%>
           <p>Date : <%= @invoices_to_display[1][0].date %></p>
           <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
@@ -141,7 +141,7 @@
           <%if @invoices_to_display[2][0].photo.attached?%>
             <%= cl_image_tag @invoices_to_display[2][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
-            <%= image_tag "preview_invoice.jpeg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+            <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
           <%end%>
           <p>Date : <%= @invoices_to_display[2][0].date %></p>
           <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
