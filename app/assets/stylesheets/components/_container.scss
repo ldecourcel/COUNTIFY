@@ -1,4 +1,4 @@
-.container-index-operation {
+.container-index {
   width: 120vh;
   margin: 0 auto;
 }
@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.container-ope-show-title h1{
+.container-ope-show-title h1 {
   display: inline-block;
   justify-content: flex-start;
   width: 100%;
@@ -24,4 +24,16 @@
 .container-table-show {
   margin-top: 56px;
   margin-bottom: 32px;
+}
+
+.container-index-company {
+  width: 120vh;
+  margin: 0 auto;
+  display: flex;
+}
+
+.company-title {
+  display: flex;
+  justify-content : center;
+  margin-top :20px;
 }

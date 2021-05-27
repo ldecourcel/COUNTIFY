@@ -1,6 +1,6 @@
 <%= link_to "Retour", companies_path  %>
 
-<div class="container-index-operation">
+<div class="container-index">
 
   <h1><%= @company.name %></h1>
 
@@ -20,10 +20,10 @@
     </div>
   </div>
 
-  <h2 class="center">Transactions</h2>
+  <h2 class="center">Opérations</h2>
 
   <div class="container-btn-add-ope">
-      <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter une transaction'), new_company_operation_path(@company), id: "btn-add-ope" %>
+      <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope" %>
   </div>
 
   <table>
