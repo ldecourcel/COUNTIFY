@@ -2,14 +2,14 @@ require 'csv'
 
 class ImportInvoicesFromCsv
   attr_reader :csv
-  def initialize(company)
+  def initialize()
     filepath = Rails.root + 'db/countify_invoices_seed.csv'
     csv_options = { col_sep: ';', headers: true }
     @csv = CSV.read(filepath, csv_options)
-    @company = company
   end
+
   def call
-    puts "Lancement de l'import des opérations contenues dans /db/operations.csv => #{@csv.size} lignes à traiter...🤞"
+    puts "Lancement de l'import des opérations contenues dans /db/invoices.csv => #{@csv.size} lignes à traiter...🤞"
     @csv.each_with_index do |row, index|
       puts "Traitement de la ligne n°#{index}..."
       # p row.to_h.class
@@ -24,8 +24,9 @@ class ImportInvoicesFromCsv
       end
 
       # p r
-
-      invoice = Invoice.new(r)
+      p r[:company_name]
+      company = Company.find_by(name: r[:company_name])
+      invoice = Invoice.new(r.delete_if{ |k, v| k == :company_name})
       # p invoice
       # p row[0]
       invoice.date = Date.parse(row[0])
@@ -33,7 +34,7 @@ class ImportInvoicesFromCsv
 
       # invoice.amount = row[1]
       # invoice.details = row[2]
-      invoice.company = @company
+      invoice.company = company
       invoice.save!
       # payment = Payment.new(
       #   # ...

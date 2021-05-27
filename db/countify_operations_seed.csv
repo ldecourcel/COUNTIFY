@@ -1,18 +1,60 @@
-﻿date;amount;details;category;validated;invoice_id;account_id;bankin_uu_id
-28/02/2021;-2854,33;VIR SEPA Vibrary.io;;;;;
-15/05/2021;-1331;Cardable sas;;;;;
-09/05/2021;8798;VIR Wagon;;;;;
-12/04/2021;-2854,33;VIR SEPA Vibrary.io;;;;;
-01/04/2021;-829;CHQ. N.0983774;;;;;
-15/03/2021;-2854,33;VIR SEPA Vibrary.io;;;;;
-26/02/2021;7719;REM CHQ 843984328540850 45283480 ;;;;;
-19/02/2021;-32;VIR SEPA Wagon;;;;;
-05/02/2021;1033;VIR Dimitri Bosch;;;;;
-25/12/2020;-7065;VIR SEPA EDF;;;;;
-08/12/2020;-2835;AMAZON EU SARL;;;;;
-11/11/2020;-400;RETRAIT DAB 11/04/2021 CDN PARIS P;;;;;
-11/11/2020;8836;VIR Julien DA SILVA;;;;;
-11/09/2020;-7084;Jobify sas;;;;;
-10/09/2020;-2835;AMAZON EU SARL;;;;;
-02/09/2020;-6349;Friendstrip sarl eu;;;;;
-10/06/2020;-8606;CHQ. N.0949732;;;;;
+date;amount;description;category;validated;invoice_id;account_id;bankin_uu_id;account_name
+15/05/2021;-1331;Cardable sas;;;;;;Pro1
+09/05/2021;8798;VIR Wagon;;;;;;Pro1
+12/04/2021;2854,33;VIR SEPA Vibrary.io;;;;;;Pro1
+01/04/2021;-829;CHQ. N.0983774;;;;;;Pro1
+26/02/2021;7719;REM CHQ 843984328540850 45283480 ;;;;;;Pro1
+19/02/2021;-32;VIR SEPA Wagon;;;;;;Pro1
+05/02/2021;1033;VIR Dimitri Bosch;;;;;;Pro1
+25/12/2020;-7065;VIR SEPA EDF;;;;;;Pro1
+08/12/2020;-2835;AMAZON EU SARL;;;;;;Pro1
+11/11/2020;-400;RETRAIT DAB 11/04/2021 CDN PARIS P;;;;;;Pro1
+11/11/2020;8836;VIR Julien DA SILVA;;;;;;Pro1
+11/09/2020;-7084;Jobify sas;;;;;;Pro1
+10/09/2020;-2835;AMAZON EU SARL;;;;;;Pro1
+02/09/2020;-6349;Friendstrip sarl eu;;;;;;Pro1
+10/06/2020;-8606;CHQ. N.0949732;;;;;;Pro1
+10/08/2020;-9242;Amazon online;;;;;;Pro2
+26/11/2020;-2363;carrefour Villepinte;;;;;;Pro2
+24/10/2020;-9627;HP online;;;;;;Pro2
+27/11/2020;-8419;EDF comtpe en ligne;;;;;;Pro2
+16/05/2021;-354;Paul Champs Elysees;;;;;;Pro2
+24/04/2021;-7262;Le Wagon SAS;;;;;;Pro2
+16/05/2021;-7307;VIR SEPA Vibrary.io;;;;;;Pro2
+04/04/2021;-25;VIR Helpling;;;;;;Pro2
+29/08/2020;-6853;VIR Jobify.carrer;;;;;;Pro2
+03/02/2021;-9508;CHQ. N.03819372;;;;;;Pro2
+31/05/2021;-5872;VIR FriensTrip Paris;;;;;;Pro2
+11/07/2020;9781;Le Wagon SAS;;;;;;Pro2
+20/12/2020;7788;CHQ. N.03234372;;;;;;Pro2
+15/07/2020;1959;JDS SARL;;;;;;Pro2
+23/10/2020;358;VIR Than Prof;;;;;;Pro2
+06/03/2021;-7373;CHQ. N.03827194;;;;;;Pro3
+22/06/2020;-6310;VIR Paul;;;;;;Pro3
+03/06/2020;-8225;Le Wagon SAS;;;;;;Pro3
+03/06/2020;-1581;VIR SEPA Vibrary.io;;;;;;Pro3
+07/05/2021;-2128;VIR Helpling ;;;;;;Pro3
+17/07/2020;-3508;Vir Cardable;;;;;;Pro3
+17/05/2021;-6682;CHQ. N.02323523;;;;;;Pro3
+16/02/2021;382;VIR Le Wagon;;;;;;Pro3
+15/12/2020;395;CMG Bastille;;;;;;Pro3
+25/08/2020;432;VIR Tran;;;;;;Pro3
+10/02/2021;1984;VIR Le Wagon;;;;;;Pro3
+13/06/2020;-5287;CHQ.N.0235235;;;;;;Pro4
+18/03/2021;-509;CHQ.N.0235234;;;;;;Pro4
+04/03/2021;-6989;Intel SF;;;;;;Pro4
+07/06/2020;-2210;Paul Opera;;;;;;Pro4
+17/07/2020;-8660;VIR Le Wagon;;;;;;Pro4
+27/08/2020;-6111;Vibrary online;;;;;;Pro4
+19/12/2020;-5945;Helpling paris;;;;;;Pro4
+29/06/2020;-4582;Total A14;;;;;;Pro4
+12/12/2020;-3875;CHQ.N.0235734;;;;;;Pro4
+11/08/2020;9121;CHQ.N.0285235;;;;;;Pro4
+04/10/2020;4533;DBO;;;;;;Pro4
+09/04/2021;1004;Than Prof;;;;;;Pro4
+06/12/2020;-3320;Uber France;;;;;;Pro4
+28/06/2020;-8938;GDF 530;;;;;;Pro4
+10/01/2021;-5765;VIR Nespresso Paris;;;;;;Pro4
+25/07/2020;-8671;Le Wagon Paris;;;;;;Pro4
+17/06/2020;-2137;VIR Bobby;;;;;;Pro4
+28/08/2020;-3362;La vie la vraie;;;;;;Pro4
