@@ -48,14 +48,9 @@
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <%else%>
-            <div class="avatar-circle">
-              <span class="initials">
-                <%= content_tag :div, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-                  <%= current_user.initials %>
-                <% end %>
-              </span>
-                <%# <%= image_tag "default_photo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            </div>
+            <%= content_tag :div, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+              <p><%= current_user.initials %></p>
+            <% end %>
           <%end%>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mes clients", companies_path, class: "dropdown-item" %>
