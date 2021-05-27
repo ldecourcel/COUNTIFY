@@ -19,16 +19,14 @@
   border: white 1px solid;
 }
 
-.avatar-circle {
+#navbarDropdown{
   width: 40px;
   height: 40px;
   background-color: $gold;
   display: flex;
   text-align: center;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  .initials {
+  p{
     position: relative;
     margin-left: 5px;
     top: 25%; /* 25% of parent */
