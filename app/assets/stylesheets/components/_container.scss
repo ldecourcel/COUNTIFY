@@ -15,9 +15,13 @@
   align-items: center;
 }
 
-.container-ope-show-title {
+.container-ope-show-title h1{
   display: inline-block;
   justify-content: flex-start;
   width: 100%;
+}
 
+.container-table-show {
+  margin-top: 56px;
+  margin-bottom: 32px;
 }
