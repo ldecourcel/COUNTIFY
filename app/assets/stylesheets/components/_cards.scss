@@ -49,8 +49,6 @@
   height: 4px;
 }
 
-.presentation {
-}
 .cards-etape {
   display: flex;
   justify-content: space-between;
@@ -66,5 +64,20 @@
   img {
     height: 70%;
     margin: 32px;
+  }
+}
+
+.cards-company-show{
+  display:flex;
+  width: 400px;
+  height: 180px;
+  border: 5px solid $light-violet;
+  box-sizing: border-box;
+  border-radius: 50px;
+  justify-content: space-around;
+  align-items: center;
+  margin :25px;
+  .cards-company-header{
+    color: $dark-grey;
   }
 }

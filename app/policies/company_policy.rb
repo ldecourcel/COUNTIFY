@@ -13,4 +13,8 @@ class CompanyPolicy < ApplicationPolicy
     new?
   end
 
+  def show?
+    new?
+  end
+
 end
