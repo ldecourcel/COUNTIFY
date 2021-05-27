@@ -1,4 +1,7 @@
-<%= link_to "Retour", companies_path  %>
+
+<div class="button-return">
+  <%= link_to "Retour", companies_path  %>
+</div>
 
 <div class="container-index">
 
@@ -12,10 +15,10 @@
         class: "form-control",
         placeholder: "Rechercher"
       %>
-      <%= submit_tag "Recherche", class: "btn btn-primary" %>
+      <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
       <% end %>
     </div>
-    <div id="export-btn">
+    <div class="button-export">
       <%= link_to "Export", "#" %>
     </div>
   </div>
