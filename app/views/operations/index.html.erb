@@ -39,7 +39,7 @@
       <% @operations.each do |operation| %>
       <div class="link">
         <tr onclick="window.location='/operations/<%= operation.id %>';">
-          <td><%= operation.amount %></td>
+          <td><strong><%= operation.amount %></strong></td>
           <td id="description"><%= operation.details %></td>
           <td><%= operation.date %></td>
           <% if operation.validated == true %>
@@ -53,7 +53,6 @@
       </div>
       <% end %>
     </tbody>
-
   </table>
 
 </div>

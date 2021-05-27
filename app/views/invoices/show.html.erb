@@ -8,15 +8,15 @@
       <h1><%= @invoice.client %> > Facture </h1>
       <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
 
-      <p>Date: <%= @invoice.date%><p>
+      <p>Date : <%= @invoice.date%></p>
 
-      <p>Emetteur: <%= @invoice.issuer%><p>
+      <p>Emetteur : <%= @invoice.issuer%></p>
 
-      <p>Montant TTC: <%= @invoice.total_amount%> €<p>
+      <p>Montant TTC : <%= @invoice.total_amount%> €</p>
 
-      <p>Montant HT: <%= @invoice.net_amount%> €<p>
+      <p>Montant HT : <%= @invoice.net_amount%> €</p>
 
-      <p>TVA: <%= @invoice.vta%>%<p>
+      <p>TVA : <%= @invoice.vta%>%</p>
 
       <p> <%if @invoice.photo.attached?%>
             <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
