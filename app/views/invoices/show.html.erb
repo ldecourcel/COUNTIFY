@@ -1,8 +1,9 @@
 <div class="container-index">
   <div data-controller="edit-invoice">
-    <%= link_to "Retour", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}  %>
+    <%= link_to "Retour", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}%>
 
-    <%= link_to "Retour", invoice_path(@invoice.company), class: 'd-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+    <%= link_to "Retour", invoice_path(@invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+
 
     <div class="<%= 'd-none' if @invoice.errors.any? %>" data-edit-invoice-target="infos">
       <h1><%= @invoice.client %> > Facture </h1>

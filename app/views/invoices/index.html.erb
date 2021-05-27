@@ -1,5 +1,7 @@
-<div class="container-index">
+<div class="button-return">
   <%= link_to "Retour", companies_path  %>
+</div>
+<div class="container-index">
   <h1><%= @company.name %><h1>
 
   <div class="operation-search">
@@ -9,7 +11,7 @@
         class: "form-control",
         placeholder: "Rechercher"
       %>
-      <%= submit_tag "Recherche", class: "btn btn-primary" %>
+      <%= submit_tag "Recherche", class: "btn btn-primary button-recherche" %>
       <% end %>
   </div>
   <h2 class="center">Justificatifs</h2>
