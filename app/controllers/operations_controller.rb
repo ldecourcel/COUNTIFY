@@ -24,9 +24,7 @@ class OperationsController < ApplicationController
     find_operation
     @company = @operation.account.company
     @invoices = policy_scope(Invoice).order(created_at: :desc).where(company_id: @company.id)
-    
-    
-
+  
     @invoices_to_display = []
     hash = {}
 
