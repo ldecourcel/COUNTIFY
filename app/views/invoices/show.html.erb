@@ -12,6 +12,7 @@
 
       <p>TVA: <%= @invoice.vta%>%<p>
 
+      <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
       <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
     </div>
 
@@ -28,6 +29,8 @@
       <%= f.submit %>
     <% end %>
   </div>
+
+
 </div>
 
 
