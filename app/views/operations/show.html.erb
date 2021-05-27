@@ -58,7 +58,7 @@
               <p>Montant TTC : <%= @operation.invoice.total_amount %>€</p>
               <p>Emetteur : <%= @operation.invoice.issuer %></p>
             </div>
-            <%= link_to "Réconcilier", operation_path(@operation, invoice: @operation.invoice.id), method: :patch %>
+            <%= link_to "Réconcilier", operation_path(@operation, invoice: @operation.invoice.id), method: :patch, class: "link-reconcile" %>
           </div>
         </div>
         <div class="carousel-item">
@@ -73,7 +73,7 @@
               <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
               <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
             </div>
-            <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch %>
+            <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
           </div>
         </div>
         <div class="carousel-item">
@@ -88,7 +88,7 @@
               <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
               <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
             </div>
-            <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch %>
+            <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@
               <p>Montant TTC : <%= @invoices_to_display[0][0].total_amount %>€</p>
               <p>Emetteur : <%= @invoices_to_display[0][0].issuer %></p>
             </div>
-            <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[0][0].id), method: :patch %>
+            <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[0][0].id), method: :patch, class: "link-reconcile" %>
           </div>
         </div>
         <div class="carousel-item">
@@ -135,7 +135,7 @@
           <p>Date : <%= @invoices_to_display[1][0].date %></p>
           <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
           <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
-          <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch %>
+          <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
         </div>
         <div class="carousel-item">
           <%if @invoices_to_display[2][0].photo.attached?%>
@@ -146,7 +146,7 @@
           <p>Date : <%= @invoices_to_display[2][0].date %></p>
           <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
           <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
-          <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch %>
+          <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselOfInvoices" role="button" data-slide="prev">

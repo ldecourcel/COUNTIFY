@@ -11,12 +11,24 @@
 
 .carousel-text {
   vertical-align: baseline;
+  z-index: 2;
 
   p {
     margin-bottom: 0px;
     margin-top: 1rem;
   }
 }
+
+.link-reconcile {
+  z-index: 2;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.5;
+    text-decoration: none;
+  }
+}
+
 
 .fa-angle-double-left, .fa-angle-double-right {
   color: $violet;
