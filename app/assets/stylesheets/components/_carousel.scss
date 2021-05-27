@@ -17,18 +17,16 @@
     margin-bottom: 0px;
     margin-top: 1rem;
   }
-
-  a {
-    z-index: 3;
-    
-    &:hover {
-      opacity: 5;
-    }
-  }
 }
 
 .link-reconcile {
   z-index: 2;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.5;
+    text-decoration: none;
+  }
 }
 
 
