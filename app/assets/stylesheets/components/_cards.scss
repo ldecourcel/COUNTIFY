@@ -3,6 +3,12 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 16px;
   row-gap: 16px;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .cards-company {

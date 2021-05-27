@@ -9,7 +9,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  height: 108px;
 }
 
 .navbar-logo {
@@ -17,7 +17,7 @@
   padding: 0 32px 0 32px;
   height: 70%;
   img{
-    height: 40px;
+    height: 40px; // is it possible to use percentage ?
   }
   p {
     font-size: 12px;
