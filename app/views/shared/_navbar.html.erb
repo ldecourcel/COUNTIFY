@@ -1,7 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= "Countify" %>
-    <% end %>
+  <%= link_to "Countify", root_path, class: "navbar-brand"%>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,22 +7,38 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <% unless controller_name == "companies" && action_name == "index"%>
+      <% if user_signed_in?%>
+        <% unless controller_name == "companies" && action_name == "index" || controller_name == "pages" %>
           <li class="nav-item active">
-            <%= link_to "Mes clients", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("group.png"), companies_path, class: "nav-link" %>
+            <p>Mes clients</p>
+            </div>
           </li>
           <li class="nav-item">
-            <%= link_to "Company_name", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("rubber-duck.png"), "#", class: "nav-link" %>
+            <p>Company_name</p>
+            </div>
+          </li>
+          <li class="nav-item<%" active" if controller_name == "operations" && action_name == "index" %>">
+          <div class="navbar-logo">
+            <%= link_to image_tag("euro.png"), company_operations_path, class: "nav-link" %>
+            <p>Transactions</p>
+            </div>
           </li>
           <li class="nav-item">
-            <%= link_to "Transactions", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("invoice.png"), company_invoices_path, class: "nav-link" %>
+            <p>Justificatifs</p>
+            </div>
           </li>
           <li class="nav-item">
-            <%= link_to "Justificatifs", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Historique", "#", class: "nav-link" %>
+          <div class="navbar-logo">
+            <%= link_to image_tag("archive.png"), "#", class: "nav-link" %>
+            <p>Historique</p>
+          </div>
+
           </li>
           <li class="nav-item">
             <%= link_to "Chat", "#", class: "nav-link" %>
@@ -33,6 +47,7 @@
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Mes clients", companies_path, class: "dropdown-item" %>
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
