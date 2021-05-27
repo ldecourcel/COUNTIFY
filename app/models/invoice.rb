@@ -3,7 +3,7 @@ class Invoice < ApplicationRecord
   has_many :operations
   has_one_attached :photo
 
-  validates :photo, :date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :client, presence: true
+  validates :date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :client, presence: true
 
   # has_attached :file
 end

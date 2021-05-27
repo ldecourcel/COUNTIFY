@@ -6,6 +6,7 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
+    @company = @invoice.company
     authorize @invoice
   end
 
@@ -31,7 +32,7 @@ class InvoicesController < ApplicationController
     authorize @invoice
     redirect_to invoice_path(@invoice)
   end
-  
+
   def destroy
     @invoice = Invoice.find(params[:id])
     authorize @invoice

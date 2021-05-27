@@ -12,7 +12,13 @@
 
       <p>TVA: <%= @invoice.vta%>%<p>
 
-      <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
+      <p> <%if @invoice.photo.attached?%>
+            <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
+          <%else%>
+            <img src="<%= image_path "preview_invoice.jpeg"%>">
+          <%end%>
+      </p>
+
       <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
     </div>
 
