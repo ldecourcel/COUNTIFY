@@ -6,9 +6,10 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
+    @company = @invoice.company
     authorize @invoice
   end
-  
+
   def new
     @invoice = Invoice.new
     authorize @invoice
@@ -25,9 +26,25 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def update
+    @invoice = Invoice.find(params[:id])
+    @invoice.update(invoice_params)
+    authorize @invoice
+    redirect_to invoice_path(@invoice)
+  end
+
+  def destroy
+    @invoice = Invoice.find(params[:id])
+    authorize @invoice
+    @invoice.destroy
+    redirect_to company_invoices_path(@invoice.company)
+  end
+
   private
+
 
   def invoice_params
     params.require(:invoice).permit(:photo, :date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client)
   end
+
 end

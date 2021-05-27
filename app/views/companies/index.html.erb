@@ -1,5 +1,24 @@
 <h1>My companies</h1>
 
-<% @companies.each do |company| %>
-<%= link_to company.name, company_operations_path(company) %>
-<% end %>
+<div class="container">
+  <div class="cards-disposition">
+    <% @companies.each do |company| %>
+      <%= link_to company_operations_path(company) do %>
+        <div class="cards-company">
+          <div class="cards-company-avatar">
+            <%= image_tag("rubber-duck.png") %>
+          </div>
+          <div>
+            <p class="cards-company-name"><%= company.name %></p>
+            <p class="cards-company-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<p>
+            <div class="cards-company-progression-to-do">
+              <div class="cards-company-progression-done" style="width: <%= (50 / 100.0 * 100) %>%" >
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
