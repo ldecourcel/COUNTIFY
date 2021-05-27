@@ -5,33 +5,25 @@ class OperationPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    record.user == user
-  end
-
   def show?
-    # @operation = Operation.find(params[:id])
-    record.user == user
+    # raise 
+    record.account.company.accountant == user.accountant
   end
 
   def new?
     ##API
   end
 
-  def create
+  def create?
     ##API
   end
 
   def edit?
-    record.user == user
+    show?
   end
 
   def update?
-    edit?
-  end
-
-  def destroy
-    record.user == user
+    show?
   end
 
 end
