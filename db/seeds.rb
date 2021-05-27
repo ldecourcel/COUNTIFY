@@ -26,17 +26,28 @@ user = User.create(accountant: accountant, first_name:"Stéphane", last_name: "D
 
 puts "User DONE creating company ..."
 
-company = Company.create(accountant: accountant, name: "Vibrary", siren: "897897906", siret: "89789790600011", fiscal_regim: "SARL", address:"Villa Gaudelet, Paris", phone_number:"0111236677")
+company1 = Company.create(accountant: accountant, name: "Vibrary", siren: "897897906", siret: "89789790600011", fiscal_regim: "SARL", address:"Villa Gaudelet, Paris", phone_number:"0111236677")
+
+company2 = Company.create(accountant: accountant, name: "Georgie", siren: "895207906", siret: "89520790600231", fiscal_regim: "EI", address:"Place Vendome, Paris", phone_number:"0111236676")
+
+companies = [ company1, company2 ]
 puts "Company DONE creating account ..."
 
-account = Account.create(iban: "FR5230003000509811414747Q31", swift: "AGFBFRCC", account_name: "Pro 1", company: company)
+account1_company1 = Account.create(iban: "FR5230003000509811414747Q31", swift: "AGFBFRCC", account_name: "Pro1", company: company1)
+account2_company1 = Account.create(iban: "FR5230003000509811414747Q32", swift: "AGFBFRCC", account_name: "Pro2", company: company1)
+
+account1_company2 = Account.create(iban: "FR5230003000509811414747Q33", swift: "AGFBFRCD", account_name: "Pro3", company: company2)
+account2_company2 = Account.create(iban: "FR5230003000509811414747Q34", swift: "AGFBFRCD", account_name: "Pro4", company: company2)
+
+accounts = [ account1_company1, account2_company1, account1_company2, account2_company2 ]
 
 puts "Account DONE creating operations ..."
 
-ImportOperationsFromCsv.new(account).call
+ImportOperationsFromCsv.new.call
 
 puts "Operations DONE creating invoices ..."
 
-ImportInvoicesFromCsv.new(company).call
+
+ImportInvoicesFromCsv.new.call
 
 puts "invoices DONE"

@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
   def index
     @company = Company.find(params[:company_id])
-    @invoices = policy_scope(Invoice).order(created_at: :desc).where(company_id: @company.id)
+    @invoices = policy_scope(Invoice).where(company_id: @company.id).order(created_at: :desc)
   end
 
   def show
