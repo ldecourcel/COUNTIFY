@@ -21,7 +21,7 @@
       <p> <%if @invoice.photo.attached?%>
             <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
           <%else%>
-            <img src="<%= image_path "preview_invoice.jpeg"%>">
+            <img src="<%= image_path "preview_invoice.jpg"%>">
           <%end%>
       </p>
     </div>
