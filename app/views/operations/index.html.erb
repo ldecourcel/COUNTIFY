@@ -20,9 +20,9 @@
         <%= link_to "Exporter", "#" %>
       </div>
     </div>
-    <div class="cards-company-stats">
-      <div class="cards-company-progression-to-do">
-        <div class="cards-company-progression-done" style="width: <%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%" >
+    <div class="cards-company-stats-operations">
+      <div class="cards-company-progression-to-do-operations">
+        <div class="cards-company-progression-done-operations" style="width: <%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%" >
         </div>
       </div>
       <p><%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%</p>
