@@ -46,9 +46,9 @@
         <% end %>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <%else%>
-            <%= content_tag :div, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+            <%= content_tag :div, class: "avatar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
               <p><%= current_user.initials %></p>
             <% end %>
           <%end%>

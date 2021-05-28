@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon-other">
   <div class="nav-logo-left">
-    <%= link_to image_tag("logo-letters.png"), root_path, class: "navbar-brand"%>
+    <%= link_to image_tag("logo-letters.png"), companies_path, class: "navbar-brand"%>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,7 +11,7 @@
     <div class="navbar-nav nav-flex">
       <% unless controller_name == "companies" && action_name == "index" || controller_name == "pages" %>
         
-        <div class="nav-item smaller <%= 'active' if controller_name == "companies" && action_name == "index" %>">
+        <div class="nav-item smaller <%= nav-'active' if controller_name == "companies" && action_name == "index" %>">
           <%= link_to companies_path do %>
             <div class="navbar-logo-other">
               <%= image_tag("group.png") %>
@@ -20,7 +20,7 @@
           <% end %>
         </div>
 
-        <div class="nav-item smaller <%= 'active' if controller_name == "companies" && action_name == "show" %>">
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "companies" && action_name == "show" %>">
           <%= link_to company_path(@company) do %>
             <div class="navbar-logo-other">
               <%= image_tag("info.png") %>
@@ -29,7 +29,7 @@
           <% end %>
         </div>
 
-        <div class="nav-item smaller <%= 'active' if controller_name == "operations" && (action_name == "index" || action_name == "show") %>">
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "operations" && (action_name == "index" || action_name == "show") %>">
           <%= link_to company_operations_path(@company) do %>
             <div class="navbar-logo-other">
               <%= image_tag("euro.png") %>
@@ -38,7 +38,7 @@
           <% end %>
         </div>
 
-        <div class="nav-item smaller <%= 'active' if controller_name == "invoices" && (action_name == "index" || action_name == "show") %>">
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "invoices" && (action_name == "index" || action_name == "show") %>">
           <%= link_to company_invoices_path(@company) do %>
             <div class="navbar-logo-other">
               <%= image_tag("invoice.png") %>
@@ -70,9 +70,9 @@
 
   <div class="nav-item dropdown">
       <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <% else %>
-        <%= content_tag :div, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+        <%= content_tag :div, class: "avatar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
           <p><%= current_user.initials %></p>
         <% end %>
       <% end %>
