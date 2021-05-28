@@ -6,9 +6,9 @@ class OperationsController < ApplicationController
     else
       @operations = policy_scope(@company.operations).order(date: :desc)
     end
-    
+
     @invoices = policy_scope(Invoice).order(created_at: :desc).where(company_id: @company.id)
-    
+
     @operations.each do |operation|
       @invoices.each do |invoice|
         if invoice.total_amount == operation.amount.abs
@@ -24,7 +24,7 @@ class OperationsController < ApplicationController
     find_operation
     @company = @operation.account.company
     @invoices = policy_scope(Invoice).order(created_at: :desc).where(company_id: @company.id)
-  
+
     @invoices_to_display = []
     hash = {}
 
@@ -50,7 +50,7 @@ class OperationsController < ApplicationController
 
   private
 
-  def find_company 
+  def find_company
     @company = Company.find(params[:company_id])
   end
 
