@@ -18,21 +18,16 @@
           <%= link_to "Exporter", "#" %>
         </div>
       </div>
-
-    </div>
-    <div class="cards-company-stats-operations">
-      <div class="cards-company-progression-to-do-operations">
+      <div class="cards-company-stats-operations">
+      <div class="cards-company-progression-to-do-operations d-flex">
         <div class="cards-company-progression-done-operations" style="width: <%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%" >
-
-      <div class="cards-company-stats">
-        <div class="cards-company-progression-to-do">
-          <div class="cards-company-progression-done" style="width: <%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%" >
-          </div>
-
         </div>
-        <p><%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%</p>
       </div>
+      <p><%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%</p>
     </div>
+  </div>
+
+
 
     <div class="container-table-operations">
       <h2 class="center">Opérations</h2>
@@ -56,11 +51,11 @@
             <td><%= operation.date %></td>
             <td id="description"><%= operation.details %></td>
             <% if operation.validated == true %>
-              <td><%= image_tag("checked.png") %></td>
+              <td><%= image_tag("checked.png", class:"img-status") %></td>
             <% elsif operation.invoice != nil && operation.validated == false %>
-              <td><%= image_tag("question.png") %></td>
+              <td><%= image_tag("question.png", class:"img-status") %></td>
             <% elsif operation.validated == false %>
-              <td><%= image_tag("error.png") %></td>
+              <td><%= image_tag("error.png", class:"img-status") %></td>
             <% end %>
           </tr>
         </div>
