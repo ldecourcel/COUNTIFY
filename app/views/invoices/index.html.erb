@@ -35,7 +35,7 @@
 
             <tr onclick="window.location='/invoices/<%= invoice.id %>';">
               <td><%= invoice.net_amount %></td>
-              <td><%= invoice.tax_amount %></td>
+              <td><%= invoice.tax_amount + invoice.net_amount %></td>
               <td><%= invoice.vta %></td>
               <td><%= invoice.date %></td>
               <td><%= invoice.issuer%></td>
