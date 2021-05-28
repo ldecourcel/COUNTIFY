@@ -5,4 +5,8 @@ class Company < ApplicationRecord
   has_many :invoices
 
   validates :name, :siren, :siret, :fiscal_regim, :address, :phone_number, presence: true
+
+  def initial
+    name[0].upcase
+  end
 end
