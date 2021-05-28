@@ -1,56 +1,52 @@
-<div class="container-index">
-  <div data-controller="edit-invoice">
-    <%= link_to "Retour", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}%>
+<div class="big-container">
+  <div class="container-index">
+    <div data-controller="edit-invoice">
+      <%= link_to "Retour", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}%>
 
-    <%= link_to "Retour", invoice_path(@invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+      <%= link_to "Retour", invoice_path(@invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
 
 
-    <div class="<%= 'd-none' if @invoice.errors.any? %>" data-edit-invoice-target="infos">
-      <h1><%= @invoice.client %> > Facture </h1>
-      <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
+      <div class="<%= 'd-none' if @invoice.errors.any? %>" data-edit-invoice-target="infos">
+        <h1><%= @invoice.client %> > Facture </h1>
+        <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
 
-      <p>Date : <%= @invoice.date%></p>
+        <p>Date : <%= @invoice.date%></p>
 
-      <p>Emetteur : <%= @invoice.issuer%></p>
+        <p>Emetteur : <%= @invoice.issuer%></p>
 
-      <p>Montant TTC : <%= @invoice.total_amount%> €</p>
+        <p>Montant TTC : <%= @invoice.total_amount%> €</p>
 
-      <p>Montant HT : <%= @invoice.net_amount%> €</p>
+        <p>Montant HT : <%= @invoice.net_amount%> €</p>
 
-      <p>TVA : <%= @invoice.vta%>%</p>
+        <p>TVA : <%= @invoice.vta%>%</p>
 
-      <p> <%if @invoice.photo.attached?%>
-            <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
-          <%else%>
-            <img src="<%= image_path "preview_invoice.jpg"%>">
-          <%end%>
-      </p>
+        <p> <%if @invoice.photo.attached?%>
+              <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
+            <%else%>
+              <img src="<%= image_path "preview_invoice.jpg"%>">
+            <%end%>
+        </p>
+      </div>
+
+      <%= simple_form_for(@invoice, html: { class: @invoice.errors.any? ? '' : 'd-none', data: { edit_invoice_target: 'form', action: 'submit->edit_invoice#update' } }) do |f| %>
+        <%= f.input :date %>
+        <%= f.input :issuer, label: 'Bénéficiaire' %>
+        <%= f.input :total_amount, label: 'Montant TTC' %>
+        <%= f.input :net_amount, label: 'Montant HT' %>
+        <%= f.input :vta, label: 'TVA' %>
+        <%= f.input :tax_amount, label: 'Montant de la taxe' %>
+        <%= f.input :payment_method, label: 'Méthode de paiement' %>
+        <%= f.input :label %>
+        <%= f.input :client %>
+        <%= f.submit %>
+      <% end %>
     </div>
 
-    <%= simple_form_for(@invoice, html: { class: @invoice.errors.any? ? '' : 'd-none', data: { edit_invoice_target: 'form', action: 'submit->edit_invoice#update' } }) do |f| %>
-      <%= f.input :date %>
-      <%= f.input :issuer, label: 'Bénéficiaire' %>
-      <%= f.input :total_amount, label: 'Montant TTC' %>
-      <%= f.input :net_amount, label: 'Montant HT' %>
-      <%= f.input :vta, label: 'TVA' %>
-      <%= f.input :tax_amount, label: 'Montant de la taxe' %>
-      <%= f.input :payment_method, label: 'Méthode de paiement' %>
-      <%= f.input :label %>
-      <%= f.input :client %>
-      <%= f.submit %>
-    <% end %>
   </div>
 
+  <%= link_to "Delete",
+              invoice_path(@invoice),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
 
 </div>
-
-
-
-<%= link_to "Delete",
-            invoice_path(@invoice),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-
-
-
-
