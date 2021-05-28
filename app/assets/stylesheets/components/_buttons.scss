@@ -5,6 +5,7 @@
   font-size: 16px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 4px 8px 4px 8px;
+  margin-bottom: 20px;
   &:hover {
     text-decoration: none;
     background-color: $gold;
@@ -99,6 +100,12 @@
   a {
     color: $gold;
     margin: 180px;
+  }
+}
+
+.button-device{
+  a {
+    color: $gold;
   }
 }
 
