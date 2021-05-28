@@ -1,35 +1,49 @@
 <div class="big-container">
-  <div class="container-index">
+  <div class="container-show-operations">
     <div data-controller="edit-invoice">
-      <%= link_to "Retour", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}%>
+      <%= link_to "<", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}, class:'button-return'%>
 
-      <%= link_to "Retour", invoice_path(@invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+      <%= link_to "<", invoice_path(@invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+      <h2>Justificatif</h2>
 
-
+      <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm" style="cursor: pointer"></i>
+      <i class="fas fa-trash-alt fa-xs ml-2" data-action="click->edit-invoice#displayForm" style="cursor: pointer"></i>
       <div class="<%= 'd-none' if @invoice.errors.any? %>" data-edit-invoice-target="infos">
-        <h1><%= @invoice.client %> > Facture </h1>
-        <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
-
-        <p>Date : <%= @invoice.date%></p>
-
-        <p>Emetteur : <%= @invoice.issuer%></p>
-
-        <p>Montant TTC : <%= @invoice.total_amount%> €</p>
-
-        <p>Montant HT : <%= @invoice.net_amount%> €</p>
+        <table>
+          <thead>
+            <tr>
+              <th class="th-sm"><strong>Montant TTC</strong></th>
+              <th class="th-sm">Montant taxe</th>
+              <th class="th-sm">TVA</th>
+              <th class="th-sm">Date</th>
+              <th class="th-sm">Bénéficaire</th>
+              <th class="th-sm">Client</th>
+              <th class="th-sm">Aperçu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div class="link">
+              <tr onclick="window.location='/invoices/<%= @invoice.id %>';">
+                <td><strong><%= @invoice.tax_amount + @invoice.net_amount %></strong></td>
+                <td><%= @invoice.tax_amount %></td>
+                <td><%= @invoice.vta %></td>
+                <td><%= @invoice.date %></td>
+                <td><%= @invoice.issuer %></td>
+                <td><%= @invoice.client %></td>
+                <td><%= image_tag("preview_invoice.jpg", class:"invoice-preview")%></td>
+              </tr>
+            </div>
+          </tbody>
+        </table>
 
       <% @invoice.photos.each do |photo| %>
         <%= cl_image_tag photo.key, height: 300, width: 250, crop: :fill %>
       <% end %>
 
-      <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
-
-      <p>TVA : <%= @invoice.vta%>%</p>
-
       <p> <%if @invoice.photos.attached?%>
             <%= cl_image_tag @invoice.photos.key, height: 300, width: 400, crop: :fill %>
           <%else%>
-            <img src="<%= image_path "preview_invoice.jpg"%>">
+            <%= image_tag("preview_invoice.jpg", class:"invoice-preview")%>
           <%end%>
       </p>
     </div>
@@ -51,11 +65,9 @@
 
     <% end %>
 
-  </div>
-
   <%= link_to "Delete",
               invoice_path(@invoice),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
-
+  </div>
 </div>

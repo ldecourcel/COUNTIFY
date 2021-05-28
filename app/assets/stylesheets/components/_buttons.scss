@@ -97,6 +97,10 @@
 
 
 .button-return{
+  font-size: 64px;
+  &:hover{
+    text-decoration: none;
+  }
   a {
     color: $gold;
     margin: 180px;
