@@ -3,9 +3,9 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = ['input', 'preview']
 
-  hidden() {
-    reader.readAsDataURL("seclect-input").hidden = true;
-  }
+  // hidden() {
+  //   reader.readAsDataURL("seclect-input").hidden = true;
+  // }
 
 
   connect() {
