@@ -1,0 +1,53 @@
+.carousel-img {
+  height: 450px;
+  object-fit: contain;
+}
+
+.carousel-content {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.carousel-text {
+  vertical-align: baseline;
+  z-index: 2;
+
+  p {
+    margin-bottom: 0px;
+    margin-top: 1rem;
+  }
+}
+
+.link-reconcile {
+  z-index: 2;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.5;
+    text-decoration: none;
+  }
+}
+
+
+.fa-angle-double-left, .fa-angle-double-right {
+  color: $violet;
+  font-size: 32px;
+}
+
+.carousel-indicators li {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: $violet;
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: .5;
+  transition: opacity 0.6s ease;
+}

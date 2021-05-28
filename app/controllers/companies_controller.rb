@@ -4,6 +4,11 @@ class CompaniesController < ApplicationController
     @companies = policy_scope(Company).order(created_at: :desc)
   end
 
+  def show
+    @company = Company.find(params[:id])
+    authorize @company
+  end
+
   def new
     @company = Company.new
     authorize @company
@@ -25,5 +30,4 @@ class CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:name, :siren, :siret, :fiscal_regim, :address, :phone_number)
   end
-
 end

@@ -1,13 +1,23 @@
-<%= link_to "Retour", companies_path  %>
-<div class="container-index-operation">
+<div class="button-return">
+  <%= link_to "Retour", companies_path  %>
+</div>
+<div class="container-index">
   <h1><%= @company.name %><h1>
 
-  <h2 class="center">Factures</h2>
-
-  <div class="container-btn-add-ope">
-      <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter une facture'), new_company_invoice_path(@company), id: "btn-add-ope" %>
+  <div class="operation-search">
+      <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Rechercher"
+      %>
+      <%= submit_tag "Recherche", class: "btn btn-primary button-recherche" %>
+      <% end %>
   </div>
-
+  <h2 class="center">Justificatifs</h2>
+  <div class="container-btn-add-ope">
+      <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter un justificatif'), new_company_invoice_path(@company), id: "btn-add-ope" %>
+  </div>
   <table>
     <thead>
       <tr>

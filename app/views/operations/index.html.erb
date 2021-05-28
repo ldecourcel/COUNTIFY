@@ -1,6 +1,9 @@
-<%= link_to "Retour", companies_path  %>
 
-<div class="container-index-operation">
+<div class="button-return">
+  <%= link_to "Retour", companies_path  %>
+</div>
+
+<div class="container-index">
 
   <h1><%= @company.name %></h1>
 
@@ -12,20 +15,17 @@
         class: "form-control",
         placeholder: "Rechercher"
       %>
-      <%= submit_tag "Recherche", class: "btn btn-primary" %>
+      <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
       <% end %>
     </div>
-    <div id="export-btn">
+    <div class="button-export">
       <%= link_to "Export", "#" %>
     </div>
   </div>
-
   <h2 class="center">Opérations</h2>
-
   <div class="container-btn-add-ope">
       <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope" %>
   </div>
-
   <table>
     <thead>
       <tr>
@@ -39,7 +39,7 @@
       <% @operations.each do |operation| %>
       <div class="link">
         <tr onclick="window.location='/operations/<%= operation.id %>';">
-          <td><%= operation.amount %></td>
+          <td><strong><%= operation.amount %></strong></td>
           <td id="description"><%= operation.details %></td>
           <td><%= operation.date %></td>
           <% if operation.validated == true %>
@@ -53,7 +53,6 @@
       </div>
       <% end %>
     </tbody>
-
   </table>
 
 </div>

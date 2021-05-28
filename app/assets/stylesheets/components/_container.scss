@@ -1,12 +1,23 @@
-.container-index-operation {
+.container-index {
   width: 120vh;
   margin: 0 auto;
+  background-color: white;
+  h2{
+    color: $dark-grey;
+    margin: 30px;
+  }
 }
 
 .container-btn-add-ope {
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  margin: 10px;
+  a {
+    color: $gold;
+    font-style: italic;
+    font-weight: 100;
+  }
 }
 
 .display-form-export {
@@ -15,3 +26,40 @@
   align-items: center;
 }
 
+.container-ope-show-title h1 {
+  display: inline-block;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.container-table-show {
+  margin-top: 56px;
+  margin-bottom: 32px;
+}
+
+.container-index-company {
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  padding: 0 80px 0 80px;
+  text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  h1 {
+    color: $violet;
+    padding: 32px 0 64px 0;
+  }
+
+}
+
+.company-title {
+  display: flex;
+  justify-content : center;
+  margin-top :20px;
+}
+
+.container-index-operation {
+  width: 120vh;
+  margin: 0 auto;
+}

@@ -1,5 +1,30 @@
-<h1>My companies</h1>
+<div class="container container-index-company">
+  <h1>Mes clients</h1>
+  <div class="cards-disposition">
+    <% @companies.each do |company| %>
+      <%= link_to company_operations_path(company) do %>
+        <div class="cards-company">
+          <div class="cards-company-avatar">
+            <p><%= company.initial%></p>
+          </div>
+          <div class="cards-company-description">
+            <p class="cards-company-name"><%= company.name %></p>
+            <p class="cards-company-content">
+              <%= "Fiscalité : #{company.fiscal_regim}"%> <br/>
+              <%= "SIRET : #{company.siret}"%> <br/>
+              <%= "Adresse: #{company.address}"%>
+            <p>
+            <div class="cards-company-stats">
+              <div class="cards-company-progression-to-do">
+                <div class="cards-company-progression-done" style="width: <%= company.operations.where(validated: true).count * 100 / (company.operations.count) %>%" >
+                </div>
+              </div>
+              <p><%= company.operations.where(validated: true).count * 100 / (company.operations.count) %>%</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<% @companies.each do |company| %>
-<%= link_to company.name, company_operations_path(company) %>
-<% end %>

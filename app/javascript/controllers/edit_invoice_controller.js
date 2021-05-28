@@ -1,16 +1,19 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["infos", "form"]
+  static targets = ["infos", "form", "return","updatedreturn"]
 
   // connect() {
   //   console.log(this.formTarget);
   //   console.log(this.infosTarget);
+  //   console.log(this.returnTarget);
   // }
 
   displayForm() {
     this.infosTarget.classList.add('d-none');
     this.formTarget.classList.remove('d-none');
+    this.returnTarget.classList.add('d-none');
+    this.updatedreturnTarget.classList.remove('d-none');
   }
 
   update(event) {

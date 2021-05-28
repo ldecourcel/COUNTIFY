@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one_attached :photo
+
   belongs_to :accountant, optional: true
   belongs_to :company, optional: true
 
@@ -13,5 +15,9 @@ class User < ApplicationRecord
 
   def is_company?
     company.present?
+  end
+
+  def initials
+    "#{first_name[0].upcase}#{last_name[0].upcase}"
   end
 end

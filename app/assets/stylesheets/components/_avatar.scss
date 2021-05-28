@@ -18,3 +18,26 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+#navbarDropdown{
+  width: 40px;
+  height: 40px;
+  background-color: $gold;
+  display: flex;
+  text-align: center;
+  border-radius: 50%;
+
+  p{
+    position: relative;
+    margin-left: 5px;
+    top: 25%; /* 25% of parent */
+    font-size: 20px; /* 50% of parent */
+    line-height: 20px; /* 50% of parent */
+    color: #fff;
+    font-weight: bold;
+    content: none;
+  }
+  p:hover{
+    cursor: pointer;
+  }
+}

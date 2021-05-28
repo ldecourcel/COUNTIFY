@@ -5,32 +5,25 @@ class OperationPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    record.user == user
-  end
-
-  def show
-    index
+  def show?
+    # raise 
+    record.account.company.accountant == user.accountant
   end
 
   def new?
     ##API
   end
 
-  def create
+  def create?
     ##API
   end
 
-  def edit
-    record.user == user
+  def edit?
+    show?
   end
 
-  def update
-    edit
-  end
-
-  def destroy
-    record.user == user
+  def update?
+    show?
   end
 
 end
