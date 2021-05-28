@@ -1,22 +1,22 @@
-<div class="container-index">
-  <div data-controller="edit-invoice">
-    <%= link_to "Retour", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}%>
+<div class="big-container">
+  <div class="container-index">
+    <div data-controller="edit-invoice">
+      <%= link_to "Retour", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}%>
 
-    <%= link_to "Retour", invoice_path(@invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+      <%= link_to "Retour", invoice_path(@invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
 
 
-    <div class="<%= 'd-none' if @invoice.errors.any? %>" data-edit-invoice-target="infos">
-      <h1><%= @invoice.client %> > Facture </h1>
-      <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
+      <div class="<%= 'd-none' if @invoice.errors.any? %>" data-edit-invoice-target="infos">
+        <h1><%= @invoice.client %> > Facture </h1>
+        <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
 
-      <p>Date : <%= @invoice.date%></p>
+        <p>Date : <%= @invoice.date%></p>
 
-      <p>Emetteur : <%= @invoice.issuer%></p>
+        <p>Emetteur : <%= @invoice.issuer%></p>
 
-      <p>Montant TTC : <%= @invoice.total_amount%> €</p>
+        <p>Montant TTC : <%= @invoice.total_amount%> €</p>
 
-      <p>Montant HT : <%= @invoice.net_amount%> €</p>
-
+        <p>Montant HT : <%= @invoice.net_amount%> €</p>
 
       <% @invoice.photos.each do |photo| %>
         <%= cl_image_tag photo.key, height: 300, width: 250, crop: :fill %>
@@ -53,16 +53,9 @@
 
   </div>
 
+  <%= link_to "Delete",
+              invoice_path(@invoice),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
 
 </div>
-
-
-
-<%= link_to "Delete",
-            invoice_path(@invoice),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-
-
-
-

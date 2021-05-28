@@ -1,56 +1,60 @@
-<div class="container-index-company">
 
-  <div class="company-title">
-    <h1><%=@company.name%></h1>
-  </div>
+<div class="big-container">
+  <div class="container-index-company">
 
-  <div class="container-center-company">
-    <div class= "cards-row">
-      <div class="cards-company-avatar-background">
-        <div class="cards-company-avatar ">
-            <p><%= @company.initial%></p>
-        </div>
-      </div>
-
-      <div class= "cards-company-show">
-        <div class="cards-company-header">
-          <p>NOM :</p>
-          <p>PRENOM :</p>
-          <p>E-MAIL :</p>
-        </div>
-        <div class="cards-company-info">
-          <p>Auriol</p>
-          <p>Agathe</p>
-          <p>agathe@vibrary.fr</p>
-        </div>
-      </div>
+    <div class="company-title">
+      <h1><%=@company.name%></h1>
     </div>
-    <div class="cards-row">
-      <div class= "cards-company-show">
-        <div class="cards-company-header">
-          <p>ADRESSE :</p>
-          <p>TELEPHONE :</p>
-          <p>CARTE D'IDENTITE :</p>
+
+    <div class="container-center-company">
+      <div class= "cards-row">
+        <div class="cards-company-avatar-background">
+          <div class="cards-company-avatar ">
+              <p><%= @company.initial%></p>
+          </div>
         </div>
-        <div class="cards-company-info">
-          <p><%=@company.address%></p>
-          <p><%=@company.phone_number%></p>
-          <p>link</p>
+
+        <div class= "cards-company-show">
+          <div class="cards-company-header">
+            <p>NOM :</p>
+            <p>PRENOM :</p>
+            <p>E-MAIL :</p>
+          </div>
+          <div class="cards-company-info">
+            <p>Auriol</p>
+            <p>Agathe</p>
+            <p>agathe@vibrary.fr</p>
+          </div>
         </div>
       </div>
-
-      <div class= "cards-company-show">
-        <div class="cards-company-header">
-          <p>REGIME FISCAL :</p>
-          <p>SIREN :</p>
-          <p>SIRET :</p>
+      <div class="cards-row">
+        <div class= "cards-company-show">
+          <div class="cards-company-header">
+            <p>ADRESSE :</p>
+            <p>TELEPHONE :</p>
+            <p>CARTE D'IDENTITE :</p>
+          </div>
+          <div class="cards-company-info">
+            <p><%=@company.address%></p>
+            <p><%=@company.phone_number%></p>
+            <p>link</p>
+          </div>
         </div>
-        <div class="cards-company-info">
-          <p><%=@company.fiscal_regim%></p>
-          <p><%=@company.siren%></p>
-          <p><%=@company.siret%></p>
+
+        <div class= "cards-company-show">
+          <div class="cards-company-header">
+            <p>REGIME FISCAL :</p>
+            <p>SIREN :</p>
+            <p>SIRET :</p>
+          </div>
+          <div class="cards-company-info">
+            <p><%=@company.fiscal_regim%></p>
+            <p><%=@company.siren%></p>
+            <p><%=@company.siret%></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

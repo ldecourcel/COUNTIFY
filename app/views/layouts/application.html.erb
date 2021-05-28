@@ -15,7 +15,12 @@
   </head>
 
   <body class="body-background">
-    <%= render 'shared/navbar' %>
+    <% if current_page?("/") %>
+      <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/navbar-other' %>
+    <% end %>
+    
     <%= render 'shared/flashes' %>
 
     <%= yield %>
