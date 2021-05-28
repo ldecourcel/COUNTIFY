@@ -40,6 +40,14 @@
   }
 }
 
+.cards-company-avatar-background{
+  width: 400px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  margin :25px;
+}
+
 .cards-company-description {
   width: 60%;
   color: $dark-blue;
@@ -137,3 +145,9 @@
     color: $medium-grey;
   }
 }
+
+.cards-row{
+  display: flex;
+  justify-content: center;
+}
+

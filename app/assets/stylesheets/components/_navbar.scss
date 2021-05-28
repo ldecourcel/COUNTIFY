@@ -1,3 +1,5 @@
+// nav-bar homepage
+
 .navbar-lewagon {
   justify-content: space-between;
   background: $violet;
@@ -16,7 +18,7 @@
   text-align: center;
   padding: 0 32px 0 32px;
   height: 70%;
-  img{
+  img {
     height: 20px;
     margin-bottom: 2px;
   }
@@ -30,7 +32,83 @@
   }
 }
 
-.nav-item{
+// navbar other pages
+
+.navbar-lewagon-other {
+  justify-content: space-between;
+  z-index: 5;
+  background: $white;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  border-bottom: solid 1px $light-medium-grey;
+  margin-bottom: 32px;
+
+  img {
+    width: 112px;
+    object-fit: contain;
+  }
+}
+
+.navbar-lewagon-other .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon-other .navbar-brand img {
+  height: 108px;
+}
+
+.navbar-logo-other {
+  text-align: center;
+  padding: 0 32px 0 32px;
+  height: 70%;
+  img {
+    height: 24px;
+    margin-bottom: 2px;
+  }
+  p {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 0px;
+  }
+  a {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+.nav-flex {
   display: flex;
+  justify-content: space-between;
+}
+
+.nav-item {
+  a {
+    text-decoration: none;
+    color: $gray;
+    &:hover {
+      color: $medium-grey;
+      img {
+        filter: invert(68%) sepia(0%) saturate(0%) hue-rotate(49deg) brightness(96%) contrast(90%);
+      }
+    }
+  }
+}
+
+.nav-active {
+  a {
+    color: $violet;
+    text-decoration: none;
+  }
+  img {
+    filter: invert(70%) sepia(90%) saturate(5102%) hue-rotate(214deg) brightness(102%) contrast(94%);
+  }
+}
+
+.smaller {
+  width: 153px;
+  display: flex;
+  align-items: center;
 }
 

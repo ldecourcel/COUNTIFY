@@ -1,41 +1,45 @@
+<div class="big-container">
 
-<div class="container-index-operations">
-  <%# <div class="button-return">
-    <%= link_to "Retour", companies_path  %>
-  <%# </div> %>
-  <div class="container-operations-general">
-  <h1><%= @company.name %></h1>
-    <div class="display-form-export">
-      <div class="operation-search">
-        <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Opérations"
-        %>
-        <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
-        <% end %>
+  <div class="container-index-operations">
+    <div class="container-operations-general">
+    <h1><%= @company.name %></h1>
+      <div class="display-form-export">
+        <div class="operation-search">
+          <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Opérations"
+          %>
+          <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
+          <% end %>
+        </div>
+        <div class="button-export">
+          <%= link_to "Exporter", "#" %>
+        </div>
       </div>
-      <div class="button-export">
-        <%= link_to "Exporter", "#" %>
-      </div>
+
     </div>
     <div class="cards-company-stats-operations">
       <div class="cards-company-progression-to-do-operations">
         <div class="cards-company-progression-done-operations" style="width: <%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%" >
+
+      <div class="cards-company-stats">
+        <div class="cards-company-progression-to-do">
+          <div class="cards-company-progression-done" style="width: <%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%" >
+          </div>
+
         </div>
+        <p><%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%</p>
       </div>
-      <p><%= @company.operations.where(validated: true).count * 100 / @company.operations.count %>%</p>
     </div>
-  </div>
 
-
-   <div class="container-table-operations">
-   <h2 class="center">Opérations</h2>
-     <div class="container-btn-add-ope">
-        <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope" %>
-    </div>
-     <table>
+    <div class="container-table-operations">
+      <h2 class="center">Opérations</h2>
+      <div class="container-btn-add-ope">
+          <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope" %>
+      </div>
+      <table>
       <thead>
         <tr>
           <th class="th-sm"><strong>Montant</strong></th>
@@ -63,7 +67,9 @@
         <% end %>
       </tbody>
     </table>
-   </div>
+    </div>
+  </div>
+
 </div>
 
 
