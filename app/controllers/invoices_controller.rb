@@ -11,6 +11,7 @@ class InvoicesController < ApplicationController
   end
 
   def new
+    @company = Company.find(params[:company_id])
     @invoice = Invoice.new
     authorize @invoice
   end

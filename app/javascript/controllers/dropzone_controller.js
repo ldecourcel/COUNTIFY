@@ -3,11 +3,6 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = ['input', 'preview']
 
-  // hidden() {
-  //   reader.readAsDataURL("seclect-input").hidden = true;
-  // }
-
-
   connect() {
     ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop'].forEach((eventName) => {
       window.addEventListener(eventName, e => {
