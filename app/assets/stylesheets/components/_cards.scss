@@ -78,14 +78,35 @@
   }
 }
 .cards-company-progression-to-do {
-  background-color: $violet;
-  height: 4px;
+  background-color: $light-violet;
+  height: 6px;
   width: 80%;
+  border-radius: 5px;
 }
 
 .cards-company-progression-done {
-  background-color: $gold;
-  height: 4px;
+  background-color: $new-green;
+  height: 6px;
+  border-radius: 5px;
+}
+.cards-company-stats-operations {
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 0 0 16px;
+  }
+}
+.cards-company-progression-to-do-operations {
+  background-color: $light-violet;
+  height: 10px;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.cards-company-progression-done-operations {
+  background-color: $new-green;
+  height: 10px;
+  border-radius: 5px;
 }
 
 .cards-etape {
