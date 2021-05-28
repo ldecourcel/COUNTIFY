@@ -15,12 +15,12 @@
   </head>
 
   <body class="body-background">
-    <% if current_page?("/") %>
+    <% if !user_signed_in? %>
       <%= render 'shared/navbar' %>
     <% else %>
       <%= render 'shared/navbar-other' %>
     <% end %>
-    
+
     <%= render 'shared/flashes' %>
 
     <%= yield %>
