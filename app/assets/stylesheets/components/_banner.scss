@@ -1,13 +1,22 @@
 .banner {
-  height: 50vh;
+  height: 100vh;
   background: rgb(113,125,247);
   background: linear-gradient(180deg, rgba(113,125,247,1) 0%, rgba(162,170,255,1) 43%, rgba(255,255,255,1) 100%);
-
-  h1 {
-    color: white;
-    font-size: 56px;
-    padding-top: 32px;
-    margin-bottom: 56px;
-    margin-left: 64px;
+  .text-description{
+    width: 700px;
+    padding-left: 75px;
+    h1 {
+      color: white;
+      font-size: 56px;
+      padding-top: 100px;
+      margin-bottom: 40px;
+      margin-left: 64px;
+    }
+    h2{
+      color: $dark-blue;
+      font-size: 25px;
+      margin-bottom: 56px;
+      margin-left: 64px;
+    }
   }
 }
