@@ -56,7 +56,6 @@
         </div>
       </tbody>
     </table>
-
     <% elsif @operation.invoice != nil && @operation.validated == false %>
       <div id="carouselOfInvoices" class="carousel slide" data-interval="false">
         <ol class="carousel-indicators">
@@ -80,6 +79,7 @@
               <%= link_to "Réconcilier", operation_path(@operation, invoice: @operation.invoice.id), method: :patch, class: "link-reconcile" %>
             </div>
           </div>
+
           <div class="carousel-item">
             <%if @invoices_to_display[1][0].photos.attached?%>
               <%= cl_image_tag @invoices_to_display[1][0].photos.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
@@ -95,6 +95,7 @@
               <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
             </div>
           </div>
+
           <div class="carousel-item">
             <%if @invoices_to_display[2][0].photos.attached?%>
               <%= cl_image_tag @invoices_to_display[2][0].photos.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
