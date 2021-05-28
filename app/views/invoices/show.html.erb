@@ -12,7 +12,10 @@
 
       <p>TVA: <%= @invoice.vta%>%<p>
 
-      <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
+      <% @invoice.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 250, crop: :fill %>
+      <% end %>
+
       <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
     </div>
 
@@ -24,10 +27,15 @@
       <%= f.input :vta, label: 'TVA' %>
       <%= f.input :tax_amount, label: 'Montant de la taxe' %>
       <%= f.input :payment_method, label: 'Méthode de paiement' %>
-      <%= f.input :label %>
       <%= f.input :client %>
-      <%= f.submit %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <% @invoice.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 150, width: 120, crop: :fill %>
+      <% end %>
+      <p><%= f.submit %></p>
+
     <% end %>
+
   </div>
 
 
