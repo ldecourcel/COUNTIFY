@@ -1,5 +1,10 @@
+table {
+  margin: 0 auto;
+  width: 90%;
+}
+
 tbody tr {
-  border-bottom: 1px solid $medium-grey;
+  border-bottom: 1px solid $light-gray;
   text-align: center;
 
   &:hover {
@@ -12,7 +17,7 @@ tbody tr {
 }
 
 thead tr {
-  border-bottom: 2px solid $gray;
+  border-bottom: 2px solid $medium-grey;
 }
 
 #description {
@@ -23,22 +28,15 @@ td {
   padding: 20px 10px;
 }
 
-table {
-  width: 100%;
-}
-
 thead {
   text-align: center;
   th {
-    padding: 20px 10px; 
+    padding: 20px 10px;
+    font-weight: 500;
   }
 }
 
 td img {
   width: 16px;
   height: 16px;
-}
-
-table {
-  margin-bottom: 32px;
 }
