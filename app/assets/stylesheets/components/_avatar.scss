@@ -26,6 +26,7 @@
   display: flex;
   text-align: center;
   border-radius: 50%;
+
   p{
     position: relative;
     margin-left: 5px;
@@ -34,5 +35,9 @@
     line-height: 20px; /* 50% of parent */
     color: #fff;
     font-weight: bold;
+    content: none;
+  }
+  p:hover{
+    cursor: pointer;
   }
 }
