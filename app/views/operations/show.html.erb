@@ -47,7 +47,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%if @operation.invoice.photo.attached?%>
+          <%if @operation.invoice.photos.attached?%>
             <%= cl_image_tag @operation.invoice.photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
             <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <%if @invoices_to_display[1][0].photo.attached?%>
+          <%if @invoices_to_display[1][0].photos.attached?%>
             <%= cl_image_tag @invoices_to_display[1][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
             <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
@@ -77,7 +77,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <%if @invoices_to_display[2][0].photo.attached?%>
+          <%if @invoices_to_display[2][0].photos.attached?%>
             <%= cl_image_tag @invoices_to_display[2][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
             <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
@@ -112,7 +112,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%if @invoices_to_display[0][0].photo.attached?%>
+          <%if @invoices_to_display[0][0].photos.attached?%>
             <%= cl_image_tag @invoices_to_display[0][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
             <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
@@ -127,7 +127,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <%if @invoices_to_display[1][0].photo.attached?%>
+          <%if @invoices_to_display[1][0].photos.attached?%>
             <%= cl_image_tag @invoices_to_display[1][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
             <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
@@ -138,7 +138,7 @@
           <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
         </div>
         <div class="carousel-item">
-          <%if @invoices_to_display[2][0].photo.attached?%>
+          <%if @invoices_to_display[2][0].photos.attached?%>
             <%= cl_image_tag @invoices_to_display[2][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
           <%else%>
             <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
