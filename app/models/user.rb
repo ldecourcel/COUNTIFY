@@ -20,5 +20,4 @@ class User < ApplicationRecord
   def initials
     "#{first_name[0].upcase}#{last_name[0].upcase}"
   end
-
 end
