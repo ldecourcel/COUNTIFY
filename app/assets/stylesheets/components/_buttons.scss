@@ -3,8 +3,8 @@
   border: none;
   color: white;
   font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 4px 8px 4px 8px;
+  // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 7px 8px 7px 8px;
   margin-bottom: 20px;
   &:hover {
     text-decoration: none;
@@ -65,7 +65,7 @@
   background-color: $gold;
   border: 2px solid $gold;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 12px 28px;
   border-radius: 50px;
@@ -83,7 +83,7 @@
   color: white;
   border: 2px solid $white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  font-size: 18px;
+  font-size: 16px;
   padding: 12px 28px;
   border-radius: 50px;
   transition: opacity 0.3s ease;
