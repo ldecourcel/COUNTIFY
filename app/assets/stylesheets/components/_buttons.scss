@@ -60,23 +60,81 @@
   filter: invert(96%) sepia(75%) saturate(4830%) hue-rotate(305deg) brightness(103%) contrast(94%);
 }
 
-.button-contact {
+.button-how-it-works {
   background-color: $gold;
+  border: 2px solid $gold;
   color: white;
-  font-size: 24px;
+  font-size: 18px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 8px 16px 8px 16px;
-  margin-top: 56px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  transition: opacity 0.3s ease;
   margin-left: 64px;
   &:hover {
     text-decoration: none;
-    color: white;
+    color: $gold;
+    background-color: $white;
   }
 }
+
+
+.button-contact {
+  color: white;
+  border: 2px solid $white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-size: 18px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  transition: opacity 0.3s ease;
+  margin-left: 25px;
+  &:hover {
+    color: $gold;
+    border-color: $gold;
+    text-decoration: none;
+  }
+}
+
 
 .button-return{
   a {
     color: $gold;
     margin: 180px;
+  }
+}
+
+.button-sign-up{
+  background-color: $gold;
+  color: white;
+  font-size: 14px;
+  padding: 7px;
+  width: 130px;
+  border-radius: 50px;
+  transition: opacity 0.3s ease;
+  opacity: 0.9;
+  text-align: center;
+  margin-right: 30px;
+  &:hover{
+    opacity:1;
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.button-connect{
+  border: 1px solid white;
+  font-size: 14px;
+  padding: 7px;
+  width: 130px;
+  border-radius: 50px;
+  transition: opacity 0.3s ease;
+  opacity: 0.9;
+  text-align: center;
+  margin-right: 30px;
+  color: white;
+  &:hover{
+    opacity:1;
+    color: $gold;
+    border-color: $gold;
+    text-decoration: none;
   }
 }
