@@ -14,7 +14,7 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "client" }%>
-<%= f.input :payment_method,
+      <%= f.input :payment_method,
                   label: "Méthode de paiement",
                   required: true,
                   autofocus: true,
@@ -42,10 +42,30 @@
       <%= f.input :date,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "date" }%>
-      <%= f.input :photo, as: :file %>
+                  input_html: { autocomplete: "date" } %>
+
+      <div data-controller="dropzone">
+          <%= f.input :photos, as: :file, input_html: { class: "d-none", multiple: true, data: { dropzone_target: 'input', action: 'change->dropzone#change' } }, label: false %>
+        <div id="dropZ" class="dropzone" data-action="drop->dropzone#drop">
+
+            <i class="fas fa-download"></i>
+            <div>Glissez déposez votre/vos factures ici</div>
+            <span>OU</span>
+            <div class="selectFile">
+              <%# <label for="file">Select file</label> %>
+              <input type="button" id="file" value="Cliquez ICI" data-action="click->dropzone#open">
+            </div>
+            <p>File size limit : 10 MB</p>
+          <div class=preview-container>
+            <div class="preview" data-dropzone-target="preview" data-action="click->dropzone#removeFile">
+              <%# <i class="fas fa-trash"></i> %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
       <%= f.button :submit, "Ajouter la facture", class: "btn btn-primary mt-3" %>
   <% end %>
     </div>
 </div>
-

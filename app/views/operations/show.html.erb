@@ -1,197 +1,218 @@
 <div class="big-container">
 
-  <%= link_to "Retour", company_operations_path(@company)  %>
+  <div class="container-show-operations">
+    <%= link_to "Retour", company_operations_path(@company)  %>
+    <h2><em>Transaction</em></h2>
 
-  <div class="container-ope-show-title">
-    <h1><%= @operation.account.company.name %> ></h1>
-    <h2><em>Transaction</em> </h2>
-  </div>
-
-  <div class="container-index-operation">
-    <table>
-      <thead>
-        <tr>
-          <th class="th-sm"><strong>Montant</strong></th>
-          <th class="th-sm">Description</th>
-          <th class="th-sm">Date</th>
-          <th class="th-sm">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <div class="link">
-          <tr>
-            <td><strong><%= @operation.amount %></strong></td>
-            <td id="description"><%= @operation.details %></td>
-            <td><%= @operation.date %></td>
-            <% if @operation.validated == true %>
-              <td><%= image_tag("checked.png") %></td>
-            <% elsif @operation.invoice != nil && @operation.validated == false %>
-              <td><%= image_tag("question.png") %></td>
-            <% elsif @operation.validated == false %>
-              <td><%= image_tag("error.png") %></td>
-            <% end %>
-          </tr>
-        </div>
-      </tbody>
-    </table>
-
-    <% if @operation.validated == true %>
-      <%= @operation.invoice.date %>
-      <%= @operation.invoice.total_amount %>
-      <%= @operation.invoice.issuer %>
-
-    <% elsif @operation.invoice != nil && @operation.validated == false %>
-      <div id="carouselOfInvoices" class="carousel slide" data-interval="false">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselOfInvoices" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselOfInvoices" data-slide-to="1"></li>
-          <li data-target="#carouselOfInvoices" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%if @operation.invoice.photo.attached?%>
-              <%= cl_image_tag @operation.invoice.photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
-            <%else%>
-              <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
-            <%end%>
-            <div class="carousel-content">
-              <div class="carousel-text">
-                <p>Date : <%= @operation.invoice.date %></p>
-                <p>Montant TTC : <%= @operation.invoice.total_amount %>€</p>
-                <p>Emetteur : <%= @operation.invoice.issuer %></p>
-              </div>
-              <%= link_to "Réconcilier", operation_path(@operation, invoice: @operation.invoice.id), method: :patch, class: "link-reconcile" %>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <%if @invoices_to_display[1][0].photo.attached?%>
-              <%= cl_image_tag @invoices_to_display[1][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
-            <%else%>
-              <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
-            <%end%>
-            <div class="carousel-content">
-              <div class="carousel-text">
-                <p>Date : <%= @invoices_to_display[1][0].date %></p>
-                <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
-                <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
-              </div>
-              <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <%if @invoices_to_display[2][0].photo.attached?%>
-              <%= cl_image_tag @invoices_to_display[2][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
-            <%else%>
-              <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
-            <%end%>
-            <div class="carousel-content">
-              <div class="carousel-text">
-                <p>Date : <%= @invoices_to_display[2][0].date %></p>
-                <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
-                <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
-              </div>
-              <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselOfInvoices" role="button" data-slide="prev">
-          <span aria-hidden="true"><i class="fas fa-angle-double-left"></i></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselOfInvoices" role="button" data-slide="next">
-          <span aria-hidden="true"><i class="fas fa-angle-double-right"></i></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-
-    <% elsif @operation.validated == false %>
-      <div id="carouselOfInvoices" class="carousel slide" data-interval="false">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselOfInvoices" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselOfInvoices" data-slide-to="1"></li>
-          <li data-target="#carouselOfInvoices" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%if @invoices_to_display[0][0].photo.attached?%>
-              <%= cl_image_tag @invoices_to_display[0][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
-            <%else%>
-              <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
-            <%end%>
-            <div class="carousel-content">
-              <div class="carousel-text">
-                <p>Date : <%= @invoices_to_display[0][0].date %></p>
-                <p>Montant TTC : <%= @invoices_to_display[0][0].total_amount %>€</p>
-                <p>Emetteur : <%= @invoices_to_display[0][0].issuer %></p>
-              </div>
-              <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[0][0].id), method: :patch, class: "link-reconcile" %>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <%if @invoices_to_display[1][0].photo.attached?%>
-              <%= cl_image_tag @invoices_to_display[1][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
-            <%else%>
-              <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
-            <%end%>
-            <p>Date : <%= @invoices_to_display[1][0].date %></p>
-            <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
-            <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
-            <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
-          </div>
-          <div class="carousel-item">
-            <%if @invoices_to_display[2][0].photo.attached?%>
-              <%= cl_image_tag @invoices_to_display[2][0].photo.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
-            <%else%>
-              <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
-            <%end%>
-            <p>Date : <%= @invoices_to_display[2][0].date %></p>
-            <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
-            <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
-            <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselOfInvoices" role="button" data-slide="prev">
-          <span aria-hidden="true"><i class="fas fa-angle-double-left"></i></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselOfInvoices" role="button" data-slide="next">
-          <span aria-hidden="true"><i class="fas fa-angle-double-right"></i></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-    <% end %>
-
-    <div class="container-table-show" data-controller="display-table">
-      <button data-display-table-target="buttondisplay" data-action="click->display-table#displayTable" ><i class="fas fa-plus-circle" ></i> Afficher tous les justificatifs</button>
-      <button data-display-table-target="buttonhide" data-action="click->display-table#displayTable" class="d-none" ><i class="fas fa-caret-up"></i></i> Masquer les justificatifs</button>
-
-
-      <table class="d-none" data-display-table-target="table">
+    <div class="container-index-operation">
+      <table>
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Bénéficiaire</th>
-            <th>Client</th>
-            <th>Montant (€)</th>
-            <th>Réconcilier</th>
+            <th class="th-sm"><strong>Montant</strong></th>
+            <th class="th-sm">Description</th>
+            <th class="th-sm">Date</th>
+            <th class="th-sm">Status</th>
           </tr>
         </thead>
         <tbody>
-          <% @invoices.each do |invoice| %>
-              <tr onclick="window.location='/invoices/<%= invoice.id %>';">
-                <td><%= invoice.date %></td>
-                <td><%= invoice.issuer%></td>
-                <td> <%= invoice.client %></td>
-                <td><%= invoice.net_amount %></td>
-                <td><%= link_to "Réconcilier", operation_path(@operation, invoice: invoice.id), method: :patch  %></td>
-              </tr>
-          <% end %>
+          <div class="link">
+            <tr>
+              <td><strong><%= @operation.amount %></strong></td>
+              <td id="description"><%= @operation.details %></td>
+              <td><%= @operation.date %></td>
+              <% if @operation.validated == true %>
+                <td><%= image_tag("checked.png") %></td>
+              <% elsif @operation.invoice != nil && @operation.validated == false %>
+                <td><%= image_tag("question.png") %></td>
+              <% elsif @operation.validated == false %>
+                <td><%= image_tag("error.png") %></td>
+              <% end %>
+            </tr>
+          </div>
         </tbody>
       </table>
+
+      <% if @operation.validated == true %>
+        <h2><em>Justificatif associé</em></h2>
+          <table>
+          <thead>
+            <tr>
+              <th class="th-sm"><strong>Montant TTC</strong></th>
+              <th class="th-sm">Montant taxe</th>
+              <th class="th-sm">TVA</th>
+              <th class="th-sm">Date</th>
+              <th class="th-sm">Bénéficaire</th>
+              <th class="th-sm">Client</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div class="link">
+              <tr onclick="window.location='/invoices/<%= @operation.invoice.id %>';">
+                <td><strong><%= @operation.invoice.tax_amount + @operation.invoice.net_amount %></strong></td>
+                <td><%= @operation.invoice.tax_amount %></td>
+                <td><%= @operation.invoice.vta %></td>
+                <td><%= @operation.invoice.date %></td>
+                <td><%= @operation.invoice.issuer %></td>
+                <td><%= @operation.invoice.client %></td>
+              </tr>
+            </div>
+          </tbody>
+        </table>
+      <% elsif @operation.invoice != nil && @operation.validated == false %>
+        <div id="carouselOfInvoices" class="carousel slide" data-interval="false">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselOfInvoices" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselOfInvoices" data-slide-to="1"></li>
+            <li data-target="#carouselOfInvoices" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%if @operation.invoice.photos.attached?%>
+                <%= cl_image_tag @operation.invoice.photos.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
+              <%else%>
+                <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+              <%end%>
+              <div class="carousel-content">
+                <div class="carousel-text">
+                  <p>Date : <%= @operation.invoice.date %></p>
+                  <p>Montant TTC : <%= @operation.invoice.total_amount %>€</p>
+                  <p>Emetteur : <%= @operation.invoice.issuer %></p>
+                </div>
+                <%= link_to "Réconcilier", operation_path(@operation, invoice: @operation.invoice.id), method: :patch, class: "link-reconcile" %>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <%if @invoices_to_display[1][0].photos.attached?%>
+                <%= cl_image_tag @invoices_to_display[1][0].photos.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
+              <%else%>
+                <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+              <%end%>
+              <div class="carousel-content">
+                <div class="carousel-text">
+                  <p>Date : <%= @invoices_to_display[1][0].date %></p>
+                  <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
+                  <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
+                </div>
+                <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <%if @invoices_to_display[2][0].photos.attached?%>
+                <%= cl_image_tag @invoices_to_display[2][0].photos.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
+              <%else%>
+                <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+              <%end%>
+              <div class="carousel-content">
+                <div class="carousel-text">
+                  <p>Date : <%= @invoices_to_display[2][0].date %></p>
+                  <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
+                  <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
+                </div>
+                <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselOfInvoices" role="button" data-slide="prev">
+            <span aria-hidden="true"><i class="fas fa-angle-double-left"></i></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselOfInvoices" role="button" data-slide="next">
+            <span aria-hidden="true"><i class="fas fa-angle-double-right"></i></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+
+      <% elsif @operation.validated == false %>
+        <div id="carouselOfInvoices" class="carousel slide" data-interval="false">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselOfInvoices" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselOfInvoices" data-slide-to="1"></li>
+            <li data-target="#carouselOfInvoices" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%if @invoices_to_display[0][0].photos.attached?%>
+                <%= cl_image_tag @invoices_to_display[0][0].photos.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
+              <%else%>
+                <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+              <%end%>
+              <div class="carousel-content">
+                <div class="carousel-text">
+                  <p>Date : <%= @invoices_to_display[0][0].date %></p>
+                  <p>Montant TTC : <%= @invoices_to_display[0][0].total_amount %>€</p>
+                  <p>Emetteur : <%= @invoices_to_display[0][0].issuer %></p>
+                </div>
+                <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[0][0].id), method: :patch, class: "link-reconcile" %>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <%if @invoices_to_display[1][0].photos.attached?%>
+                <%= cl_image_tag @invoices_to_display[1][0].photos.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
+              <%else%>
+                <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+              <%end%>
+              <p>Date : <%= @invoices_to_display[1][0].date %></p>
+              <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
+              <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
+              <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
+            </div>
+            <div class="carousel-item">
+              <%if @invoices_to_display[2][0].photos.attached?%>
+                <%= cl_image_tag @invoices_to_display[2][0].photos.key, class:"d-block w-100 carousel-img", alt:"First slide" %>
+              <%else%>
+                <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
+              <%end%>
+              <p>Date : <%= @invoices_to_display[2][0].date %></p>
+              <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
+              <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
+              <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselOfInvoices" role="button" data-slide="prev">
+            <span aria-hidden="true"><i class="fas fa-angle-double-left"></i></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselOfInvoices" role="button" data-slide="next">
+            <span aria-hidden="true"><i class="fas fa-angle-double-right"></i></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+      <% end %>
+
+      <div class="container-table-show" data-controller="display-table">
+        <button data-display-table-target="buttondisplay" data-action="click->display-table#displayTable" ><i class="fas fa-plus-circle" ></i> Afficher tous les justificatifs</button>
+        <button data-display-table-target="buttonhide" data-action="click->display-table#displayTable" class="d-none" ><i class="fas fa-caret-up"></i></i> Masquer les justificatifs</button>
+
+
+        <table class="d-none" data-display-table-target="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Bénéficiaire</th>
+              <th>Client</th>
+              <th>Montant (€)</th>
+              <th>Réconcilier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @invoices.each do |invoice| %>
+                <tr onclick="window.location='/invoices/<%= invoice.id %>';">
+                  <td><%= invoice.date %></td>
+                  <td><%= invoice.issuer%></td>
+                  <td> <%= invoice.client %></td>
+                  <td><%= invoice.net_amount %></td>
+                  <td><%= link_to "Réconcilier", operation_path(@operation, invoice: invoice.id), method: :patch  %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
     </div>
 
   </div>
-
 </div>

@@ -11,6 +11,7 @@ class InvoicesController < ApplicationController
   end
 
   def new
+    @company = Company.find(params[:company_id])
     @invoice = Invoice.new
     authorize @invoice
   end
@@ -44,7 +45,7 @@ class InvoicesController < ApplicationController
 
 
   def invoice_params
-    params.require(:invoice).permit(:photo, :date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client)
+    params.require(:invoice).permit(:date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client, photos: [])
   end
 
 end

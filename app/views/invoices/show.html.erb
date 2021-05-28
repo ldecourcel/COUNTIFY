@@ -18,29 +18,38 @@
 
         <p>Montant HT : <%= @invoice.net_amount%> €</p>
 
-        <p>TVA : <%= @invoice.vta%>%</p>
-
-        <p> <%if @invoice.photo.attached?%>
-              <%= cl_image_tag @invoice.photo.key, height: 300, width: 400, crop: :fill %>
-            <%else%>
-              <img src="<%= image_path "preview_invoice.jpg"%>">
-            <%end%>
-        </p>
-      </div>
-
-      <%= simple_form_for(@invoice, html: { class: @invoice.errors.any? ? '' : 'd-none', data: { edit_invoice_target: 'form', action: 'submit->edit_invoice#update' } }) do |f| %>
-        <%= f.input :date %>
-        <%= f.input :issuer, label: 'Bénéficiaire' %>
-        <%= f.input :total_amount, label: 'Montant TTC' %>
-        <%= f.input :net_amount, label: 'Montant HT' %>
-        <%= f.input :vta, label: 'TVA' %>
-        <%= f.input :tax_amount, label: 'Montant de la taxe' %>
-        <%= f.input :payment_method, label: 'Méthode de paiement' %>
-        <%= f.input :label %>
-        <%= f.input :client %>
-        <%= f.submit %>
+      <% @invoice.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 250, crop: :fill %>
       <% end %>
+
+      <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm"></i>
+
+      <p>TVA : <%= @invoice.vta%>%</p>
+
+      <p> <%if @invoice.photos.attached?%>
+            <%= cl_image_tag @invoice.photos.key, height: 300, width: 400, crop: :fill %>
+          <%else%>
+            <img src="<%= image_path "preview_invoice.jpg"%>">
+          <%end%>
+      </p>
     </div>
+
+    <%= simple_form_for(@invoice, html: { class: @invoice.errors.any? ? '' : 'd-none', data: { edit_invoice_target: 'form', action: 'submit->edit_invoice#update' } }) do |f| %>
+      <%= f.input :date %>
+      <%= f.input :issuer, label: 'Bénéficiaire' %>
+      <%= f.input :total_amount, label: 'Montant TTC' %>
+      <%= f.input :net_amount, label: 'Montant HT' %>
+      <%= f.input :vta, label: 'TVA' %>
+      <%= f.input :tax_amount, label: 'Montant de la taxe' %>
+      <%= f.input :payment_method, label: 'Méthode de paiement' %>
+      <%= f.input :client %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <% @invoice.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 150, width: 120, crop: :fill %>
+      <% end %>
+      <p><%= f.submit %></p>
+
+    <% end %>
 
   </div>
 

@@ -25,6 +25,7 @@
 }
 .cards-company-avatar {
   display: flex;
+  color: $dark-blue;
   align-items: center;
   justify-content: center;
   margin: 8px;
@@ -41,6 +42,7 @@
 
 .cards-company-description {
   width: 60%;
+  color: $dark-blue;
 }
 .cards-company-name {
     font-size: 24px;
@@ -84,11 +86,15 @@
   align-items: center;
   height: 300px;
   margin: 24px 240px 24px 240px;
+  padding: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 8px;
   background-color: white;
   h3 {
     margin: 32px;
+    color: $dark-blue;
+    font-size: 25px;
+    font-weight: normal;
   }
   img {
     height: 70%;
