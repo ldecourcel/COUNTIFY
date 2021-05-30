@@ -9,6 +9,11 @@ class OperationsController < ApplicationController
 
     @invoices = policy_scope(Invoice).order(created_at: :desc).where(company_id: @company.id)
 
+    @gains = []
+    @operations.each { |operation| @gains << operation.amount if operation.amount > 0 }
+    @expenses = []
+    @operations.each { |operation| @expenses << operation.amount  if operation.amount < 0 }
+
     @operations.each do |operation|
       @invoices.each do |invoice|
         if invoice.total_amount == operation.amount.abs

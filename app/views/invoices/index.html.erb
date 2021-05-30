@@ -2,7 +2,12 @@
   <div class="container-index-operations">
     <div class="container-operations-general">
       <h1><%= @company.name %><h1>
-      <div class="operation-search">
+    </div>
+
+    <div class="container-table-operations" id="top-invoices">
+      <h2 class="center">Justificatifs</h2>
+      <div class="buttons-operations-invoices">
+        <div class="operation-search">
           <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
           <%= text_field_tag :query,
             params[:query],
@@ -11,13 +16,10 @@
           %>
           <%= submit_tag "Recherche", class: "btn btn-primary button-recherche" %>
           <% end %>
-      </div>
-    </div>
-
-    <div class="container-table-operations">
-      <h2 class="center">Justificatifs</h2>
-      <div class="container-btn-add-ope">
-        <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter un justificatif'), new_company_invoice_path(@company), id: "btn-add-ope" %>
+        </div>
+        <%# <div class="container-btn-add-ope"> %>
+          <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter un justificatif'), new_company_invoice_path(@company), id: "btn-add-ope" %>
+        <%# </div> %>
       </div>
       <table>
         <thead>
@@ -33,7 +35,7 @@
         <tbody>
           <% @invoices.each do |invoice| %>
 
-              <tr onclick="window.location='/invoices/<%= invoice.id %>';">
+              <tr onclick="window.location='/invoices/<%= invoice.id %>';" class="<%= invoice.issuer == @company.name ? 'invoices-green' : 'invoices-red'%>" >
                 <td><%= invoice.net_amount %></td>
                 <td><%= invoice.tax_amount + invoice.net_amount %></td>
                 <td><%= invoice.vta %></td>
@@ -46,7 +48,9 @@
         </tbody>
 
       </table>
+      <div class="button-transform">
+        <a href="#top-invoices" class="button-top"><i class="fas fa-chevron-circle-up"></i> Retour au début de la liste</a>
+      </div>
     </div>
-
   </div>
 </div>

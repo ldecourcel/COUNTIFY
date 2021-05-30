@@ -1,6 +1,7 @@
 table {
   margin: 0 auto;
   width: 90%;
+  margin-bottom: 32px;
 }
 
 tbody tr {
@@ -25,7 +26,7 @@ thead tr {
 }
 
 td {
-  padding: 20px 10px;
+  padding: 10px 0;
 }
 
 thead {
@@ -39,4 +40,35 @@ thead {
 td img {
   width: 16px;
   height: 16px;
+}
+
+.operations-red {
+  * {
+    background-color: rgba($red, 0.5) !important;
+    padding: 4px 12px 4px 12px;
+    border-radius: 16px;
+    width: 50%;
+  }
+}
+
+.operations-green {
+  * {
+    background-color: rgba($green, 0.5) !important;
+    padding: 4px 12px 4px 12px;
+    border-radius: 16px;
+  }
+}
+
+.invoices-red {
+  background-color: rgba($red, 0.3) !important;
+  &:hover {
+    background-color: rgba($red, 0.7) !important;
+  }
+}
+
+.invoices-green {
+    background-color: rgba($green, 0.3) !important;
+    &:hover {
+    background-color: rgba($green, 0.8) !important;
+  }
 }
