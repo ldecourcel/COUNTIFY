@@ -1,22 +1,19 @@
-<div class="big-container">
+<div class="big-container" id="top-operations">
 
   <div class="container-index-operations">
     <div class="container-operations-general">
     <h1><%= @company.name %></h1>
       <div class="display-form-export">
-        <div class="operation-search">
-          <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Opérations"
-          %>
-          <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
-          <% end %>
-        </div>
         <div class="button-export">
           <%= link_to "Exporter", "#" %>
         </div>
+      </div>
+      <div class="cards-operations-stats">
+        <%= "A réconcilier: #{@operations.where(validated: false).count}"%>
+        <%= "Total: #{@operations.count}"%>
+        <%= "Dépenses: #{@expenses.sum}"%>
+        <%= "Recettes: #{@gains.sum}"%>
+        <%= "Net: #{@gains.sum + @expenses.sum}"%>
       </div>
       <div class="cards-company-stats-operations">
       <div class="cards-company-progression-to-do-operations d-flex">
@@ -31,8 +28,18 @@
 
     <div class="container-table-operations">
       <h2 class="center">Opérations</h2>
-      <div class="container-btn-add-ope">
-          <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope" %>
+      <div class="buttons-operations-invoices">
+        <div class="operation-search">
+          <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Opérations"
+          %>
+          <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
+          <% end %>
+        </div>
+          <%= link_to raw('<i class="fas fa-plus-circle"></i>  Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope"%>
       </div>
       <table>
       <thead>
@@ -47,7 +54,7 @@
         <% @operations.each do |operation| %>
         <div class="link">
           <tr onclick="window.location='/operations/<%= operation.id %>';">
-            <td><strong><%= operation.amount %></strong></td>
+            <td class="<%= operation.amount > 0 ? 'operations-green' : 'operations-red'%>" ><strong><%= operation.amount%></strong></td>
             <td><%= operation.date %></td>
             <td id="description"><%= operation.details %></td>
             <% if operation.validated == true %>
@@ -62,6 +69,9 @@
         <% end %>
       </tbody>
     </table>
+      <div class="button-transform">
+        <a href="#top-operations" class="button-top"><i class="fas fa-chevron-circle-up"></i> Retour en haut de la page</a>
+      </div>
     </div>
   </div>
 
