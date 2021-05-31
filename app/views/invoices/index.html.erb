@@ -39,7 +39,7 @@
                 <td><%= invoice.net_amount %></td>
                 <td><%= invoice.tax_amount + invoice.net_amount %></td>
                 <td><%= invoice.vta %></td>
-                <td><%= invoice.date %></td>
+                <td><%= invoice.date.strftime("%d/%m/%Y") %></td>
                 <td><%= invoice.issuer%></td>
                 <td><%= invoice.client %></td>
               </tr>

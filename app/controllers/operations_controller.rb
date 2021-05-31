@@ -22,7 +22,6 @@ class OperationsController < ApplicationController
         end
       end
     end
-
   end
 
   def show
@@ -52,6 +51,7 @@ class OperationsController < ApplicationController
       redirect_to operation_path(@operation)
     end
   end
+
 
   private
 

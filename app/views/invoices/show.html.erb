@@ -27,7 +27,7 @@
                 <td><strong><%= @invoice.tax_amount + @invoice.net_amount %></strong></td>
                 <td><%= @invoice.tax_amount %></td>
                 <td><%= @invoice.vta %></td>
-                <td><%= @invoice.date %></td>
+                <td><%= @invoice.date.strftime("%d/%m/%Y") %></td>
                 <td><%= @invoice.issuer %></td>
                 <td><%= @invoice.client %></td>
                 <td><%= image_tag("preview_invoice.jpg", class:"invoice-preview")%></td>

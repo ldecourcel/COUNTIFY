@@ -55,7 +55,7 @@
         <div class="link">
           <tr onclick="window.location='/operations/<%= operation.id %>';">
             <td class="<%= operation.amount > 0 ? 'operations-green' : 'operations-red'%>" ><strong><%= operation.amount%></strong></td>
-            <td><%= operation.date %></td>
+            <td><%= operation.date.strftime("%d/%m/%Y")%></td>
             <td id="description"><%= operation.details %></td>
             <% if operation.validated == true %>
               <td><%= image_tag("checked.png", class:"img-status") %></td>
