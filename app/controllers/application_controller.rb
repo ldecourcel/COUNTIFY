@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
+  def after_sign_in_path_for(user)
+    if user.accountant_id?
+      companies_path
+    elsif user.company_id?
+      company_operations_path(user.company)
+    else
+      root_path
+    end
+  end
+
   private
 
   def skip_pundit?
