@@ -51,7 +51,7 @@
                 <td><strong><%= @operation.invoice.tax_amount + @operation.invoice.net_amount %></strong></td>
                 <td><%= @operation.invoice.tax_amount %></td>
                 <td><%= @operation.invoice.vta %></td>
-                <td><%= @operation.invoice.date.strftime("%d/%m/%Y") %></td>
+                <td><%= @operation.invoice.date %></td>
                 <td><%= @operation.invoice.issuer %></td>
                 <td><%= @operation.invoice.client %></td>
               </tr>
@@ -74,7 +74,7 @@
               <%end%>
               <div class="carousel-content">
                 <div class="carousel-text">
-                  <p>Date : <%= @operation.invoice..date.strftime("%d/%m/%Y") %></p>
+                  <p>Date : <%= @operation.invoice.date%></p>
                   <p>Montant TTC : <%= @operation.invoice.total_amount %>€</p>
                   <p>Emetteur : <%= @operation.invoice.issuer %></p>
                 </div>
@@ -90,7 +90,7 @@
               <%end%>
               <div class="carousel-content">
                 <div class="carousel-text">
-                  <p>Date : <%= @invoices_to_display[1][0].date.strftime("%d/%m/%Y") %></p>
+                  <p>Date : <%= @invoices_to_display[1][0].date %></p>
                   <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
                   <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
                 </div>
@@ -106,7 +106,7 @@
               <%end%>
               <div class="carousel-content">
                 <div class="carousel-text">
-                  <p>Date : <%= @invoices_to_display[2][0].date.strftime("%d/%m/%Y") %></p>
+                  <p>Date : <%= @invoices_to_display[2][0].date%></p>
                   <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
                   <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
                 </div>
@@ -141,7 +141,7 @@
               <%end%>
               <div class="carousel-content">
                 <div class="carousel-text">
-                  <p>Date : <%= @invoices_to_display[0][0].date.strftime("%d/%m/%Y") %></p>
+                  <p>Date : <%= @invoices_to_display[0][0].date%></p>
                   <p>Montant TTC : <%= @invoices_to_display[0][0].total_amount %>€</p>
                   <p>Emetteur : <%= @invoices_to_display[0][0].issuer %></p>
                 </div>
@@ -154,7 +154,7 @@
               <%else%>
                 <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
               <%end%>
-              <p>Date : <%= @invoices_to_display[1][0].date.strftime("%d/%m/%Y") %></p>
+              <p>Date : <%= @invoices_to_display[1][0].date %></p>
               <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
               <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
               <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
@@ -165,7 +165,7 @@
               <%else%>
                 <%= image_tag "preview_invoice.jpg", class:"d-block w-100 carousel-img", alt:"First slide"%>
               <%end%>
-              <p>Date : <%= @invoices_to_display[2][0].date.strftime("%d/%m/%Y") %></p>
+              <p>Date : <%= @invoices_to_display[2][0].date %></p>
               <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
               <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
               <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
@@ -201,7 +201,7 @@
           <tbody>
             <% @invoices.each do |invoice| %>
                 <tr onclick="window.location='/invoices/<%= invoice.id %>';">
-                  <td><%= invoice.date.strftime("%d/%m/%Y") %></td>
+                  <td><%= invoice.date%></td>
                   <td><%= invoice.issuer%></td>
                   <td> <%= invoice.client %></td>
                   <td><%= invoice.net_amount %></td>

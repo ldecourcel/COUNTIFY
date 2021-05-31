@@ -1,59 +1,85 @@
 
 <div class="big-container">
   <div class="container-index-company">
+    <div data-controller="edit-company">
 
-    <div class="company-title">
-      <h1><%=@company.name%></h1>
-    </div>
+      <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-company#displayForm" style="cursor: pointer"></i>
 
-    <div class="container-center-company">
-      <div class= "cards-row">
-        <div class="cards-company-avatar-background">
-          <div class="cards-company-avatar ">
-              <p><%= @company.initial%></p>
-          </div>
+      <div data-edit-company-target="infos">
+        <div class="company-title">
+          <h1><%=@company.name%></h1>
         </div>
 
-        <div class= "cards-company-show">
-          <div class="cards-company-header">
-            <p>NOM :</p>
-            <p>PRENOM :</p>
-            <p>E-MAIL :</p>
+        <div class="container-center-company">
+          <div class= "cards-row">
+            <div class="cards-company-avatar-background">
+              <div class="cards-company-avatar ">
+                  <p><%= @company.initial%></p>
+              </div>
+            </div>
+
+            <div class= "cards-company-show">
+              <div class="cards-company-header">
+                <p>NOM :</p>
+                <p>PRENOM :</p>
+                <p>E-MAIL :</p>
+              </div>
+              <div class="cards-company-info">
+                <%if current_user.company_id != nil%>
+                  <p><%=current_user.last_name%></p>
+                  <p><%=current_user.first_name%></p>
+                  <p><%=current_user.email%></p>
+                <%else%>
+                  <p><%=@user.last_name%></p>
+                  <p><%=@user.first_name%></p>
+                  <p><%=@user.email%></p>
+                <%end%>
+              </div>
+            </div>
           </div>
-          <div class="cards-company-info">
-            <p>Auriol</p>
-            <p>Agathe</p>
-            <p>agathe@vibrary.fr</p>
+          <div class="cards-row">
+            <div class= "cards-company-show">
+              <div class="cards-company-header">
+                <p>ADRESSE :</p>
+                <p>TELEPHONE :</p>
+                <p>CARTE D'IDENTITE :</p>
+              </div>
+              <div class="cards-company-info">
+                <p><%=@company.address%></p>
+                <p><%=@company.phone_number%></p>
+                <p>link</p>
+              </div>
+            </div>
+
+            <div class= "cards-company-show">
+              <div class="cards-company-header">
+                <p>REGIME FISCAL :</p>
+                <p>SIREN :</p>
+                <p>SIRET :</p>
+              </div>
+              <div class="cards-company-info">
+                <p><%=@company.fiscal_regim%></p>
+                <p><%=@company.siren%></p>
+                <p><%=@company.siret%></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="cards-row">
-        <div class= "cards-company-show">
-          <div class="cards-company-header">
-            <p>ADRESSE :</p>
-            <p>TELEPHONE :</p>
-            <p>CARTE D'IDENTITE :</p>
-          </div>
-          <div class="cards-company-info">
-            <p><%=@company.address%></p>
-            <p><%=@company.phone_number%></p>
-            <p>link</p>
-          </div>
-        </div>
 
-        <div class= "cards-company-show">
-          <div class="cards-company-header">
-            <p>REGIME FISCAL :</p>
-            <p>SIREN :</p>
-            <p>SIRET :</p>
-          </div>
-          <div class="cards-company-info">
-            <p><%=@company.fiscal_regim%></p>
-            <p><%=@company.siren%></p>
-            <p><%=@company.siret%></p>
-          </div>
-        </div>
-      </div>
+        <%= simple_form_for(@company, html: { class: @company.errors.any? ? '' : 'd-none', data: { edit_company_target: 'form', action: 'submit->edit_company#update' } }) do |f| %>
+        <%= f.input :address%>
+        <%= f.input :phone_number %>
+        <%= f.input :fiscal_regim %>
+        <%= f.input :siren %>
+        <%= f.input :siret %>
+        <p><%= f.submit %></p>
+
+    <% end %>
+
+
+
+
     </div>
   </div>
 </div>

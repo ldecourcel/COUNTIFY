@@ -29,7 +29,8 @@ class InvoicesController < ApplicationController
 
   def update
     @invoice = Invoice.find(params[:id])
-    @invoice.update(invoice_params)
+    @invoice.update!(invoice_params)
+
     authorize @invoice
     redirect_to invoice_path(@invoice)
   end
@@ -45,7 +46,7 @@ class InvoicesController < ApplicationController
 
 
   def invoice_params
-    params.require(:invoice).permit(:date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client, photos: [])
+    params.require(:invoice).permit(:date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client, :invoice_number, photos: [])
   end
 
 end
