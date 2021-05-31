@@ -35,7 +35,14 @@
         </thead>
         <tbody>
           <% @invoices.each do |invoice| %>
-              <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';" class="<%= invoice.issuer == @company.name ? 'invoices-green' : 'invoices-red'%>" >
+              <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';" >
+                <td>
+                    <%if invoice.issuer == @company.name %>
+                      <i class="far fa-arrow-alt-circle-up"></i>
+                    <% else %>
+                      <i class="far fa-arrow-alt-circle-down"></i>
+                    <% end %>
+                  </td>
                 <% if invoice.total_amount.nil? %>
                   <td></td>
                 <% else %>

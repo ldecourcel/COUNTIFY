@@ -112,7 +112,6 @@ GEM
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
       http-parser (~> 1.2.0)
-
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -284,7 +283,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass
-
   highcharts-rails
   http
   jbuilder (~> 2.7)
