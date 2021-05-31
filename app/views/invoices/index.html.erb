@@ -38,9 +38,9 @@
               <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';" >
                 <td>
                     <%if invoice.issuer == @company.name %>
-                      <i class="far fa-arrow-alt-circle-up"></i>
-                    <% else %>
                       <i class="far fa-arrow-alt-circle-down"></i>
+                    <% else %>
+                      <i class="far fa-arrow-alt-circle-up"></i>
                     <% end %>
                   </td>
                 <% if invoice.total_amount.nil? %>

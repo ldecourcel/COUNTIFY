@@ -37,9 +37,11 @@
 .fa-arrow-alt-circle-down {
   color: $green;
   font-size: 24px;
+  transform: rotate(-40deg);
 }
 
 .fa-arrow-alt-circle-up {
   color: red;
   font-size: 24px;
+  transform: rotate(-40deg);
 }

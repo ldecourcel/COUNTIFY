@@ -54,7 +54,7 @@ class OperationsController < ApplicationController
     @operation.invoice = @invoice
     @operation.validated = true
     if @operation.save!
-      redirect_to company_operation_path(@operation, params[:company_id])
+      redirect_to company_operation_path(params[:company_id], @operation)
     end
   end
 
