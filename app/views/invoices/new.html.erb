@@ -1,6 +1,52 @@
 <div class="big-container">
 
+<<<<<<< HEAD
   <%= link_to "Retour", company_invoices_path %>
+=======
+<div class="container-sign-up col-4 offset-4 pt-5 pb-3">
+<h1>Ajouter une nouvelle facture</h1>
+  <%= simple_form_for [@company, @invoice], url: company_invoices_path, methode: :post do |f| %>
+    <div class="form-inputs">
+      <%= f.input :issuer,
+                  label: "Bénéficiaire",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "issuer" }%>
+      <%= f.input :client,
+                  label: "Client",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "client" }%>
+      <%= f.input :payment_method,
+                  label: "Méthode de paiement",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "payment_method" }%>
+      <%= f.input :net_amount,
+                  label: "Montant Net",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "net_amount" }%>
+      <%= f.input :tax_amount,
+                  label: "Montant de la Taxe",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "tax_amount" }%>
+      <%= f.input :vta,
+                  label: "TVA",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "vta" }%>
+      <%= f.input :total_amount,
+                  label: "Montant Total",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "total_amount" }%>
+      <%= f.input :date,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "date" } %>
+>>>>>>> 8ab7c47fefcc010de0e2f8c8bb6f013a8b9c63fb
 
   <div class="container-sign-up col-4 offset-4 pt-5 pb-3">
   <h1>Ajouter une nouvelle facture</h1>

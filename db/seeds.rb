@@ -30,6 +30,8 @@ company1 = Company.create(accountant: accountant, name: "Vibrary", siren: "89789
 
 company2 = Company.create(accountant: accountant, name: "Georgie", siren: "895207906", siret: "89520790600231", fiscal_regim: "EI", address:"Place Vendome, Paris", phone_number:"0111236676")
 
+user_client = User.create(company: company1, first_name:"Agathe", last_name: "Auriol", email:"agathe@vibrary.com", password:"123456")
+
 companies = [ company1, company2 ]
 puts "Company DONE creating account ..."
 

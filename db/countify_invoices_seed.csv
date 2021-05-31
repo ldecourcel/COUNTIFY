@@ -1,76 +1,76 @@
-date;net_amount;issuer;client;vta;payment_method;tax_amount;total_amount;label;company_name
-15/05/2021;1064,8;Cardable;Vibrary;0,2;Virement;266,2;1331;;Vibrary
-09/05/2021;7038,4;Vibrary;Le Wagon;0,2;Virement;1759,6;8798;;Vibrary
-09/04/2021;19,92;Paul;Vibrary;0,2;Espece;4,98;24,9;;Vibrary
-01/04/2021;663,2;HP;Vibrary;0,2;Cheque;165,8;829;;Vibrary
-30/03/2021;6850,4;Vibrary;Vibrary;0,2;Virement;1712,6;8563;;Vibrary
-26/02/2021;6175,2;Vibrary;Than;0,2;Cheque;1543,8;7719;;Vibrary
-19/02/2021;25,6;Le Wagon;Vibrary;0,2;Virement;6,4;32;;Vibrary
-05/02/2021;826,4;Vibrary;DBO;0,2;CB;206,6;1033;;Vibrary
-25/12/2020;6676,425;EDF;Vibrary;0,055;Virement;388,575;7065;;Vibrary
-11/11/2020;276,885;Carrefour;Vibrary;0,055;Espece;16,115;293;;Vibrary
-11/11/2020;7068,8;Vibrary;JDS;0,2;CB;1767,2;8836;;Vibrary
-11/09/2020;6694,38;Jobify;Vibrary;0,055;CB;389,62;7084;;Vibrary
-08/09/2020;5358,15;Amazon;Vibrary;0,055;CB;311,85;5670;;Vibrary
-02/09/2020;5079,2;Friendstrip;Vibrary;0,2;CB;1269,8;6349;;Vibrary
-10/06/2020;7745,4;Helpling;Vibrary;0,1;Cheque;860,6;8606;;Vibrary
-10/08/2020;7393,6;Amazon;Vibrary;20%;CB;1848,4;9242;;Vibrary
-26/11/2020;2233,035;Carrefour;Vibrary;6%;CB;129,965;2363;;Vibrary
-24/10/2020;9097,515;HP;Vibrary;6%;CB;529,485;9627;;Vibrary
-27/11/2020;7955,955;EDF;Vibrary;6%;CB;463,045;8419;;Vibrary
-16/05/2021;318,6;Paul;Vibrary;10%;CB;35,4;354;;Vibrary
-24/04/2021;6535,8;Le Wagon;Vibrary;10%;CB;726,2;7262;;Vibrary
-16/05/2021;6576,3;Vibrary;Vibrary;10%;Virement;730,7;7307;;Vibrary
-04/04/2021;20;Helpling;Vibrary;20%;Virement;5;25;;Vibrary
-29/08/2020;6476,085;Jobify;Vibrary;6%;Virement;376,915;6853;;Vibrary
-03/02/2021;8557,2;Cardable;Vibrary;10%;Cheque;950,8;9508;;Vibrary
-31/05/2021;5284,8;Friendstrip;Vibrary;10%;Virement;587,2;5872;;Vibrary
-11/07/2020;7824,8;Vibrary;Le Wagon;20%;CB;1956,2;9781;;Vibrary
-20/12/2020;6230,4;Vibrary;DBO;20%;Cheque;1557,6;7788;;Vibrary
-15/07/2020;1567,2;Vibrary;JDS;20%;CB;391,8;1959;;Vibrary
-23/10/2020;286,4;Vibrary;Than;20%;Virement;71,6;358;;Vibrary
-06/03/2021;6635,7;Apple;Vibrary;10%;Cheque;737,3;7373;;Vibrary
-22/04/2021;3920,805;Tommy;Vibrary;6%;Espece;228,195;4149;;Vibrary
-04/05/2021;2984,4;Uber;Vibrary;10%;Espece;331,6;3316;;Vibrary
-27/06/2020;7686,9;GDF;Vibrary;10%;Espece;854,1;8541;;Vibrary
-22/06/2020;5679;Paul;Vibrary;10%;Virement;631;6310;;Vibrary
-03/06/2020;7772,625;Le Wagon;Vibrary;6%;CB;452,375;8225;;Vibrary
-03/06/2020;1422,9;Vibrary;Vibrary;10%;Virement;158,1;1581;;Vibrary
-07/05/2021;1702,4;Helpling;Vibrary;20%;Virement;425,6;2128;;Vibrary
-03/09/2020;5429,7;Hotel Hero;Vibrary;10%;Espece;603,3;6033;;Vibrary
-17/07/2020;3315,06;Cardable;Vibrary;6%;Virement;192,94;3508;;Vibrary
-17/05/2021;6314,49;Friendstrip;Vibrary;6%;Cheque;367,51;6682;;Vibrary
-16/02/2021;305,6;Vibrary;Le Wagon;20%;Virement;76,4;382;;Vibrary
-15/12/2020;316;Vibrary;CMG;20%;CB;79;395;;Vibrary
-25/08/2020;345,6;Vibrary;Yoga;20%;Virement;86,4;432;;Vibrary
-10/02/2021;1587,2;Vibrary;Le Wagon;20%;Virement;396,8;1984;;Vibrary
-13/06/2020;4996,215;Amazon;Georgie;6%;Cheque;290,785;5287;;Georgie
-18/03/2021;458,1;Monoprix;Georgie;10%;Cheque;50,9;509;;Georgie
-04/03/2021;5591,2;Intel;Georgie;20%;CB;1397,8;6989;;Georgie
-03/03/2021;1112,8;EDF;Georgie;20%;Espece;278,2;1391;;Georgie
-07/06/2020;1989;Paul;Georgie;10%;CB;221;2210;;Georgie
-17/07/2020;7794;Le Wagon;Georgie;10%;Virement;866;8660;;Georgie
-27/08/2020;4888,8;Vibrary;Georgie;20%;CB;1222,2;6111;;Georgie
-19/12/2020;5618,025;Helpling;Georgie;6%;CB;326,975;5945;;Georgie
-20/02/2021;33,6;Jobify;Georgie;20%;Espece;8,4;42;;Georgie
-29/06/2020;3665,6;Total;Georgie;20%;CB;916,4;4582;;Georgie
-12/12/2020;3487,5;Haribo;Georgie;10%;Cheque;387,5;3875;;Georgie
-11/08/2020;7296,8;Georgie;Le Wagon;20%;Cheque;1824,2;9121;;Georgie
-04/10/2020;3626,4;Georgie;DBO;20%;CB;906,6;4533;;Georgie
-15/09/2020;92,8;Georgie;JDS;20%;Espece;23,2;116;;Georgie
-09/04/2021;803,2;Georgie;Than;20%;CB;200,8;1004;;Georgie
-06/12/2020;3137,4;Uber;Georgie;6%;CB;182,6;3320;;Georgie
-13/11/2020;3921,3;Carrefour;Georgie;10%;Espece;435,7;4357;;Georgie
-07/10/2020;4494,42;Hotel;Georgie;6%;Espece;261,58;4756;;Georgie
-28/06/2020;8446,41;GDF;Georgie;6%;CB;491,59;8938;;Georgie
-10/01/2021;5447,925;Nespresso;Georgie;6%;Virement;317,075;5765;;Georgie
-25/07/2020;8194,095;Le Wagon;Georgie;6%;CB;476,905;8671;;Georgie
-03/05/2021;2232;Vibrary;Georgie;10%;Espece;248;2480;;Georgie
-17/06/2020;1709,6;Bobby;Georgie;20%;Virement;427,4;2137;;Georgie
-11/02/2021;5068;CMG;Georgie;20%;Espece;1267;6335;;Georgie
-05/08/2020;6187,5;Cardable;Georgie;10%;Espece;687,5;6875;;Georgie
-28/08/2020;2689,6;La vie;Georgie;20%;CB;672,4;3362;;Georgie
-10/09/2020;336;Georgie;Le Wagon;20%;Espece;84;420;;Georgie
-19/03/2021;2356,8;Georgie;John;20%;Espece;589,2;2946;;Georgie
-09/03/2021;5430,4;Georgie;Dr. Toby;20%;Espece;1357,6;6788;;Georgie
-17/12/2020;1917,6;Georgie;Yoga;20%;Espece;479,4;2397;;Georgie
+date;net_amount;issuer;client;vta;payment_method;tax_amount;total_amount;label;company_name;invoice_number
+15/05/2021;1064,8;Cardable;Vibrary;0,2;Virement;266,2;1331;;Vibrary;K9192
+09/05/2021;7038,4;Vibrary;Le Wagon;0,2;Virement;1759,6;8798;;Vibrary;W3408
+09/04/2021;19,92;Paul;Vibrary;0,2;Espece;4,98;24,9;;Vibrary;Y7970
+01/04/2021;663,2;HP;Vibrary;0,2;Cheque;165,8;829;;Vibrary;Q7596
+30/03/2021;6850,4;Vibrary;Vibrary;0,2;Virement;1712,6;8563;;Vibrary;W2497
+26/02/2021;6175,2;Vibrary;Than;0,2;Cheque;1543,8;7719;;Vibrary;Q2975
+19/02/2021;25,6;Le Wagon;Vibrary;0,2;Virement;6,4;32;;Vibrary;V3386
+05/02/2021;826,4;Vibrary;DBO;0,2;CB;206,6;1033;;Vibrary;F1959
+25/12/2020;6676,425;EDF;Vibrary;0,055;Virement;388,575;7065;;Vibrary;V6198
+11/11/2020;276,885;Carrefour;Vibrary;0,055;Espece;16,115;293;;Vibrary;T7282
+11/11/2020;7068,8;Vibrary;JDS;0,2;CB;1767,2;8836;;Vibrary;E5836
+11/09/2020;6694,38;Jobify;Vibrary;0,055;CB;389,62;7084;;Vibrary;S7273
+08/09/2020;5358,15;Amazon;Vibrary;0,055;CB;311,85;5670;;Vibrary;F2962
+02/09/2020;5079,2;Friendstrip;Vibrary;0,2;CB;1269,8;6349;;Vibrary;Q7221
+10/06/2020;7745,4;Helpling;Vibrary;0,1;Cheque;860,6;8606;;Vibrary;X4941
+10/08/2020;7393,6;Amazon;Vibrary;20%;CB;1848,4;9242;;Vibrary;X1703
+26/11/2020;2233,035;Carrefour;Vibrary;6%;CB;129,965;2363;;Vibrary;C9433
+24/10/2020;9097,515;HP;Vibrary;6%;CB;529,485;9627;;Vibrary;W2906
+27/11/2020;7955,955;EDF;Vibrary;6%;CB;463,045;8419;;Vibrary;N8656
+16/05/2021;318,6;Paul;Vibrary;10%;CB;35,4;354;;Vibrary;M5328
+24/04/2021;6535,8;Le Wagon;Vibrary;10%;CB;726,2;7262;;Vibrary;Q8165
+16/05/2021;6576,3;Vibrary;Vibrary;10%;Virement;730,7;7307;;Vibrary;R4881
+04/04/2021;20;Helpling;Vibrary;20%;Virement;5;25;;Vibrary;M1848
+29/08/2020;6476,085;Jobify;Vibrary;6%;Virement;376,915;6853;;Vibrary;Q7802
+03/02/2021;8557,2;Cardable;Vibrary;10%;Cheque;950,8;9508;;Vibrary;B3986
+31/05/2021;5284,8;Friendstrip;Vibrary;10%;Virement;587,2;5872;;Vibrary;V4546
+11/07/2020;7824,8;Vibrary;Le Wagon;20%;CB;1956,2;9781;;Vibrary;A1414
+20/12/2020;6230,4;Vibrary;DBO;20%;Cheque;1557,6;7788;;Vibrary;D5005
+15/07/2020;1567,2;Vibrary;JDS;20%;CB;391,8;1959;;Vibrary;C6073
+23/10/2020;286,4;Vibrary;Than;20%;Virement;71,6;358;;Vibrary;C6224
+06/03/2021;6635,7;Apple;Vibrary;10%;Cheque;737,3;7373;;Vibrary;O3786
+22/04/2021;3920,805;Tommy;Vibrary;6%;Espece;228,195;4149;;Vibrary;E9150
+04/05/2021;2984,4;Uber;Vibrary;10%;Espece;331,6;3316;;Vibrary;G6327
+27/06/2020;7686,9;GDF;Vibrary;10%;Espece;854,1;8541;;Vibrary;K6722
+22/06/2020;5679;Paul;Vibrary;10%;Virement;631;6310;;Vibrary;U2926
+03/06/2020;7772,625;Le Wagon;Vibrary;6%;CB;452,375;8225;;Vibrary;J5167
+03/06/2020;1422,9;Vibrary;Vibrary;10%;Virement;158,1;1581;;Vibrary;P7516
+07/05/2021;1702,4;Helpling;Vibrary;20%;Virement;425,6;2128;;Vibrary;Q4706
+03/09/2020;5429,7;Hotel Hero;Vibrary;10%;Espece;603,3;6033;;Vibrary;I3584
+17/07/2020;3315,06;Cardable;Vibrary;6%;Virement;192,94;3508;;Vibrary;R1986
+17/05/2021;6314,49;Friendstrip;Vibrary;6%;Cheque;367,51;6682;;Vibrary;T5224
+16/02/2021;305,6;Vibrary;Le Wagon;20%;Virement;76,4;382;;Vibrary;M1878
+15/12/2020;316;Vibrary;CMG;20%;CB;79;395;;Vibrary;S9393
+25/08/2020;345,6;Vibrary;Yoga;20%;Virement;86,4;432;;Vibrary;Q1416
+10/02/2021;1587,2;Vibrary;Le Wagon;20%;Virement;396,8;1984;;Vibrary;W4297
+13/06/2020;4996,215;Amazon;Georgie;6%;Cheque;290,785;5287;;Georgie;P2937
+18/03/2021;458,1;Monoprix;Georgie;10%;Cheque;50,9;509;;Georgie;Y7100
+04/03/2021;5591,2;Intel;Georgie;20%;CB;1397,8;6989;;Georgie;D4048
+03/03/2021;1112,8;EDF;Georgie;20%;Espece;278,2;1391;;Georgie;L1229
+07/06/2020;1989;Paul;Georgie;10%;CB;221;2210;;Georgie;G2675
+17/07/2020;7794;Le Wagon;Georgie;10%;Virement;866;8660;;Georgie;L1936
+27/08/2020;4888,8;Vibrary;Georgie;20%;CB;1222,2;6111;;Georgie;G9916
+19/12/2020;5618,025;Helpling;Georgie;6%;CB;326,975;5945;;Georgie;Z7114
+20/02/2021;33,6;Jobify;Georgie;20%;Espece;8,4;42;;Georgie;G8978
+29/06/2020;3665,6;Total;Georgie;20%;CB;916,4;4582;;Georgie;P7008
+12/12/2020;3487,5;Haribo;Georgie;10%;Cheque;387,5;3875;;Georgie;A6283
+11/08/2020;7296,8;Georgie;Le Wagon;20%;Cheque;1824,2;9121;;Georgie;A2150
+04/10/2020;3626,4;Georgie;DBO;20%;CB;906,6;4533;;Georgie;U2335
+15/09/2020;92,8;Georgie;JDS;20%;Espece;23,2;116;;Georgie;U5343
+09/04/2021;803,2;Georgie;Than;20%;CB;200,8;1004;;Georgie;L2535
+06/12/2020;3137,4;Uber;Georgie;6%;CB;182,6;3320;;Georgie;O7492
+13/11/2020;3921,3;Carrefour;Georgie;10%;Espece;435,7;4357;;Georgie;O6355
+07/10/2020;4494,42;Hotel;Georgie;6%;Espece;261,58;4756;;Georgie;R7721
+28/06/2020;8446,41;GDF;Georgie;6%;CB;491,59;8938;;Georgie;L4454
+10/01/2021;5447,925;Nespresso;Georgie;6%;Virement;317,075;5765;;Georgie;K1246
+25/07/2020;8194,095;Le Wagon;Georgie;6%;CB;476,905;8671;;Georgie;R9843
+03/05/2021;2232;Vibrary;Georgie;10%;Espece;248;2480;;Georgie;L4078
+17/06/2020;1709,6;Bobby;Georgie;20%;Virement;427,4;2137;;Georgie;C1204
+11/02/2021;5068;CMG;Georgie;20%;Espece;1267;6335;;Georgie;U4559
+05/08/2020;6187,5;Cardable;Georgie;10%;Espece;687,5;6875;;Georgie;S1362
+28/08/2020;2689,6;La vie;Georgie;20%;CB;672,4;3362;;Georgie;I5712
+10/09/2020;336;Georgie;Le Wagon;20%;Espece;84;420;;Georgie;J9381
+19/03/2021;2356,8;Georgie;John;20%;Espece;589,2;2946;;Georgie;L8646
+09/03/2021;5430,4;Georgie;Dr. Toby;20%;Espece;1357,6;6788;;Georgie;F5564
+17/12/2020;1917,6;Georgie;Yoga;20%;Espece;479,4;2397;;Georgie;D3780
