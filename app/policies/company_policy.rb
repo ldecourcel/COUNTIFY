@@ -11,7 +11,7 @@ class CompanyPolicy < ApplicationPolicy
 
   def show?
     if user.is_accountant?
-      @company.accountant_id == current_user.id
+      @record.accountant_id == user.id
     elsif user.is_company?
       @record.id == user.company_id
     end
