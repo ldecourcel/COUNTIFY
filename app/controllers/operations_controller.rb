@@ -1,4 +1,7 @@
 class OperationsController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
+
   def index
     find_company
     if params[:query].present?
@@ -22,6 +25,9 @@ class OperationsController < ApplicationController
         end
       end
     end
+
+    # Permet de classer selon les colonnes
+    @operations = Operation.order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -62,6 +68,18 @@ class OperationsController < ApplicationController
   def find_operation
     @operation = Operation.find(params[:id])
     authorize @operation
+  end
+
+  def sort_column
+    if params[:sort] == "details"
+      Operation.column_names.include?(params[:sort]) ? "lower(#{params[:sort]})" : "date"
+    else
+      Operation.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 end
