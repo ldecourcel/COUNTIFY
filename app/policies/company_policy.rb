@@ -24,4 +24,9 @@ class CompanyPolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def update?
+    new?
+  end
+  
 end
