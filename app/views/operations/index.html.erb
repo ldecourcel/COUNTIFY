@@ -55,16 +55,20 @@
         <% @operations.each do |operation| %>
         <div class="link">
           <tr onclick="window.location='/companies/<%=params[:company_id]%>/operations/<%= operation.id %>';">
-            <td class="<%= operation.amount > 0 ? 'operations-green' : 'operations-red'%>" ><strong><%= operation.amount%></strong></td>
+              <td class="table-amount-center">
+                <div class="<%= operation.amount > 0 ? 'tag-amount-green' : 'tag-amount-red'%>">
+                  <strong><%= operation.amount%></strong>
+                </div>
+              </td>
             <td><%= operation.date.strftime("%d/%m/%Y")%></td>
             <td id="description"><%= operation.details %></td>
             <td><%= operation.account.account_name %></td>
             <% if operation.validated == true %>
-              <td><%= image_tag("checked.png", class:"img-status") %></td>
+              <td><i class="fas fa-check-circle"></i></td>
             <% elsif operation.invoice != nil && operation.validated == false %>
-              <td><%= image_tag("question.png", class:"img-status") %></td>
+              <td><i class="fas fa-question-circle"></i></td>
             <% elsif operation.validated == false %>
-              <td><%= image_tag("error.png", class:"img-status") %></td>
+              <td><i class="fas fa-times-circle"></i></td>
             <% end %>
           </tr>
         </div>
