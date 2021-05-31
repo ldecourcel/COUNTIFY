@@ -44,12 +44,11 @@
       <table>
       <thead>
         <tr>
-          <th class="th-sm"><strong>Montant</strong></th>
-          <th class="th-sm">Date</th>
-          <th class="th-sm">Description</th>
-          <th class="th-sm">Catégorie</th>
-          <th class="th-sm">Compte</th>
-          <th class="th-sm">Status</th>
+          <th class="th-sm"><%= sortable "amount", "Montant"%></th>
+          <th class="th-sm"><%= sortable "date", "Date"%></th>
+          <th class="th-sm"><%= sortable "details", "Description"%></th>
+          <th class="th-sm"><%= sortable "account_id", "Compte"%></th>
+          <th class="th-sm"><%= sortable "validated", "Status"%></th>
         </tr>
       </thead>
       <tbody>
