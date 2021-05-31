@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @user = User.find_by(company_id: @company.id)
     authorize @company
   end
 
@@ -23,6 +24,13 @@ class CompaniesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    @company.update(company_params)
+    authorize @company
+    redirect_to company_path(@company)
   end
 
   private
