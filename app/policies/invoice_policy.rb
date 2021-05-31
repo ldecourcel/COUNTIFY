@@ -14,7 +14,7 @@ class InvoicePolicy < ApplicationPolicy
   end
 
   def new?
-    user.is_accountant?
+    user.is_accountant? || user.is_company?
 
   end
 
