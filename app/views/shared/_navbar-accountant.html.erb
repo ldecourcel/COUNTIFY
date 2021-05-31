@@ -1,0 +1,85 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon-other">
+  <div class="nav-logo-left">
+    <%= link_to image_tag("logo-letters.png"), companies_path, class: "navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+
+
+  <div class="nav-flex" id="navbarSupportedContent">
+    <div class="navbar-nav nav-flex">
+      <% unless controller_name == "companies" && action_name == "index" || controller_name == "pages" %>
+
+        <div class="nav-item smaller <%= nav-'active' if controller_name == "companies" && action_name == "index" %>">
+          <%= link_to companies_path do %>
+            <div class="navbar-logo-other">
+              <%= image_tag("group.png") %>
+              <p>Mes clients</p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "companies" && action_name == "show" %>">
+          <%= link_to company_path(@company) do %>
+            <div class="navbar-logo-other">
+              <%= image_tag("info.png") %>
+              <p>Informations</p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "operations" && (action_name == "index" || action_name == "show") %>">
+          <%= link_to company_operations_path(@company) do %>
+            <div class="navbar-logo-other">
+              <%= image_tag("euro.png") %>
+              <p>Transactions</p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "invoices" && (action_name == "index" || action_name == "show") %>">
+          <%= link_to company_invoices_path(@company) do %>
+            <div class="navbar-logo-other">
+              <%= image_tag("invoice.png") %>
+              <p>Justificatifs</p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="nav-item smaller">
+          <%= link_to "#" do %>
+            <div class="navbar-logo-other">
+              <%= image_tag("archive.png") %>
+              <p>Historique</p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="nav-item">
+          <%= link_to "#" do %>
+            <div class="navbar-logo-other">
+              <%= image_tag("chat.png") %>
+              <p>Chat</p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="nav-item dropdown">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= content_tag :div, class: "avatar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+          <p><%= current_user.initials %></p>
+        <% end %>
+      <% end %>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <%= link_to "Mes clients", companies_path, class: "dropdown-item" %>
+        <%= link_to "Dashboard", "#", class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </div>
+    </div>
+</div>

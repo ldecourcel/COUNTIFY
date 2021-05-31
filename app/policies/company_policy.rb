@@ -5,6 +5,18 @@ class CompanyPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    user.is_accountant?
+  end
+
+  def show?
+    if user.is_accountant?
+      @company.accountant_id == current_user.id
+    elsif user.is_company?
+      @record.id == user.company_id
+    end
+  end
+
   def new?
     true
   end
@@ -13,12 +25,8 @@ class CompanyPolicy < ApplicationPolicy
     new?
   end
 
-  def show?
-    new?
-  end
-
   def update?
     new?
   end
-
+  
 end
