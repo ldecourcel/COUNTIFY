@@ -20,11 +20,11 @@
           <% end %>
         </div>
 
-        <div class="nav-item smaller <%= 'nav-active' if controller_name == "companies" && action_name == "show" %>">
-          <%= link_to company_path(@company) do %>
+        <div class="nav-item smaller <%= nav-'active' if controller_name == "companies" && action_name == "index" %>">
+          <%= link_to company_dashboard_path(@company) do %>
             <div class="navbar-logo-other">
-              <%= image_tag("info.png") %>
-              <p>Informations</p>
+              <%= image_tag("dashboard.png") %>
+              <p>Dashboard</p>
             </div>
           <% end %>
         </div>
@@ -61,6 +61,15 @@
             <div class="navbar-logo-other">
               <%= image_tag("chat.png") %>
               <p>Chat</p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "companies" && action_name == "show" %>">
+          <%= link_to company_path(@company) do %>
+            <div class="navbar-logo-other">
+              <%= image_tag("info.png") %>
+              <p>Informations</p>
             </div>
           <% end %>
         </div>

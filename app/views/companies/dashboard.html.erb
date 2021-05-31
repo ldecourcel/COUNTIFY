@@ -1,0 +1,7 @@
+<div class="big-container">
+  <div class="container-dashboard">
+    <div class="pie-chart">
+      <%= pie_chart @company.operations.group(:category).sum(:amount), donut: true, legend: "left", suffix: "€", thousands: " " %>
+    </div>
+  </div>
+</div>

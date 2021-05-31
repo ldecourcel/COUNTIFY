@@ -55,6 +55,15 @@
             </div>
           <% end %>
         </div>
+
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "companies" && action_name == "show" %>">
+          <%= link_to company_path(@company) do %>
+            <div class="navbar-logo-other">
+              <%= image_tag("info.png") %>
+              <p>Informations</p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>

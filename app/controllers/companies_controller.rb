@@ -34,6 +34,12 @@ class CompaniesController < ApplicationController
     redirect_to company_path(@company)
   end
 
+  def dashboard
+    @company = Company.find(params[:id])
+    authorize @company
+    @operations = policy_scope(@company.operations).order(date: :desc)
+  end
+
   private
 
   def company_params
