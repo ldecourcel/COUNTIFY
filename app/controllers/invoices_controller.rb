@@ -1,8 +1,3 @@
-require 'uri'
-require 'net/http'
-require 'net/https'
-require 'mime/types'
-
 
 class InvoicesController < ApplicationController
   # /companies/:company_id/invoices
@@ -29,16 +24,9 @@ class InvoicesController < ApplicationController
     @invoice = InvoicesApi.new(invoice).call(file)
     authorize @invoice
     @invoice.company_id = params[:company_id]
-<<<<<<< HEAD
-    # raise
-    if @invoice.save
-
-      redirect_to invoice_path(@invoice)
-=======
     @company = Company.find(@invoice.company_id)
     if @invoice.save
-      redirect_to company_invoices_path(@company)
->>>>>>> 8ab7c47fefcc010de0e2f8c8bb6f013a8b9c63fb
+      redirect_to company_invoice_path(@company, @invoice)
     else
       render :new
     end

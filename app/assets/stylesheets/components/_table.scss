@@ -72,3 +72,25 @@ td img {
     background-color: rgba($green, 0.8) !important;
   }
 }
+
+.show-rows {
+  text-align: left;
+  &:hover {
+    cursor: auto;
+    background-color: $white;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  td {
+    padding-right: 72px;
+    padding-bottom: 24px;
+  }
+
+}
+
+#table-show-invoices {
+    // margin-left: 70px;
+    width: 100%;
+}

@@ -197,3 +197,25 @@
     transform: scale(1.01);
   }
 }
+
+.show-edit-btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .fa-xs {
+    font-size: 1em;
+  }
+  .fa-trash-alt {
+    color: $red-bis;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .fa-pen:hover {
+    opacity: 0.5;
+  }
+}
