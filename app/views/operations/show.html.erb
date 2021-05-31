@@ -47,7 +47,7 @@
           </thead>
           <tbody>
             <div class="link">
-              <tr onclick="window.location='/invoices/<%= @operation.invoice.id %>';">
+              <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= @operation.invoice.id %>';">
                 <td><strong><%= @operation.invoice.tax_amount + @operation.invoice.net_amount %></strong></td>
                 <td><%= @operation.invoice.tax_amount %></td>
                 <td><%= @operation.invoice.vta %></td>
@@ -74,11 +74,11 @@
               <%end%>
               <div class="carousel-content">
                 <div class="carousel-text">
-                  <p>Date : <%= @operation.invoice.date%></p>
+                  <p>Date : <%= @operation.invoice.date.strftime("%d/%m/%Y") %></p>
                   <p>Montant TTC : <%= @operation.invoice.total_amount %>€</p>
                   <p>Emetteur : <%= @operation.invoice.issuer %></p>
                 </div>
-                <%= link_to "Réconcilier", operation_path(@operation, invoice: @operation.invoice.id), method: :patch, class: "link-reconcile" %>
+                <%= link_to "Réconcilier", company_operation_path(@operation, company_id: params[:company_id], invoice: @operation.invoice.id), method: :patch, class: "link-reconcile" %>
               </div>
             </div>
 
@@ -94,7 +94,7 @@
                   <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
                   <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
                 </div>
-                <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
+                <%= link_to "Réconcilier", company_operation_path(@operation, company_id: params[:company_id], invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
               </div>
             </div>
 
@@ -110,7 +110,7 @@
                   <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
                   <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
                 </div>
-                <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
+                <%= link_to "Réconcilier", company_operation_path(@operation, company_id: params[:company_id], invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@
                   <p>Montant TTC : <%= @invoices_to_display[0][0].total_amount %>€</p>
                   <p>Emetteur : <%= @invoices_to_display[0][0].issuer %></p>
                 </div>
-                <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[0][0].id), method: :patch, class: "link-reconcile" %>
+                <%= link_to "Réconcilier", company_operation_path(@operation, company_id: params[:company_id], invoice: @invoices_to_display[0][0].id), method: :patch, class: "link-reconcile" %>
               </div>
             </div>
             <div class="carousel-item">
@@ -157,7 +157,7 @@
               <p>Date : <%= @invoices_to_display[1][0].date %></p>
               <p>Montant TTC : <%= @invoices_to_display[1][0].total_amount %>€</p>
               <p>Emetteur : <%= @invoices_to_display[1][0].issuer %></p>
-              <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
+              <%= link_to "Réconcilier", company_operation_path(@operation, company_id: params[:company_id], invoice: @invoices_to_display[1][0].id), method: :patch, class: "link-reconcile" %>
             </div>
             <div class="carousel-item">
               <%if @invoices_to_display[2][0].photos.attached?%>
@@ -168,7 +168,7 @@
               <p>Date : <%= @invoices_to_display[2][0].date %></p>
               <p>Montant TTC : <%= @invoices_to_display[2][0].total_amount %>€</p>
               <p>Emetteur : <%= @invoices_to_display[2][0].issuer %></p>
-              <%= link_to "Réconcilier", operation_path(@operation, invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
+              <%= link_to "Réconcilier", company_operation_path(@operation, company_id: params[:company_id], invoice: @invoices_to_display[2][0].id), method: :patch, class: "link-reconcile" %>
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselOfInvoices" role="button" data-slide="prev">
@@ -200,12 +200,12 @@
           </thead>
           <tbody>
             <% @invoices.each do |invoice| %>
-                <tr onclick="window.location='/invoices/<%= invoice.id %>';">
-                  <td><%= invoice.date%></td>
+                <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';">
+                  <td><%= invoice.date.strftime("%d/%m/%Y") %></td>
                   <td><%= invoice.issuer%></td>
                   <td> <%= invoice.client %></td>
                   <td><%= invoice.net_amount %></td>
-                  <td><%= link_to "Réconcilier", operation_path(@operation, invoice: invoice.id), method: :patch  %></td>
+                  <td><%= link_to "Réconcilier", company_operation_path(@operation, company_id: params[:company_id], invoice: invoice.id), method: :patch  %></td>
                 </tr>
             <% end %>
           </tbody>

@@ -1,12 +1,13 @@
 class InvoicesController < ApplicationController
+  # /companies/:company_id/invoices
   def index
     @company = Company.find(params[:company_id])
-    @invoices = policy_scope(Invoice).where(company_id: @company.id).order(created_at: :desc)
+    @invoices = policy_scope(Invoice).where(company_id: @company.id)
   end
 
   def show
+    @company = Company.find(params[:company_id])
     @invoice = Invoice.find(params[:id])
-    @company = @invoice.company
     authorize @invoice
   end
 
@@ -20,8 +21,9 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new(invoice_params)
     authorize @invoice
     @invoice.company_id = params[:company_id]
+    @company = Company.find(@invoice.company_id)
     if @invoice.save
-      redirect_to company_invoices_path
+      redirect_to company_invoices_path(@company)
     else
       render :new
     end
@@ -32,7 +34,7 @@ class InvoicesController < ApplicationController
     @invoice.update!(invoice_params)
 
     authorize @invoice
-    redirect_to invoice_path(@invoice)
+    redirect_to company_invoice_path(params[:company_id], @invoice)
   end
 
   def destroy

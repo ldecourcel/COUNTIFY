@@ -54,7 +54,7 @@
       <tbody>
         <% @operations.each do |operation| %>
         <div class="link">
-          <tr onclick="window.location='/operations/<%= operation.id %>';">
+          <tr onclick="window.location='/companies/<%=params[:company_id]%>/operations/<%= operation.id %>';">
             <td class="<%= operation.amount > 0 ? 'operations-green' : 'operations-red'%>" ><strong><%= operation.amount%></strong></td>
             <td><%= operation.date.strftime("%d/%m/%Y")%></td>
             <td id="description"><%= operation.details %></td>

@@ -35,7 +35,7 @@
         <tbody>
           <% @invoices.each do |invoice| %>
 
-              <tr onclick="window.location='/invoices/<%= invoice.id %>';" class="<%= invoice.issuer == @company.name ? 'invoices-green' : 'invoices-red'%>" >
+              <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';" class="<%= invoice.issuer == @company.name ? 'invoices-green' : 'invoices-red'%>" >
                 <td><%= invoice.net_amount %></td>
                 <td><%= invoice.tax_amount + invoice.net_amount %></td>
                 <td><%= invoice.vta %></td>
