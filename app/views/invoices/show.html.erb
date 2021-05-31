@@ -24,24 +24,48 @@
           <tbody>
             <div class="link">
               <tr onclick="window.location='/invoices/<%= @invoice.id %>';">
-                <td><strong><%= @invoice.tax_amount + @invoice.net_amount %></strong></td>
-                <td><%= @invoice.tax_amount %></td>
-                <td><%= @invoice.vta %></td>
-                <td><%= @invoice.date.strftime("%d/%m/%Y") %></td>
-                <td><%= @invoice.issuer %></td>
-                <td><%= @invoice.client %></td>
+                <% if @invoice.total_amount.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= @invoice.total_amount %></td>
+                <% end %>
+                <% if @invoice.tax_amount.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= @invoice.tax_amount %></td>
+                <% end %>
+                <% if @invoice.vta.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= @invoice.vta %></td>
+                <% end %>
+                <% if @invoice.date.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= @invoice.date.strftime("%d/%m/%Y")  %></td>
+                <% end %>
+                <% if @invoice.issuer.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= @invoice.issuer %></td>
+                <% end %>
+                <% if @invoice.client.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= @invoice.client %></td>
+                <% end %>
                 <td><%= image_tag("preview_invoice.jpg", class:"invoice-preview")%></td>
               </tr>
             </div>
           </tbody>
         </table>
 
-      <% @invoice.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 250, crop: :fill %>
-      <% end %>
+      <%# <% @invoice.photos.each do |photo| %>
+        <%# <%= cl_image_tag photo.key, height: 300, width: 250, crop: :fill %>
+      <%# <% end %>
 
       <p> <%if @invoice.photos.attached?%>
-            <%= cl_image_tag @invoice.photos.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag @invoice.photos[0].key, height: 300, width: 250, crop: :fill %>
           <%else%>
             <%= image_tag("preview_invoice.jpg", class:"invoice-preview")%>
           <%end%>

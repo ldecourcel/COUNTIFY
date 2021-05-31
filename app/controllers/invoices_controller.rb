@@ -17,18 +17,21 @@ class InvoicesController < ApplicationController
   end
 
   def new
-
     @company = Company.find(params[:company_id])
     @invoice = Invoice.new
     authorize @invoice
   end
 
   def create
-    @invoice = Invoice.new(invoice_params)
+    invoice = Invoice.new(invoice_params)
+    file = invoice_params[:photos].first.tempfile
+    @invoice = InvoicesApi.new(invoice).call(file)
     authorize @invoice
     @invoice.company_id = params[:company_id]
+    # raise
     if @invoice.save
-      redirect_to company_invoices_path
+
+      redirect_to invoice_path(@invoice)
     else
       render :new
     end
