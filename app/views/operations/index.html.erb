@@ -47,6 +47,7 @@
           <th class="th-sm"><strong>Montant</strong></th>
           <th class="th-sm">Date</th>
           <th class="th-sm">Description</th>
+          <th class="th-sm">Catégorie</th>
           <th class="th-sm">Compte</th>
           <th class="th-sm">Status</th>
         </tr>
@@ -62,6 +63,7 @@
               </td>
             <td><%= operation.date.strftime("%d/%m/%Y")%></td>
             <td id="description"><%= operation.details %></td>
+            <td><%= operation.category %></td>
             <td><%= operation.account.account_name %></td>
             <% if operation.validated == true %>
               <td><i class="fas fa-check-circle"></i></td>
