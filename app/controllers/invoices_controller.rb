@@ -1,3 +1,9 @@
+require 'uri'
+require 'net/http'
+require 'net/https'
+require 'mime/types'
+
+
 class InvoicesController < ApplicationController
   def index
     @company = Company.find(params[:company_id])
@@ -11,6 +17,7 @@ class InvoicesController < ApplicationController
   end
 
   def new
+
     @company = Company.find(params[:company_id])
     @invoice = Invoice.new
     authorize @invoice
