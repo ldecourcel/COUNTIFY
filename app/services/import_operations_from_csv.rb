@@ -21,6 +21,7 @@ class ImportOperationsFromCsv
       operation.amount = row[1]
       operation.details = row[2]
       operation.account = account
+      operation.category = row[3]
       operation.save!
       # payment = Payment.new(
       #   # ...
