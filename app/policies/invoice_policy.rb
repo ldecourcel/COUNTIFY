@@ -13,13 +13,11 @@ class InvoicePolicy < ApplicationPolicy
   end
 
   def show?
-    record.company.accountant_id == user.id || record.company_id == user.company.id
+    record.company.accountant_id == user.accountant_id || record.company_id == user.company_id
   end
 
   def new?
-    # params[:company_id]
-    # raise
-    user.accountant_id == user.id || user.company_id == user.id
+    user.accountant_id == Company.find(record.company_id).accountant_id || user.company_id == Company.find(record.company_id).accountant_id
     # raise
   end
 
@@ -32,7 +30,7 @@ class InvoicePolicy < ApplicationPolicy
   end
 
   def update?
-    edit?
+    Company.find(record.company_id).accountant_id == user.accountant_id|| user.company_id == record.company_id
   end
 
   def destroy?
