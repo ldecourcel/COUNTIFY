@@ -42,23 +42,6 @@ td img {
   height: 16px;
 }
 
-.operations-red {
-  * {
-    background-color: rgba($red, 0.5) !important;
-    padding: 4px 12px 4px 12px;
-    border-radius: 16px;
-    width: 50%;
-  }
-}
-
-.operations-green {
-  * {
-    background-color: rgba($green, 0.5) !important;
-    padding: 4px 12px 4px 12px;
-    border-radius: 16px;
-  }
-}
-
 .invoices-red {
   background-color: rgba($red, 0.3) !important;
   &:hover {
@@ -73,3 +56,49 @@ td img {
   }
 }
 
+.show-rows {
+  text-align: left;
+
+  &:hover {
+    cursor: auto;
+    background-color: $white;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  td {
+    padding-right: 72px;
+    padding-bottom: 24px;
+  }
+}
+
+#table-show-invoices {
+    // margin-left: 70px;
+    width: 100%;
+}
+
+.tag-amount-green {
+  display: flex;
+  color: $green2;
+  background-color: rgba($green, 0.2) !important;
+  padding: 4px 12px 4px 12px;
+  border-radius: 16px;
+  width: 50%;
+  justify-content: center;
+}
+
+.tag-amount-red {
+  display: flex;
+  color: $red;
+  background-color: rgba($red, 0.2) !important;
+  padding: 4px 12px 4px 12px;
+  border-radius: 16px;
+  width: 50%;
+  justify-content: center;
+}
+
+.table-amount-center {
+  display: flex;
+  justify-content: center;
+}

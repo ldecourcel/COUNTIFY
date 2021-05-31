@@ -1,71 +1,123 @@
 <div class="big-container">
   <div class="container-show-operations">
     <div data-controller="edit-invoice">
-      <%= link_to "<", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}, class:'button-return'%>
+      <div class="container-title-show">
+        <%= link_to "<", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}, class:'button-return'%>
 
-      <%= link_to "<", company_invoice_path(@invoice.company, @invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
-      <h2>Justificatif</h2>
+        <%= link_to "<", company_invoice_path(@invoice.company, @invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+        <h2><%= @invoice.company.name %> > Justificatif</h2>
+      </div>
 
-      <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm" style="cursor: pointer"></i>
-      <i class="fas fa-trash-alt fa-xs ml-2" data-action="click->edit-invoice#displayForm" style="cursor: pointer"></i>
-      <div class="<%= 'd-none' if @invoice.errors.any? %>" data-edit-invoice-target="infos">
-        <table>
-          <thead>
-            <tr>
-              <th class="th-sm"><strong>Montant TTC</strong></th>
-              <th class="th-sm">Montant taxe</th>
-              <th class="th-sm">TVA</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">Bénéficaire</th>
-              <th class="th-sm">Client</th>
-              <th class="th-sm">Aperçu</th>
-            </tr>
-          </thead>
-          <tbody>
-            <div class="link">
-                <td><strong><%= @invoice.total_amount %></strong></td>
-                <td><%= @invoice.tax_amount %></td>
-                <td><%= @invoice.vta %></td>
-                <td><%= @invoice.date%></td>
-                <td><%= @invoice.issuer %></td>
-                <td><%= @invoice.client %></td>
-                <td><%= image_tag("preview_invoice.jpg", class:"invoice-preview")%></td>
-            </div>
-          </tbody>
-        </table>
-
-      <% @invoice.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 250, crop: :fill %>
-      <% end %>
-
-      <p> <%if @invoice.photos.attached?%>
-            <%= cl_image_tag @invoice.photos.key, height: 300, width: 400, crop: :fill %>
-          <%else%>
-            <%= image_tag("preview_invoice.jpg", class:"invoice-preview")%>
-          <%end%>
-      </p>
-    </div>
-
-    <%= simple_form_for([Company.find(params[:company_id]), @invoice], html: { class: @invoice.errors.any? ? '' : 'd-none', data: { edit_invoice_target: 'form', action: 'submit->edit_invoice#update' } }) do |f| %>
-      <%= f.input :date %>
-      <%= f.input :issuer, label: 'Bénéficiaire' %>
-      <%= f.input :total_amount, label: 'Montant TTC' %>
-      <%= f.input :net_amount, label: 'Montant HT' %>
-      <%= f.input :vta, label: 'TVA' %>
-      <%= f.input :tax_amount, label: 'Montant de la taxe' %>
-      <%= f.input :payment_method, label: 'Méthode de paiement' %>
-      <%= f.input :client %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <% @invoice.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 150, width: 120, crop: :fill %>
-      <% end %>
-      <p><%= f.submit %></p>
-
-    <% end %>
-
-  <%= link_to "Delete",
+      <div class="grid-show">
+        <div class="grid-column" id="grid-img">
+          <div class="img-show-invoice">
+            <% if @invoice.photos.attached? %>
+              <%= cl_image_tag @invoice.photos[0].key %>
+            <% else %>
+              <%= image_tag("preview_invoice.jpg", class:"invoice-preview")%>
+            <% end %>
+          </div>
+        </div>
+        <div class="grid-column" id="grid-table">
+          <div class="show-edit-btn">
+            <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-invoice#displayForm" style="cursor: pointer"></i>
+            <%= link_to raw('<i class="fas fa-trash-alt fa-xs ml-2"></i>'),
               company_invoice_path(@invoice.company, @invoice),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
+          </div>
+          <div class="<%= 'd-none' if @invoice.errors.any? %>" data-edit-invoice-target="infos">
+            <table id="table-show-invoices">
+              <tbody>
+                <div>
+                  <tr class="show-rows">
+                    <td><strong>Date</strong></td>
+                    <% if @invoice.date.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.date.strftime("%d/%m/%Y")  %></td>
+                    <% end %>
+                  </tr>
+                  <tr class="show-rows">
+                    <td><strong>Bénéficiaire</strong></td>
+                    <% if @invoice.issuer.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.issuer %></td>
+                    <% end %>
+                  </tr>
+                  <tr class="show-rows">
+                    <td><strong>Montant TTC</strong> (€)</td>
+                    <% if @invoice.total_amount.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.total_amount %></td>
+                    <% end %>
+                  </tr>
+                  <tr class="show-rows">
+                    <td><strong>Montant HT</strong> (€)</td>
+                    <% if @invoice.net_amount.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.net_amount %></td>
+                    <% end %>
+                  </tr>
+                  <tr class="show-rows">
+                    <td><strong>Montant taxe</strong> (€)</td>
+                    <% if @invoice.tax_amount.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.tax_amount %></td>
+                    <% end %>
+                  </tr>
+                  <tr class="show-rows">
+                    <td><strong>TVA</strong> (%)</td>
+                    <% if @invoice.vta.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.vta %></td>
+                    <% end %>
+                  </tr>
+                  <tr class="show-rows">
+                    <td><strong>Type de paiement</strong></td>
+                    <% if @invoice.payment_method.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.payment_method %></td>
+                    <% end %>
+                  </tr>
+                  <tr class="show-rows">
+                    <td><strong>Client</strong></td>
+                    <% if @invoice.client.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.client %></td>
+                    <% end %>
+                  </tr>
+                </div>
+              </tbody>
+            </table>
+          </div>
+            <%= simple_form_for([Company.find(params[:company_id]), @invoice], html: { class: @invoice.errors.any? ? '' : 'd-none', data: { edit_invoice_target: 'form', action: 'submit->edit_invoice#update' } }) do |f| %>
+              <%= f.input :date %>
+              <%= f.input :issuer, label: 'Bénéficiaire' %>
+              <%= f.input :total_amount, label: 'Montant TTC' %>
+              <%= f.input :net_amount, label: 'Montant HT' %>
+              <%= f.input :vta, label: 'TVA' %>
+              <%= f.input :tax_amount, label: 'Montant de la taxe' %>
+              <%# <%= f.input :payment_method, label: 'Méthode de paiement' %>
+              <%= f.input :payment_method, label: 'Type de paiement', :collection => %w[CB Chèque Virement Espèces Prélèvement] %>
+
+              <%= f.input :client %>
+              <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+              <% @invoice.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 150, width: 120, crop: :fill %>
+              <% end %>
+              <p><%= f.submit %></p>
+
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

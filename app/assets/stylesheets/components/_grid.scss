@@ -1,0 +1,20 @@
+.grid-show {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.grid-column {
+  align-self: center;
+  // justify-self: end;
+}
+
+// #grid-table {
+//   width: 80%;
+// }
+
+// #grid-img {
+//   width: 120%;
+// }

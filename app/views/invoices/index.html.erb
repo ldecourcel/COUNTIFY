@@ -36,12 +36,36 @@
           <% @invoices.each do |invoice| %>
 
               <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';" class="<%= invoice.issuer == @company.name ? 'invoices-green' : 'invoices-red'%>" >
-                <td><%= invoice.net_amount %></td>
-                <td><%= invoice.tax_amount + invoice.net_amount %></td>
-                <td><%= invoice.vta %></td>
-                <td><%= invoice.date.strftime("%d/%m/%Y") %></td>
-                <td><%= invoice.issuer%></td>
-                <td><%= invoice.client %></td>
+                <% if invoice.total_amount.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= invoice.total_amount %></td>
+                <% end %>
+                <% if invoice.tax_amount.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= invoice.tax_amount %></td>
+                <% end %>
+                <% if invoice.vta.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= invoice.vta %></td>
+                <% end %>
+                <% if invoice.date.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= invoice.date.strftime("%d/%m/%Y")  %></td>
+                <% end %>
+                <% if invoice.issuer.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= invoice.issuer %></td>
+                <% end %>
+                <% if invoice.client.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= invoice.client %></td>
+                <% end %>
               </tr>
 
           <% end %>

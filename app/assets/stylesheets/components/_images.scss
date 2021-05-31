@@ -7,3 +7,29 @@
   height: 24px;
   width: 24px;
 }
+
+.img-show-invoice {
+  width: 100%;
+  height: 100%;
+  img {
+    width: 87%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}
+
+.fa-question-circle {
+  color: $orange;
+  font-size: 24px;
+}
+
+.fa-check-circle {
+  color: $green2;
+  font-size: 24px;
+}
+
+.fa-times-circle {
+  color: red;
+  font-size: 24px;
+}

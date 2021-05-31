@@ -10,10 +10,10 @@ export default class extends Controller {
   // }
 
   displayForm() {
-    this.infosTarget.classList.add('d-none');
-    this.formTarget.classList.remove('d-none');
-    this.returnTarget.classList.add('d-none');
-    this.updatedreturnTarget.classList.remove('d-none');
+    this.infosTarget.classList.toggle('d-none');
+    this.formTarget.classList.toggle('d-none');
+    this.returnTarget.classList.toggle('d-none');
+    this.updatedreturnTarget.classList.toggle('d-none');
   }
 
   update(event) {
