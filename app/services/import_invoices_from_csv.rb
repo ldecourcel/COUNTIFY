@@ -27,6 +27,7 @@ class ImportInvoicesFromCsv
       p r[:company_name]
       company = Company.find_by(name: r[:company_name])
       invoice = Invoice.new(r.delete_if{ |k, v| k == :company_name})
+      invoice.invoice_number = row[-1]
       # p invoice
       # p row[0]
       invoice.date = Date.parse(row[0])
