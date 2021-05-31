@@ -47,6 +47,7 @@
           <th class="th-sm"><strong>Montant</strong></th>
           <th class="th-sm">Date</th>
           <th class="th-sm">Description</th>
+          <th class="th-sm">Compte</th>
           <th class="th-sm">Status</th>
         </tr>
       </thead>
@@ -57,6 +58,7 @@
             <td class="<%= operation.amount > 0 ? 'operations-green' : 'operations-red'%>" ><strong><%= operation.amount%></strong></td>
             <td><%= operation.date.strftime("%d/%m/%Y")%></td>
             <td id="description"><%= operation.details %></td>
+            <td><%= operation.account.account_name %></td>
             <% if operation.validated == true %>
               <td><%= image_tag("checked.png", class:"img-status") %></td>
             <% elsif operation.invoice != nil && operation.validated == false %>
