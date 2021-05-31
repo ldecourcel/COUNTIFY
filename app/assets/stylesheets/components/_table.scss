@@ -56,6 +56,28 @@ td img {
   }
 }
 
+.show-rows {
+  text-align: left;
+
+  &:hover {
+    cursor: auto;
+    background-color: $white;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  td {
+    padding-right: 72px;
+    padding-bottom: 24px;
+  }
+}
+
+#table-show-invoices {
+    // margin-left: 70px;
+    width: 100%;
+}
+
 .tag-amount-green {
   display: flex;
   color: $green2;
