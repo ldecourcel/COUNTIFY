@@ -11,7 +11,7 @@ class CompanyPolicy < ApplicationPolicy
 
   def show?
     if user.is_accountant?
-      @record.accountant_id == user.id
+      @record.accountant_id == user.accountant_id
     elsif user.is_company?
       @record.id == user.company_id
     end
@@ -28,5 +28,13 @@ class CompanyPolicy < ApplicationPolicy
   def update?
     new?
   end
-  
+
+  def dashboard?
+    if user.is_accountant?
+      record.accountant_id == user.accountant_id
+    elsif user.is_company?
+      record.id == user.company_id
+    end
+  end
+
 end

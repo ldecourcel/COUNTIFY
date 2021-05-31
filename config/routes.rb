@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   get :components, to: 'pages#components'
+  get 'companies/:id/dashboard', to: 'companies#dashboard', as: :company_dashboard
 end

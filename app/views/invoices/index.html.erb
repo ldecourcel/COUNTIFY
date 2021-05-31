@@ -24,6 +24,7 @@
       <table>
         <thead>
           <tr>
+            <th>Type</th>
             <th>Montant HT (€)</th>
             <th>Montant TTC (€)</th>
             <th>TVA (%)</th>
@@ -34,8 +35,14 @@
         </thead>
         <tbody>
           <% @invoices.each do |invoice| %>
-
-              <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';" class="<%= invoice.issuer == @company.name ? 'invoices-green' : 'invoices-red'%>" >
+              <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';">
+                <td>
+                  <%if invoice.issuer == @company.name %>
+                    <i class="far fa-arrow-alt-circle-up"></i>
+                  <% else %>
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                 <% end %>
+                 </td>
                 <td><%= invoice.net_amount %></td>
                 <td><%= invoice.tax_amount + invoice.net_amount %></td>
                 <td><%= invoice.vta %></td>
