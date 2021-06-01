@@ -18,7 +18,6 @@ class InvoicePolicy < ApplicationPolicy
 
   def new?
     user.accountant_id == Company.find(record.company_id).accountant_id || user.company_id == Company.find(record.company_id).accountant_id
-    # raise
   end
 
   def create?

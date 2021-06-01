@@ -29,6 +29,30 @@ class OperationsController < ApplicationController
     @operations = @company.operations.order(sort_column + " " + sort_direction)
   end
 
+  def new
+    find_company
+    @account = @company.accounts.last
+    @operation = Operation.new
+    @operation.account = @account
+    authorize @operation
+  end
+
+  def create
+    find_company
+    @account = Account.find(params[:operation][:account].to_i)
+
+    @operation = Operation.new(operation_params)
+    @operation.account = @account
+    @company = @operation.account.company
+    authorize @operation
+    
+    if @operation.save
+      redirect_to company_operation_path(@company, @operation)
+    else
+      render :new
+    end
+  end
+
   def show
     find_operation
     find_company
@@ -79,6 +103,10 @@ class OperationsController < ApplicationController
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+  def operation_params
+    params.require(:operation).permit(:date, :amount, :details, :category)
   end
 
 end

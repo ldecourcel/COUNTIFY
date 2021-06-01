@@ -10,11 +10,11 @@ class OperationPolicy < ApplicationPolicy
   end
 
   def new?
-    ##API
+    user.accountant_id == Company.find(record.account.company_id).accountant_id || user.company_id == Company.find(record.account.company_id).accountant_id
   end
 
   def create?
-    ##API
+    new?
   end
 
   def edit?

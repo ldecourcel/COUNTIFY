@@ -3,4 +3,8 @@ class Account < ApplicationRecord
   has_many :operations
 
   validates :iban, :swift, :account_name, presence: true
+
+  def name
+    account_name
+  end
 end
