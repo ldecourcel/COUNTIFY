@@ -30,9 +30,14 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'chartkick'
-gem 'highcharts-rails'
+
+gem 'daru-view'
 
 gem 'devise'
+
+gem 'groupdate'
+
+# gem "highcharts-rails"
 
 gem 'mini_magick'
 
