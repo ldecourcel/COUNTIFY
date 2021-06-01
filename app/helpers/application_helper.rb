@@ -5,4 +5,5 @@ module ApplicationHelper
     direction = (sort_direction == "asc") ? "desc" : "asc"
     link_to title, {:sort => column_downcase, :direction => direction}
   end
+
 end

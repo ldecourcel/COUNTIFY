@@ -80,7 +80,10 @@
   }
   &:hover {
     text-decoration: none;
-    color: $violet;
+    color: $dark-blue;
+    .fa-plus-circle{
+      color: $dark-blue;
+    }
   }
 }
 

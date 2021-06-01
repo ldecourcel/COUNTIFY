@@ -103,7 +103,6 @@ td img {
   justify-content: center;
 }
 
-
 .no-hover {
   &:hover {
     cursor: auto;
@@ -125,5 +124,13 @@ td img {
   img {
     height: 100%;
     width: 90%;
+  }
+}
+
+.th-sm{
+  a:hover{
+    text-decoration: none;
+    color: $dark-blue;
+    opacity: 1;
   }
 }
