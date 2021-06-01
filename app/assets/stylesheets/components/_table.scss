@@ -131,6 +131,7 @@ td img {
   .title-header{
     display:flex;
     align-items: center;
+    justify-content: center;
     a:hover{
       text-decoration: none;
       color: $dark-blue;
