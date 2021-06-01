@@ -48,6 +48,12 @@
   margin :25px;
 }
 
+.cards-edit-icon{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 250px;
+}
+
 .cards-company-description {
   width: 60%;
   color: $dark-blue;

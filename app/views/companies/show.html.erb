@@ -1,9 +1,8 @@
-
 <div class="big-container">
   <div class="container-index-company">
     <div data-controller="edit-company">
 
-      <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-company#displayForm" style="cursor: pointer"></i>
+
 
       <div data-edit-company-target="infos">
         <div class="company-title">
@@ -11,6 +10,9 @@
         </div>
 
         <div class="container-center-company">
+          <div class="cards-edit-icon">
+            <i class="fas fa-pen fa-xs ml-2" data-action="click->edit-company#displayForm" style="cursor: pointer"></i>
+          </div>
           <div class= "cards-row">
             <div class="cards-company-avatar-background">
               <div class="cards-company-avatar ">
@@ -76,10 +78,8 @@
         <p><%= f.submit %></p>
 
     <% end %>
-
-
-
-
     </div>
   </div>
 </div>
+
+<%# [Company.find(params[:company_id]), @invoice] %>
