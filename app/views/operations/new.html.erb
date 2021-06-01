@@ -1,0 +1,38 @@
+<div class="big-container">
+
+  <%= link_to "<", company_operations_path, class:'button-return' %>
+
+  <div class="container-sign-up col-4 offset-4 pt-5 pb-3">
+    <h1>Ajouter une nouvelle transaction</h1>
+    <%= simple_form_for @operation, url: company_operations_path, methode: :post do |f| %>
+      <%= f.input :date,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "date" } %>
+      <%= f.input :amount,
+        label: "Montant",
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "issuer" } %>
+      <%= f.input :details,
+        label: "Description",
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "client" } %>
+      <%= f.input :category,
+        label: "Catégorie",
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "payment_method" } %>
+      <%= f.input :account,
+        label: "Compte",
+        collection: @company.accounts,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "net_amount" } %>
+
+      <%= f.button :submit, "Ajouter la transaction", class: "btn btn-primary mt-3" %>
+    <% end %>
+  </div>
+
+</div>
