@@ -24,7 +24,7 @@
       <% data_month.each do |d|%>
         <% d.date = d.date.strftime("%d/%m/%Y") %>
       <% end %>
-      <%= column_chart [{data: data_month.where("amount >= ?", "0").group_by_month(:date, format: "%B").sum(:amount)}, {data: data_month.where("amount < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount)")}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: false %>
+      <%= column_chart [{data: data_month.where("amount >= ?", "0").group_by_month(:date, format: "%B").sum(:amount)}, {data: data_month.where("amount < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount)")}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
     </div>
   </div>
 </div>
