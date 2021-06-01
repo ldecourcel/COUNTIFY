@@ -102,3 +102,10 @@ td img {
   display: flex;
   justify-content: center;
 }
+.th-sm{
+  a:hover{
+    text-decoration: none;
+    color: $dark-blue;
+    opacity: 1;
+  }
+}
