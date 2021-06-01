@@ -98,6 +98,38 @@ td img {
   justify-content: center;
 }
 
+.tag-amount-red-stat {
+  display: flex;
+  color: $red;
+  background-color: rgba($red, 0.2) !important;
+  padding: 4px 12px 4px 12px;
+  border-radius: 16px;
+  width: 60%;
+  justify-content: center;
+  margin-right: 19px;
+}
+
+.tag-amount-green-stat {
+  display: flex;
+  color: $green2;
+  background-color: rgba($green, 0.2) !important;
+  padding: 4px 12px 4px 12px;
+  border-radius: 16px;
+  width: 60%;
+  justify-content: center;
+}
+
+.tag-amount-violet-stat {
+  display: flex;
+  color: $violet;
+  background-color: rgba($violet, 0.2) !important;
+  padding: 4px 12px 4px 12px;
+  border-radius: 16px;
+  width: 60%;
+  justify-content: center;
+  margin-right: 19px;
+}
+
 .table-amount-center {
   display: flex;
   justify-content: center;

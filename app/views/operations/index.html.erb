@@ -3,17 +3,25 @@
   <div class="container-index-operations">
     <div class="container-operations-general">
     <h1><%= @company.name %></h1>
-      <div class="display-form-export">
-        <div class="button-export">
-          <%= link_to "Exporter", "#" %>
+      <div id="div-operation-export">
+        <div class="cards-operations-stats">
+          <p class="tag-amount-violet-stat"><%= "A réconcilier #{@operations.where(validated: false).count} / #{@operations.count}"%></p>
+          <div class="display-stat-banner-operations">
+            <p class="tag-amount-red-stat">Dépenses <br><%= @expenses.sum %></p>
+            <p class="tag-amount-green-stat">Recettes <br><%= @gains.sum %></p>
+          </div>
+
+          <%# <p><%= "Net : #{@gains.sum + @expenses.sum}"%>
         </div>
-      </div>
-      <div class="cards-operations-stats">
-        <%= "A réconcilier: #{@operations.where(validated: false).count}"%>
-        <%= "Total: #{@operations.count}"%>
-        <%= "Dépenses: #{@expenses.sum}"%>
-        <%= "Recettes: #{@gains.sum}"%>
-        <%= "Net: #{@gains.sum + @expenses.sum}"%>
+        <div class="display-form-export">
+          <div id="container-button-export">
+            <%= link_to "#" do %>
+            <div class="button-export">
+              <p id="export">Exporter</p>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
       <div class="cards-company-stats-operations">
       <div class="cards-company-progression-to-do-operations d-flex">

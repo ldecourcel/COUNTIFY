@@ -74,6 +74,11 @@
   margin-bottom: 16px;
   width: 100%;
   padding: 32px;
+
+  h1 {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .container-table-operations {
@@ -115,4 +120,11 @@
   h2 {
     margin-left: 42px;
   }
+}
+
+.display-stat-banner-operations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
