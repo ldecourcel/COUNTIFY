@@ -35,7 +35,7 @@
 
 
     <div class="container-table-operations">
-      <h2 class="center">Opérations</h2>
+      <h2 class="center">Transactions</h2>
       <div class="buttons-operations-invoices">
         <div class="operation-search">
           <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
@@ -47,44 +47,143 @@
           <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
           <% end %>
         </div>
-          <%= link_to raw('<i class="fas fa-plus-circle"></i>  Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope"%>
+          <%= link_to raw('<i class="fas fa-plus-circle"></i>  Ajouter une transaction'), new_company_operation_path(@company), id: "btn-add-ope"%>
       </div>
-      <table>
-      <thead>
-        <tr>
-          <th class="th-sm"><%= sortable "amount", "Montant"%></th>
-          <th class="th-sm"><%= sortable "date", "Date"%></th>
-          <th class="th-sm"><%= sortable "details", "Description"%></th>
-          <th class="th-sm"><%= sortable "category", "Catégorie"%></th>
-          <th class="th-sm"><%= sortable "account_id", "Compte"%></th>
-          <th class="th-sm"><%= sortable "validated", "Statut"%></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @operations.each do |operation| %>
-        <div class="link">
-          <tr onclick="window.location='/companies/<%=params[:company_id]%>/operations/<%= operation.id %>';">
-              <td class="table-amount-center">
-                <div class="<%= operation.amount > 0 ? 'tag-amount-green' : 'tag-amount-red'%>">
-                  <strong><%= operation.amount%></strong>
+      <div>
+        <table>
+          <thead>
+            <tr>
+
+              <th class="th-sm" >
+                <div class="title-header">
+                  <%= sortable "amount", "Montant"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "amount" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
                 </div>
-              </td>
-            <td><%= operation.date.strftime("%d/%m/%Y")%></td>
-            <td id="description"><%= operation.details %></td>
-            <td><%= operation.category %></td>
-            <td><%= operation.account.account_name %></td>
-            <% if operation.validated == true %>
-              <td><i class="fas fa-check-circle"></i></td>
-            <% elsif operation.invoice != nil && operation.validated == false %>
-              <td><i class="fas fa-question-circle"></i></td>
-            <% elsif operation.validated == false %>
-              <td><i class="fas fa-times-circle"></i></td>
+              </th>
+
+              <th class="th-sm">
+                <div class="title-header">
+                  <%= sortable "date", "Date"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "date" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+              </th>
+
+              <th class="th-sm">
+                <div class="title-header">
+                  <%= sortable "details", "Description"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "details" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+              </th>
+
+              <th class="th-sm">
+                <div class="title-header">
+                  <%= sortable "category", "Catégorie"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "category" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+              </th>
+
+              <th class="th-sm">
+                <div class="title-header">
+                  <%= sortable "account_id", "Compte"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "account_id" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+              </th>
+
+              <th class="th-sm">
+                <div class="title-header">
+                  <%= sortable "validated", "Statut"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "validated" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @operations.each do |operation| %>
+            <div class="link">
+              <tr onclick="window.location='/companies/<%=params[:company_id]%>/operations/<%= operation.id %>';">
+                  <td class="table-amount-center">
+                    <div class="<%= operation.amount > 0 ? 'tag-amount-green' : 'tag-amount-red'%>">
+                      <strong><%= operation.amount%></strong>
+                    </div>
+                  </td>
+                <td><%= operation.date.strftime("%d/%m/%Y")%></td>
+                <td id="description"><%= operation.details %></td>
+                <td><%= operation.category %></td>
+                <td><%= operation.account.account_name %></td>
+                <% if operation.validated == true %>
+                  <td><i class="fas fa-check-circle"></i></td>
+                <% elsif operation.invoice != nil && operation.validated == false %>
+                  <td><i class="fas fa-question-circle"></i></td>
+                <% elsif operation.validated == false %>
+                  <td><i class="fas fa-times-circle"></i></td>
+                <% end %>
+              </tr>
+            </div>
             <% end %>
-          </tr>
-        </div>
-        <% end %>
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+      </div>
       <div class="button-transform">
         <a href="#top-operations" class="button-top"><i class="fas fa-chevron-circle-up"></i> Retour en haut de la page</a>
       </div>

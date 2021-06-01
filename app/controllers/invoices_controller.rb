@@ -50,7 +50,6 @@ class InvoicesController < ApplicationController
 
   private
 
-
   def invoice_params
     params.require(:invoice).permit(:date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client, :invoice_number, photos: [])
   end

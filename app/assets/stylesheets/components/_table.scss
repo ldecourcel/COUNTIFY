@@ -11,7 +11,7 @@ tbody tr {
   &:hover {
     cursor: pointer;
     background-color: $white;
-    box-shadow: 2px 2px 2px rgba(1, 1, 1, 0.3);
+    box-shadow: 0px 2px 2px rgba(1, 1, 1, 0.3);
     height: 103%;
     width: 120%;
   }
@@ -132,4 +132,55 @@ td img {
 .table-amount-center {
   display: flex;
   justify-content: center;
+}
+
+.no-hover {
+  &:hover {
+    cursor: auto;
+    background-color: $white;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.clickable {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.td-img {
+  margin: 0 auto;
+  img {
+    height: 100%;
+    width: 90%;
+  }
+}
+
+.th-sm{
+  .title-header{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    a:hover{
+      text-decoration: none;
+      color: $dark-blue;
+    }
+    .arrows{
+      display:flex;
+      flex-direction:column;
+      padding-left: 5px;
+      #up{
+        margin-bottom:-10px;
+      }
+      .fa-sort-up{
+        color: $violet;
+        margin-bottom:-10px;
+      }
+      .fa-sort-down{
+        color: $violet;
+      }
+    }
+  }
 }
