@@ -2,9 +2,11 @@
   <div class="container-show-operations">
     <div data-controller="edit-invoice">
       <div class="container-title-show">
-        <%= link_to "<", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}, class:'button-return'%>
+        <%# <%= link_to "<", company_invoices_path(@invoice.company), data: {edit_invoice_target: 'return'}, class:'button-return'%>
 
-        <%= link_to "<", company_invoice_path(@invoice.company, @invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+        <%# <%= link_to "<", company_invoice_path(@invoice.company, @invoice), class: 'button-return d-none', data: {edit_invoice_target: 'updatedreturn'}  %>
+
+        <%= link_to "<", :back, class:'button-return'%>
         <h2><%= @invoice.company.name %> > Justificatif</h2>
       </div>
 
