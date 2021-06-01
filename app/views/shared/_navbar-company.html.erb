@@ -11,11 +11,11 @@
     <div class="navbar-nav nav-flex">
       <% unless controller_name == "companies" && action_name == "index" || controller_name == "pages" %>
 
-        <div class="nav-item smaller <%= 'nav-active' if controller_name == "companies" && action_name == "show" %>">
-          <%= link_to company_path(@company) do %>
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "companies" && action_name == "dashboard" %>">
+          <%= link_to company_dashboard_path(@company) do %>
             <div class="navbar-logo-other">
-              <%= image_tag("info.png") %>
-              <p>Informations</p>
+              <%= image_tag("dashboard.png") %>
+              <p>Dashboard</p>
             </div>
           <% end %>
         </div>
@@ -29,7 +29,7 @@
           <% end %>
         </div>
 
-        <div class="nav-item smaller <%= 'nav-active' if controller_name == "invoices" && (action_name == "index" || action_name == "show") %>">
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "invoices" && (action_name == "index" || action_name == "show" || action_name == "new") %>">
           <%= link_to company_invoices_path(@company) do %>
             <div class="navbar-logo-other">
               <%= image_tag("invoice.png") %>
