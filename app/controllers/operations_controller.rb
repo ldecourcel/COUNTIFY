@@ -26,7 +26,7 @@ class OperationsController < ApplicationController
     end
 
     # Permet de classer selon les colonnes
-    @operations = @operations.order(sort_column + " " + sort_direction)
+    @operations = @company.operations.order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -71,9 +71,9 @@ class OperationsController < ApplicationController
 
   def sort_column
     if params[:sort] == "details"
-      Operation.column_names.include?(params[:sort]) ? "lower(#{params[:sort]})" : "date"
+      @company.operations.column_names.include?(params[:sort]) ? "lower(#{params[:sort]})" : "date"
     else
-      Operation.column_names.include?(params[:sort]) ? params[:sort] : "date"
+      @company.operations.column_names.include?(params[:sort]) ? params[:sort] : "date"
     end
   end
 
