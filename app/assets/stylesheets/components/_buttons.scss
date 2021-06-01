@@ -63,7 +63,7 @@
   }
 }
 
-.fa-plus-circle {
+.fa-plus-circle, .fa-caret-up {
   height : 16px;
   color: $violet;
   margin-right: 8px;
@@ -80,7 +80,10 @@
   }
   &:hover {
     text-decoration: none;
-    color: $violet;
+    color: $dark-blue;
+    .fa-plus-circle{
+      color: $dark-blue;
+    }
   }
 }
 
@@ -217,5 +220,15 @@
 
   .fa-pen:hover {
     opacity: 0.5;
+  }
+}
+
+.link-reconcile {
+  z-index: 2;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.5;
+    text-decoration: none;
   }
 }

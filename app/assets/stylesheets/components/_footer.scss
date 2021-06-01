@@ -26,3 +26,12 @@
 .footer-logo {
   height: 72px;
 }
+
+.connected-footer{
+  display: flex;
+  justify-content: center;
+  .copyright{
+    margin-top: 25px;
+    padding: 20px;
+  }
+}
