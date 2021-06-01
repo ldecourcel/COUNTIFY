@@ -6,8 +6,7 @@ class OperationPolicy < ApplicationPolicy
   end
 
   def show?
-    # raise 
-    record.account.company.accountant == user.accountant
+    record.account.company.accountant_id == user.accountant_id || record.account.company_id == user.company_id
   end
 
   def new?
@@ -19,11 +18,13 @@ class OperationPolicy < ApplicationPolicy
   end
 
   def edit?
-    show?
+    record.account.company.accountant == user.accountant
+    # show?
   end
 
   def update?
-    show?
+    edit?
+    # show?
   end
 
 end
