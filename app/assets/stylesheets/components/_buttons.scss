@@ -15,26 +15,99 @@
   }
 }
 
-.button-export {
-  background-color: $violet;
-  display: inline-block;
-  text-align: center;
-  width: 200px;
-  font-size: 18px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 6px;
-  &:hover{
-    transition: 0.2s ease-in;
-    filter: brightness(90%);
-  }
-  a{
-    color: white;
-  }
-  a:hover {
-    text-decoration: none;
-    color: white;
-  }
+// .button-export {
+//   background-color: $violet;
+//   display: inline-block;
+//   text-align: center;
+//   width: 200px;
+//   font-size: 18px;
+//   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+//   padding: 6px;
+//   &:hover{
+//     transition: 0.2s ease-in;
+//     filter: brightness(90%);
+//   }
+//   a{
+//     color: white;
+//   }
+//   a:hover {
+//     text-decoration: none;
+//     color: white;
+//   }
+// }
+
+#div-operation-export {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
 }
+#container-button-export {
+
+  // width: 100%;
+  // display: flex;
+  // justify-content: flex-end;
+
+  a {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+}
+
+
+.button-export {
+    border: 1px solid $violet;
+    font-size: 14px;
+    padding: 2px;
+    width: 130px;
+    border-radius: 50px;
+    transition: opacity 0.3s ease;
+    opacity: 0.9;
+    text-align: center;
+    // margin-right: 30px;
+    transition: 200ms;
+    text-decoration: none;
+    margin-right: 67px;
+    // margin-top: 24px;
+
+
+
+
+    p {
+      font-size: 18px;
+      padding-top: 14px;
+      color: $violet;
+      text-decoration: none;
+      background-color: transparent;
+      margin-bottom: Opx;
+    }
+
+    &:hover {
+      background-color: $violet;
+      p {
+        text-decoration: none;
+        color: white;
+      }
+    }
+
+}
+
+
+// a {
+//     text-decoration: none;
+// }
+// *, *::before, *::after {
+//     box-sizing: border-box;
+// }
+// user agent stylesheet
+// a:-webkit-any-link {
+//     color: -webkit-link;
+
+//     text-decoration: underline;
+// }
+
+
 
 .button-reconciliation {
   background-color: $violet;
@@ -211,7 +284,7 @@
     font-size: 1em;
   }
   .fa-trash-alt {
-    color: $red-bis;
+    color: $red;
 
     &:hover {
       opacity: 0.5;

@@ -1,36 +1,38 @@
+
 <div class="big-container">
+  <div class="container-operations-new-invoice">
 
-  <%= link_to "<", company_invoices_path, class:'button-return' %>
+    <%= link_to "<", company_invoices_path, class:'button-return' %>
 
-  <div class="container-sign-up col-4 offset-4 pt-5 pb-3">
-  <h1>Ajouter une nouvelle facture</h1>
-    <%= simple_form_for @invoice, url: company_invoices_path, methode: :post do |f| %>
-      <div class="form-inputs">
+    <div class="container-sign-up">
+    <h1>Ajouter une nouvelle facture</h1>
+      <%= simple_form_for @invoice, url: company_invoices_path, methode: :post do |f| %>
+        <div class="form-inputs">
 
-        <div data-controller="dropzone">
+          <div data-controller="dropzone" class="position-relative">
             <%= f.input :photos, as: :file, input_html: { class: "d-none", multiple: true, data: { dropzone_target: 'input', action: 'change->dropzone#change' } }, label: false %>
-          <div id="dropZ" class="dropzone" data-action="drop->dropzone#drop">
-
+            <div id="dropZ" class="dropzone" data-action="drop->dropzone#drop">
+            </div>
+            <div class="drop-index-position position-absolute top-0">
               <i class="fas fa-download"></i>
               <div>Glissez déposez votre/vos factures ici</div>
               <span>OU</span>
               <div class="selectFile">
-                <%# <label for="file">Select file</label> %>
                 <input type="button" id="file" value="Cliquez ICI" data-action="click->dropzone#open">
               </div>
-              <p>File size limit : 10 MB</p>
-            <div class=preview-container>
-              <div class="preview" data-dropzone-target="preview" data-action="click->dropzone#removeFile">
-                <%# <i class="fas fa-trash"></i> %>
+              <p>Taille limite de fichier : 10 MB</p>
+              <div class=preview-container>
+                <div class="preview" data-dropzone-target="preview" data-action="click->dropzone#removeFile">
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
+          </div>
+          <%= f.button :submit, "Ajouter la facture", class: "btn btn-primary mt-3" %>
+      <% end %>
         </div>
-        <%= f.button :submit, "Ajouter la facture", class: "btn btn-primary mt-3" %>
-    <% end %>
-      </div>
+    </div>
   </div>
-
 </div>
+

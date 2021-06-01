@@ -72,12 +72,27 @@
   margin: 40px auto;
 }
 
+.container-operations-new-invoice {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  background-color: white;
+  margin: 40px auto;
+  margin-bottom: 16px;
+  width: 80%;
+  padding: 32px;
+}
+
 .container-operations-general {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   background-color: white;
+  margin: 40px auto;
   margin-bottom: 16px;
-  width: 100%;
+  // width: 100%;
   padding: 32px;
+
+  h1 {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .container-table-operations {
@@ -118,4 +133,11 @@
   h2 {
     margin-left: 42px;
   }
+}
+
+.display-stat-banner-operations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
