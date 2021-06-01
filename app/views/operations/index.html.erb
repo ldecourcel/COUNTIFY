@@ -46,61 +46,110 @@
           <thead>
             <tr>
 
-              <th class="th-sm">
-                <%= sortable "amount", "Montant"%>
-                <% if params[:direction] == 'asc' && params[:sort] == "amount" %>
-                  <i class='fas fa-sort-up'>
-                <%else%>
-                  <i class='fas fa-sort-down'></i>
-                <% end %>
+              <th class="th-sm" >
+                <div class="title-header">
+                  <%= sortable "amount", "Montant"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "amount" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
               </th>
 
               <th class="th-sm">
-                <%= sortable "date", "Date"%>
-                <% if params[:direction] == 'asc' && params[:sort] == "date" %>
-                  <i class='fas fa-sort-up'>
-                <%else%>
-                  <i class='fas fa-sort-down'></i>
-                <% end %>
+                <div class="title-header">
+                  <%= sortable "date", "Date"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "date" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
               </th>
 
               <th class="th-sm">
-                <%= sortable "details", "Description"%>
-                <% if params[:direction] == 'asc' && params[:sort] == "details" %>
-                  <i class='fas fa-sort-up'>
-                <%else%>
-                  <i class='fas fa-sort-down'></i>
-                <% end %>
+                <div class="title-header">
+                  <%= sortable "details", "Description"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "details" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
               </th>
 
               <th class="th-sm">
-                <%= sortable "category", "Catégorie"%>
-                <% if params[:direction] == 'asc' && params[:sort] == "category" %>
-                  <i class='fas fa-sort-up'>
-                <%else%>
-                  <i class='fas fa-sort-down'></i>
-                <% end %>
+                <div class="title-header">
+                  <%= sortable "category", "Catégorie"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "category" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
               </th>
 
               <th class="th-sm">
-                <%= sortable "account_id", "Compte"%>
-                <% if params[:direction] == 'asc' && params[:sort] == "account_id" %>
-                  <i class='fas fa-sort-up'>
-                <%else%>
-                  <i class='fas fa-sort-down'></i>
-                <% end %>
+                <div class="title-header">
+                  <%= sortable "account_id", "Compte"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "account_id" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
               </th>
 
               <th class="th-sm">
-                <%= sortable "validated", "Statut"%>
-                <% if params[:direction] == 'asc' && params[:sort] == "validated" %>
-                  <i class='fas fa-sort-up'>
-                <%else%>
-                  <i class='fas fa-sort-down'></i>
-                <% end %>
+                <div class="title-header">
+                  <%= sortable "validated", "Statut"%>
+                  <% if params[:direction] == 'asc' && params[:sort] == "validated" %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up' id="up"></i>
+                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
               </th>
             </tr>
           </thead>
+
           <tbody>
             <% @operations.each do |operation| %>
             <div class="link">

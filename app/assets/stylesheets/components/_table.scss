@@ -102,10 +102,22 @@ td img {
   display: flex;
   justify-content: center;
 }
+
 .th-sm{
-  a:hover{
-    text-decoration: none;
-    color: $dark-blue;
-    opacity: 1;
+  .title-header{
+    display:flex;
+    align-items: center;
+    a:hover{
+      text-decoration: none;
+      color: $dark-blue;
+    }
+    .arrows{
+      display:flex;
+      flex-direction:column;
+      padding-left: 5px;
+      #up{
+        margin-bottom:-10px;
+      }
+    }
   }
 }
