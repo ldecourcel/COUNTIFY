@@ -25,7 +25,10 @@ require("channels")
 // External imports
 import "bootstrap";
 import "controllers";
-import "chartkick/chart.js";
+// import "chartkick/chart.js";
+import "chartkick/highcharts";
+
+Chartkick.configure({ language: "fr" })
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
