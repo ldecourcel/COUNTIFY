@@ -11,7 +11,6 @@ class OperationsController < ApplicationController
     end
 
     @invoices = policy_scope(Invoice).order(created_at: :desc).where(company_id: @company.id)
-
     @gains = []
     @operations.each { |operation| @gains << operation.amount if operation.amount > 0 }
     @expenses = []
@@ -27,7 +26,7 @@ class OperationsController < ApplicationController
     end
 
     # Permet de classer selon les colonnes
-    @operations = Operation.order(sort_column + " " + sort_direction)
+    @operations = @operations.order(sort_column + " " + sort_direction)
   end
 
   def show
