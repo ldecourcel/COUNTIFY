@@ -27,7 +27,7 @@
 
 
     <div class="container-table-operations">
-      <h2 class="center">Opérations</h2>
+      <h2 class="center">Transactions</h2>
       <div class="buttons-operations-invoices">
         <div class="operation-search">
           <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
@@ -39,7 +39,7 @@
           <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
           <% end %>
         </div>
-          <%= link_to raw('<i class="fas fa-plus-circle"></i>  Ajouter une opération'), new_company_operation_path(@company), id: "btn-add-ope"%>
+          <%= link_to raw('<i class="fas fa-plus-circle"></i>  Ajouter une transaction'), new_company_operation_path(@company), id: "btn-add-ope"%>
       </div>
       <div>
         <table>
