@@ -199,8 +199,13 @@
   }
 }
 
+.button-drop{
+  background-color: $light-violet;
+  color: $violet;
+}
 
-.button-return{
+
+.button-return {
   font-size: 64px;
   &:hover{
     text-decoration: none;
