@@ -5,7 +5,7 @@
     <h1><%= @company.name %></h1>
       <div id="div-operation-export">
         <div class="cards-operations-stats">
-          <p class="tag-amount-violet-stat"><span class="bolder font-size-24px"><%= @operations.where(validated: false).count %></span><span class="font-size-16px mr-2">/<%= @operations.count %></span>à Réconcilier</p>
+          <p class="tag-amount-violet-stat"><span class="bolder font-size-24px"><%= @operations.where(validated: false).count %></span><span class="font-size-16px mr-2">/<%= @operations.count %></span>réconciliées</p>
           <div class="display-stat-banner-operations mb-3">
             <div class="tag-amount-red-stat">
               <p class="mb-0">Dépenses </p>
@@ -37,8 +37,7 @@
     </div>
   </div>
 
-    <div class="container-table-operations" id="panel">
-
+    <div class="container-table-operations">
       <h2 class="center">Transactions</h2>
       <div class="buttons-operations-invoices">
         <div class="operation-search">
@@ -60,7 +59,7 @@
 
               <th class="th-sm" >
                 <div class="title-header">
-                  <%= sortable "amount", "Montant" %>
+                  <%= sortable "amount", "Montant"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "amount" %>
                     <div class="arrows">
                       <i class='fas fa-sort-up' id="up"></i>
@@ -77,7 +76,7 @@
 
               <th class="th-sm">
                 <div class="title-header">
-                  <%= sortable "date", "Date" %>
+                  <%= sortable "date", "Date"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "date" %>
                     <div class="arrows">
                       <i class='fas fa-sort-up' id="up"></i>
@@ -233,7 +232,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-          <%= link_to "Exporter", asset_path("Export_02062021.zip"), class:"btn btn-primary", html_safe: { data: {dismiss:"modal"}, role: "button"}  %>
+          <%= link_to "Exporter", asset_path("Export_02062021.zip"), class:"btn btn-primary modal-btn", html_safe: { data: {dismiss:"modal"}, role: "button"}  %>
         </div>
       </div>
     </div>
