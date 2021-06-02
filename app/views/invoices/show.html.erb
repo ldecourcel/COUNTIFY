@@ -115,7 +115,7 @@
               <% @invoice.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, height: 150, width: 120, crop: :fill %>
               <% end %>
-              <p><%= f.submit %></p>
+              <p><%= f.button :submit, class: 'button-display-invoices' %></p>
 
             <% end %>
         </div>
