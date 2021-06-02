@@ -17,7 +17,7 @@ class InvoicePolicy < ApplicationPolicy
   end
 
   def new?
-    user.accountant_id == Company.find(record.company_id).accountant_id || user.company_id == Company.find(record.company_id).accountant_id
+    user.accountant_id == Company.find(record.company_id).accountant_id || user.company_id == record.company_id
   end
 
   def create?
