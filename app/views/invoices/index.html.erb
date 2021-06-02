@@ -8,7 +8,7 @@
       <h2 class="center">Justificatifs</h2>
       <div class="buttons-operations-invoices">
         <div class="operation-search">
-          <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
+          <%= form_tag company_invoices_path(@company), class: "form-index-operation", method: :get do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -24,34 +24,162 @@
       <table>
         <thead>
           <tr>
-            <th>Type</th>
-            <th>Montant HT (€)</th>
-            <th>Montant TTC (€)</th>
-            <th>TVA (%)</th>
-            <th>Date</th>
-            <th>Bénéficiaire</th>
-            <th>Client</th>
+            <th class="th-sm">
+              <div class="title-header">
+                <%= link_to company_invoices_path(@company, type: true, direction: @direction) do %>
+                  Type
+                <% end %>
+                <% if params[:direction] == 'asc' && params[:type] == "true" %>
+                      <div class="arrows">
+                        <i class='fas fa-sort-up' id="up"></i>
+                        <i class='fas fa-sort-down' style = "color:grey"></i>
+                      </div>
+                  <% else %>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+            </th>
+            <th class="th-sm">
+              <div class="title-header">
+                <%= sortable "invoice_number", "N° Facture"%>
+                <% if params[:direction] == 'asc' && params[:sort] == "invoice_number" %>
+                      <div class="arrows">
+                        <i class='fas fa-sort-up' id="up"></i>
+                        <i class='fas fa-sort-down' style = "color:grey"></i>
+                      </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+            </th>
+            <th class="th-sm">
+              <div class="title-header">
+                <%= sortable "total_amount", "Montant TTC (€)"%>
+                <% if params[:direction] == 'asc' && params[:sort] == "total_amount" %>
+                      <div class="arrows">
+                        <i class='fas fa-sort-up' id="up"></i>
+                        <i class='fas fa-sort-down' style = "color:grey"></i>
+                      </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+            </th>
+            <th class="th-sm">
+              <div class="title-header">
+                <%= sortable "net_amount", "Montant HT (€)"%>
+                <% if params[:direction] == 'asc' && params[:sort] == "net_amount" %>
+                      <div class="arrows">
+                        <i class='fas fa-sort-up' id="up"></i>
+                        <i class='fas fa-sort-down' style = "color:grey"></i>
+                      </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+            </th>
+            <th class="th-sm">
+              <div class="title-header">
+                <%= sortable "vta", "TVA"%>
+                <% if params[:direction] == 'asc' && params[:sort] == "vta" %>
+                      <div class="arrows">
+                        <i class='fas fa-sort-up' id="up"></i>
+                        <i class='fas fa-sort-down' style = "color:grey"></i>
+                      </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+            </th>
+            <th class="th-sm">
+              <div class="title-header">
+                <%= sortable "date", "Date"%>
+                <% if params[:direction] == 'asc' && params[:sort] == "date" %>
+                      <div class="arrows">
+                        <i class='fas fa-sort-up' id="up"></i>
+                        <i class='fas fa-sort-down' style = "color:grey"></i>
+                      </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+            </th>
+            <th class="th-sm">
+              <div class="title-header">
+                <%= sortable "issuer", "Bénéficiaire"%>
+                <% if params[:direction] == 'asc' && params[:sort] == "issuer" %>
+                      <div class="arrows">
+                        <i class='fas fa-sort-up' id="up"></i>
+                        <i class='fas fa-sort-down' style = "color:grey"></i>
+                      </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+            </th>
+            <th class="th-sm">
+              <div class="title-header">
+                <%= sortable "client", "Client"%>
+                <% if params[:direction] == 'asc' && params[:sort] == "client" %>
+                      <div class="arrows">
+                        <i class='fas fa-sort-up' id="up"></i>
+                        <i class='fas fa-sort-down' style = "color:grey"></i>
+                      </div>
+                  <%else%>
+                    <div class="arrows">
+                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
+                      <i class='fas fa-sort-down'></i>
+                    </div>
+                  <% end %>
+                </div>
+            </th>
           </tr>
         </thead>
         <tbody>
           <% @invoices.each do |invoice| %>
               <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';" >
                 <td>
-                    <%if invoice.issuer == @company.name %>
-                      <i class="far fa-arrow-alt-circle-down"></i>
-                    <% else %>
-                      <i class="far fa-arrow-alt-circle-up"></i>
-                    <% end %>
-                  </td>
+                  <% if invoice.issuer == @company.name %>
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                  <% else %>
+                    <i class="far fa-arrow-alt-circle-up"></i>
+                  <% end %>
+                </td>
+                <% if invoice.invoice_number.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= invoice.invoice_number %></td>
+                <% end %>
                 <% if invoice.total_amount.nil? %>
                   <td></td>
                 <% else %>
                   <td><%= invoice.total_amount %></td>
                 <% end %>
-                <% if invoice.tax_amount.nil? %>
+                <% if invoice.net_amount.nil? %>
                   <td></td>
                 <% else %>
-                  <td><%= invoice.tax_amount %></td>
+                  <td><%= invoice.net_amount %></td>
                 <% end %>
                 <% if invoice.vta.nil? %>
                   <td></td>
@@ -74,7 +202,6 @@
                   <td><%= invoice.client %></td>
                 <% end %>
               </tr>
-
           <% end %>
         </tbody>
 

@@ -1,9 +1,27 @@
 
 class InvoicesController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
   # /companies/:company_id/invoices
   def index
     @company = Company.find(params[:company_id])
-    @invoices = policy_scope(Invoice).where(company_id: @company.id)
+
+    # raise
+    if params[:type] && params[:direction] == "desc" || params[:direction].nil?
+      @invoices_neg = policy_scope(Invoice).where(company_id: @company.id).where(client: @company.name).order("total_amount desc")
+      @invoices_pos = policy_scope(Invoice).where(company_id: @company.id).where.not(client: @company.name).order("total_amount asc")
+      @invoices = @invoices_neg + @invoices_pos
+      @direction = "asc"
+    elsif params[:type] && params[:direction] == "asc"
+      @invoices_neg = policy_scope(Invoice).where(company_id: @company.id).where(client: @company.name).order("total_amount asc")
+      @invoices_pos = policy_scope(Invoice).where(company_id: @company.id).where.not(client: @company.name).order("total_amount desc")
+      @invoices = @invoices_pos + @invoices_neg
+      @direction = "desc"
+    elsif params[:query].present?
+      @invoices = policy_scope(Invoice).where(company_id: @company.id).global_search_invoice(params[:query]).order(sort_column + " " + sort_direction)
+    else
+      @invoices = policy_scope(Invoice).where(company_id: @company.id).order(sort_column + " " + sort_direction)
+    end
   end
 
   def show
@@ -52,6 +70,18 @@ class InvoicesController < ApplicationController
 
   def invoice_params
     params.require(:invoice).permit(:date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client, :invoice_number, photos: [])
+  end
+
+  def sort_column
+    if params[:sort] == "details"
+      @company.invoices.column_names.include?(params[:sort]) ? "lower(#{params[:sort]})" : "date"
+    else
+      @company.invoices.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 end

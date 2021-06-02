@@ -7,8 +7,7 @@
     </div>
 
     <div id="modal-holder"></div>
-
-    <div class="container-index-operation">
+    <div class="container-show-operation">
       <table>
         <thead>
           <tr>
@@ -20,7 +19,7 @@
         </thead>
         <tbody>
           <div class="link">
-            <tr>
+            <tr class="no-hover">
               <td><strong><%= @operation.amount %></strong></td>
               <td id="description"><%= @operation.details %></td>
               <td><%= @operation.date.strftime("%d/%m/%Y") %></td>

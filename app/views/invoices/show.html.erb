@@ -41,6 +41,14 @@
                     <% end %>
                   </tr>
                   <tr class="show-rows">
+                    <td><strong>N° Facture</strong></td>
+                    <% if @invoice.invoice_number.nil? %>
+                      <td></td>
+                    <% else %>
+                      <td><%= @invoice.invoice_number %></td>
+                    <% end %>
+                  </tr>
+                  <tr class="show-rows">
                     <td><strong>Bénéficiaire</strong></td>
                     <% if @invoice.issuer.nil? %>
                       <td></td>
@@ -115,7 +123,7 @@
               <% @invoice.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, height: 150, width: 120, crop: :fill %>
               <% end %>
-              <p><%= f.submit %></p>
+              <p><%= f.button :submit, class: 'button-display-invoices' %></p>
 
             <% end %>
         </div>
