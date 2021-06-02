@@ -44,3 +44,16 @@
     padding-bottom: 8px;
   }
 }
+
+.dashboard-company {
+  width: 100%;
+  &-title {
+    padding: 24px;
+    margin-bottom: 24px;
+    height: 88px;
+    text-align: center;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    background-color: white;
+  }
+}
