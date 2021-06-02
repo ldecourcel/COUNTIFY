@@ -8,7 +8,7 @@
       <h2 class="center">Justificatifs</h2>
       <div class="buttons-operations-invoices">
         <div class="operation-search">
-          <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
+          <%= form_tag company_invoices_path(@company), class: "form-index-operation", method: :get do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -25,8 +25,9 @@
         <thead>
           <tr>
             <th>Type</th>
-            <th>Montant HT (€)</th>
+            <th>Numéro</th>
             <th>Montant TTC (€)</th>
+            <th>Montant HT (€)</th>
             <th>TVA (%)</th>
             <th>Date</th>
             <th>Bénéficiaire</th>
@@ -37,21 +38,26 @@
           <% @invoices.each do |invoice| %>
               <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';" >
                 <td>
-                    <%if invoice.issuer == @company.name %>
-                      <i class="far fa-arrow-alt-circle-down"></i>
-                    <% else %>
-                      <i class="far fa-arrow-alt-circle-up"></i>
-                    <% end %>
-                  </td>
+                  <%if invoice.issuer == @company.name %>
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                  <% else %>
+                    <i class="far fa-arrow-alt-circle-up"></i>
+                  <% end %>
+                </td>
+                <% if invoice.invoice_number.nil? %>
+                  <td></td>
+                <% else %>
+                  <td><%= invoice.invoice_number %></td>
+                <% end %>
                 <% if invoice.total_amount.nil? %>
                   <td></td>
                 <% else %>
                   <td><%= invoice.total_amount %></td>
                 <% end %>
-                <% if invoice.tax_amount.nil? %>
+                <% if invoice.net_amount.nil? %>
                   <td></td>
                 <% else %>
-                  <td><%= invoice.tax_amount %></td>
+                  <td><%= invoice.net_amount %></td>
                 <% end %>
                 <% if invoice.vta.nil? %>
                   <td></td>
@@ -74,7 +80,6 @@
                   <td><%= invoice.client %></td>
                 <% end %>
               </tr>
-
           <% end %>
         </tbody>
 
