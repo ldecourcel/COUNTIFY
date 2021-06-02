@@ -37,7 +37,8 @@
     </div>
   </div>
 
-    <div class="container-table-operations">
+    <div class="container-table-operations" id="panel">
+
       <h2 class="center">Transactions</h2>
       <div class="buttons-operations-invoices">
         <div class="operation-search">
@@ -59,7 +60,7 @@
 
               <th class="th-sm" >
                 <div class="title-header">
-                  <%= sortable "amount", "Montant"%>
+                  <%= sortable "amount", "Montant" %>
                   <% if params[:direction] == 'asc' && params[:sort] == "amount" %>
                     <div class="arrows">
                       <i class='fas fa-sort-up' id="up"></i>
@@ -76,7 +77,7 @@
 
               <th class="th-sm">
                 <div class="title-header">
-                  <%= sortable "date", "Date"%>
+                  <%= sortable "date", "Date" %>
                   <% if params[:direction] == 'asc' && params[:sort] == "date" %>
                     <div class="arrows">
                       <i class='fas fa-sort-up' id="up"></i>
