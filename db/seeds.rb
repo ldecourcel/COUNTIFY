@@ -10,6 +10,7 @@ User.destroy_all
 Invoice.destroy_all
 Operation.destroy_all
 Account.destroy_all
+Chat.destroy_all
 Company.destroy_all
 Accountant.destroy_all
 
@@ -33,7 +34,12 @@ company2 = Company.create(accountant: accountant, name: "Georgie", siren: "89520
 user_client = User.create(company: company1, first_name:"Agathe", last_name: "Auriol", email:"agathe@vibrary.com", password:"123456")
 
 companies = [ company1, company2 ]
-puts "Company DONE creating account ..."
+puts "Company DONE creating chats ..."
+
+chat1 = Chat.create(name: "#Messages", company: company1, accountant: accountant)
+chat2 = Chat.create(name: "#Messages", company: company2, accountant: accountant)
+puts "Chat DONE creating account ..."
+
 
 account1_company1 = Account.create(iban: "FR5230003000509811414747Q31", swift: "AGFBFRCC", account_name: "Pro1", company: company1)
 account2_company1 = Account.create(iban: "FR5230003000509811414747Q32", swift: "AGFBFRCC", account_name: "Pro2", company: company1)
