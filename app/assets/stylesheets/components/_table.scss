@@ -186,15 +186,17 @@ td img {
     .arrows{
       display:flex;
       flex-direction:column;
-      padding-left: 5px;
+      padding-left: 7px;
       #up{
-        margin-bottom:-10px;
+         margin-bottom: -20px;
       }
       .fa-sort-up{
+        font-size: 25px;
         color: $violet;
-        margin-bottom:-10px;
+
       }
       .fa-sort-down{
+        font-size: 25px;
         color: $violet;
       }
     }
