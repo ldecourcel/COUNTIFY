@@ -20,8 +20,8 @@
 }
 
 #navbarDropdown{
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background-color: $gold;
   display: flex;
   text-align: center;
@@ -29,7 +29,8 @@
 
   p{
     position: relative;
-    margin-left: 5px;
+    margin-top: 1px;
+    margin-left: 8.5px;
     top: 25%; /* 25% of parent */
     font-size: 20px; /* 50% of parent */
     line-height: 20px; /* 50% of parent */
