@@ -44,13 +44,13 @@
       <h2 class="center">Transactions</h2>
       <div class="buttons-operations-invoices">
         <div class="operation-search">
-          <%= form_tag company_operations_path(@company), class: "form-index-operation",method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Opérations"
-          %>
-          <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
+          <%= form_tag company_operations_path(@company), class: "form-index-operation", method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Opérations"
+            %>
+            <%= submit_tag "Recherche", class: "btn btn-primary button-recherche " %>
           <% end %>
         </div>
           <%= link_to raw('<i class="fas fa-plus-circle"></i>  Ajouter une transaction'), new_company_operation_path(@company), id: "btn-add-ope"%>
