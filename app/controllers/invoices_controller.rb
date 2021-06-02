@@ -3,7 +3,12 @@ class InvoicesController < ApplicationController
   # /companies/:company_id/invoices
   def index
     @company = Company.find(params[:company_id])
-    @invoices = policy_scope(Invoice).where(company_id: @company.id)
+
+    if params[:query].present?
+      @invoices = policy_scope(Invoice).where(company_id: @company.id).global_search_invoice(params[:query])
+    else
+      @invoices = policy_scope(Invoice).where(company_id: @company.id)
+    end
   end
 
   def show
