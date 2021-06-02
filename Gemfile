@@ -36,6 +36,8 @@ gem 'devise'
 
 gem 'groupdate'
 
+gem 'jquery-rails'
+
 # gem "highcharts-rails"
 
 gem 'mini_magick'
