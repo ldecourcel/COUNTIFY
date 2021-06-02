@@ -47,8 +47,8 @@
           <% end %>
         </div>
 
-        <div class="nav-item">
-          <%= link_to "#" do %>
+        <div class="nav-item smaller <%= 'nav-active' if controller_name == "chats" && action_name == "show" %>">
+          <%= link_to chat_path(@company.chat) do %>
             <div class="navbar-logo-other">
               <%= image_tag("chat.png") %>
               <p>Chat</p>

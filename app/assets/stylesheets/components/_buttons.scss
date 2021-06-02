@@ -207,7 +207,7 @@
 
 .button-return {
   font-size: 64px;
-  &:hover{
+  &:hover {
     text-decoration: none;
   }
   a {
@@ -216,7 +216,7 @@
   }
 }
 
-.button-device{
+.button-device {
   a {
     color: $gold;
   }
@@ -233,14 +233,14 @@
   opacity: 0.9;
   text-align: center;
   margin-right: 30px;
-  &:hover{
+  &:hover {
     opacity:1;
     text-decoration: none;
     color: white;
   }
 }
 
-.button-connect{
+.button-connect {
   border: 1px solid white;
   font-size: 14px;
   padding: 7px;
@@ -251,7 +251,7 @@
   text-align: center;
   margin-right: 30px;
   color: white;
-  &:hover{
+  &:hover {
     opacity:1;
     color: $gold;
     border-color: $gold;
@@ -266,6 +266,7 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 24px;
   padding: 8px 16px 8px 16px;
+
   &:hover {
     text-decoration: none;
     color: $violet;
@@ -274,7 +275,8 @@
 
 .button-transform {
   transition: 0.25s;
-  &:hover{
+  
+  &:hover {
     transform: scale(1.01);
   }
 }
@@ -321,7 +323,7 @@
   margin-bottom: 32px;
   .fa-plus-circle {
   color: white;
-}
+  }
   transition: 0.4s;
   &:hover {
     color: white;
@@ -337,9 +339,11 @@
   border: none;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   margin-bottom: 32px;
+
   .fa-minus-circle {
     color: $violet
   }
+
   transition: 0.4s;
   &:hover {
     transform: scale(1.02)

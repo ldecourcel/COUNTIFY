@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 
   get :components, to: 'pages#components'
   get 'companies/:id/dashboard', to: 'companies#dashboard', as: :company_dashboard
+  
+  resources :chats, only: :show do
+    resources :messages, only: :create
+  end
 end
