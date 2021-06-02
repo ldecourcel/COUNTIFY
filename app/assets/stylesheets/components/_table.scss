@@ -127,10 +127,11 @@ td img {
   background-color: rgba($violet, 0.2) !important;
   padding: 4px 12px 4px 12px;
   border-radius: 16px;
-  justify-content: start;
+  justify-content: center;
   align-items: baseline;
-  width: min-content;
+  width: 100%;
   margin-right: 19px;
+
 }
 
 .bolder {
