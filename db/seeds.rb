@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "destroying existing records..."
+Message.destroy_all
 User.destroy_all
 Invoice.destroy_all
 Operation.destroy_all
