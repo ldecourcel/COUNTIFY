@@ -8,6 +8,6 @@ class Operation < ApplicationRecord
   pg_search_scope :global_search,
     against: [ :amount, :details, :date ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true } 
     }
 end
