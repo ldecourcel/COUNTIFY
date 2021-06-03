@@ -22,7 +22,7 @@
       <div class="dashboard-top">
         <div class="pie-chart">
           <h2>Catégorisation des dépenses</h2>
-          <% data = @company.operations.group(:category).sum(:amount) %>
+          <% data = @company.operations.group(:category).sum(:amount_cents) %>
           <% data.each do |key, value| %>
             <% data[key] = -value %>
           <% end %>
@@ -43,7 +43,7 @@
         <% data_month.each do |d|%>
           <% d.date = d.date.strftime("%d/%m/%Y") %>
         <% end %>
-        <%= column_chart [{name: "Recettes", data: data_month.where("amount >= ?", "0").group_by_month(:date, format: "%B").sum(:amount)}, {name: "Dépenses", data: data_month.where("amount < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount)")}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
+        <%= column_chart [{name: "Recettes", data: data_month.where("amount_cents >= ?", "0").group_by_month(:date, format: "%B").sum(:amount_cents)}, {name: "Dépenses", data: data_month.where("amount_cents < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount_cents)")}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
       </div>
     </div>
   </div>

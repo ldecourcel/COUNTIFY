@@ -46,7 +46,7 @@ account1_company1 = Account.create(iban: "FR5230003000509811414747Q31", swift: "
 account2_company1 = Account.create(iban: "FR5230003000509811414747Q32", swift: "AGFBFRCC", account_name: "HSBC", company: company1)
 
 account1_company2 = Account.create(iban: "FR5230003000509811414747Q33", swift: "AGFBFRCD", account_name: "BRED", company: company2)
-account2_company2 = Account.create(iban: "FR5230003000509811414747Q34", swift: "AGFBFRCD", account_name: "BNP", company: company2)
+account2_company2 = Account.create(iban: "FR5230003000509811414747Q34", swift: "AGFBFRCD", account_name: "LCL", company: company2)
 
 accounts = [ account1_company1, account2_company1, account1_company2, account2_company2 ]
 
