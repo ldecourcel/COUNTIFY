@@ -18,7 +18,7 @@ class ImportOperationsFromCsv
       p row[-1]
       account = Account.find_by(account_name: row[-1])
       operation.date = Date.parse(row[0])
-      operation.amount = row[1]
+      operation.amount = row[1].to_i
       operation.details = row[2]
       operation.account = account
       operation.category = row[3]
