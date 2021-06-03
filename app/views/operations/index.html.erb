@@ -59,7 +59,9 @@
         </div classe="responsive-table">
           <%= link_to raw('<i class="fas fa-plus-circle"></i>  Ajouter une transaction'), new_company_operation_path(@company), id: "btn-add-ope"%>
       </div>
-      <div data-controller="sorting" data-sorting-company-value="<%= @company.id %>">
+      <div data-controller="sorting"
+          data-sorting-company-value="<%= @company.id %>"
+          data-sorting-direction-value="desc">
         <table>
           <thead>
             <tr>

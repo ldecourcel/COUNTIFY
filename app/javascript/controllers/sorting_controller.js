@@ -2,26 +2,21 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = ['button', 'body', 'arrows']
-  static values = { company: String }
-
-  // connect() {
-  //   console.log(this.buttonTargets)
-  //   console.log(this.arrowTargets)
-  // }
+  static values = { company: String, direction: String }
 
   async fetch(event) {
     event.preventDefault();
     const sort = event.target.dataset.sort
 
     const response = await fetch(`
-                      /companies/${this.companyValue}/fetch_operations?direction=asc&sort=${sort}`,
+                      /companies/${this.companyValue}/fetch_operations?direction=${this.directionValue}&sort=${sort}`,
                       { Accept: 'application/json' }
                      )
 
     const data = await response.json()
     this.swap(data)
-    // console.log(event.target)
     this.arrow(event.target)
+    this.directionValue = this.directionValue === 'asc' ? 'desc' : 'asc'
   }
 
   swap(data) {
