@@ -43,6 +43,7 @@ class InvoicesController < ApplicationController
     @invoice = InvoicesApi.new(invoice).call(file)
     @invoice.company_id = params[:company_id]
     @company = Company.find(@invoice.company_id)
+    @invoice.client = @company.name
     authorize @invoice
     if @invoice.save
       redirect_to company_invoice_path(@company, @invoice)
