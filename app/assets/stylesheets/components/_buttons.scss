@@ -43,6 +43,7 @@
   justify-items: center;
   margin-top: 42px;
 }
+
 #container-button-export {
 
   // width: 100%;
@@ -276,7 +277,7 @@
 
 .button-transform {
   transition: 0.25s;
-  
+
   &:hover {
     transform: scale(1.01);
   }
