@@ -1,0 +1,50 @@
+  <div class="container-dashboard">
+    <div class="dashboard-accountant">
+      <div class="dashboard-company-title">
+        <h2>Statistiques comptables <%= @company.name %></h2>
+      </div>
+      <div class="dashboard-top">
+        <div class="pie-chart">
+          <h2>Statut des transactions</h2>
+          <%= pie_chart({"Validé" => @company.operations.validated.count, "A valider" => @company.operations.to_validate.count, "Manquant" => @company.operations.missing.count}, donut: true, colors: ["#52B788", "#F7BD76", "#e64948"], adapter: "highcharts") %>
+        </div>
+        <div class="bar-chart">
+          <h2>Avancée des tâches</h2>
+          <% data_statut = [{name: "Manquant", data: { "" => @company.operations.missing.count}}, {name: "A valider", data: { "" => @company.operations.to_validate.count}}, { name: "Validé", data: { "" => @company.operations.validated.count}}, { name: "Total", data: { "" => @company.operations.count}}]%>
+          <%= bar_chart(data_statut, colors: ["#e64948", "#F7BD76", "#52B788", "#717DF7"], adapter: "highcharts") %>
+        </div>
+    </div>
+
+    <div class="dashboard-company">
+      <div class="dashboard-company-title">
+        <h2>Données <%= @company.name %></h2>
+      </div>
+      <div class="dashboard-top">
+        <div class="pie-chart">
+          <h2>Catégorisation des dépenses</h2>
+          <% data = @company.operations.group(:category).sum(:amount) %>
+          <% data.each do |key, value| %>
+            <% data[key] = -value %>
+          <% end %>
+          <%= pie_chart(data, donut: true, legend: "left", suffix: "€", thousands: " ", adapter: "highcharts" ) %>
+          <% vta_visualisation = {received: 0, payed: 0 } %>
+          <% @company.invoices.each do |invoice| %>
+            <% invoice.issuer == @company.name ? vta_visualisation[:received] += invoice.tax_amount : vta_visualisation[:payed] += invoice.tax_amount%>
+          <% end %>
+        </div>
+        <div class="bar-chart">
+          <h2>Répartition de la TVA</h2>
+          <%= bar_chart({ "TVA collecté" => vta_visualisation[:received], "TVA déductible" => vta_visualisation[:payed] }, suffix: "€", thousands: " ", adapter: "highcharts", colors: ["#44A9A8", "#95CDFE"]) %>
+        </div>
+      </div>
+      <div class="column-chart">
+        <h2>Relevé mensuel <%= @company.operations.order(:date).first.date.strftime("%Y") %>/<%=@company.operations.order(:date).first.date.strftime("%Y").to_i + 1 %></h2>
+        <% data_month = @company.operations %>
+        <% data_month.each do |d|%>
+          <% d.date = d.date.strftime("%d/%m/%Y") %>
+        <% end %>
+        <%= column_chart [{name: "Recettes", data: data_month.where("amount >= ?", "0").group_by_month(:date, format: "%B").sum(:amount)}, {name: "Dépenses", data: data_month.where("amount < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount)")}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
+      </div>
+    </div>
+  </div>
+

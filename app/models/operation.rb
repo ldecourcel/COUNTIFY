@@ -4,8 +4,11 @@ class Operation < ApplicationRecord
 
   validates :date, :amount, :details, presence: true
 
-  monetize :amount_cents, with_currency: :eur
+  scope :missing, -> { where(validated: false).where(invoice_id: nil) }
+  scope :to_validate, -> { where.not(invoice_id: nil).where(validated: false) }
+  scope :validated, -> { where(validated: true) }
 
+  monetize :amount_cents, with_currency: :eur
 
   include PgSearch::Model
   pg_search_scope :global_search,

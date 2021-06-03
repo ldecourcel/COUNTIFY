@@ -1,31 +1,7 @@
 <div class="big-container">
-  <div class="container-dashboard">
-    <div class="dashboard-top">
-      <div class="pie-chart">
-        <h2>Catégorisation des dépenses</h2>
-        <% data = @company.operations.group(:category).sum(:amount) %>
-        <% data.each do |key, value| %>
-          <% data[key] = -value %>
-        <% end %>
-        <%= pie_chart(data, donut: true, legend: "left", suffix: "€", thousands: " ", adapter: "highcharts" ) %>
-        <% vta_visualisation = {received: 0, payed: 0 } %>
-        <% @company.invoices.each do |invoice| %>
-          <% invoice.issuer == @company.name ? vta_visualisation[:received] += invoice.tax_amount : vta_visualisation[:payed] += invoice.tax_amount%>
-        <% end %>
-      </div>
-      <div class="bar-chart">
-        <h2>Répartition de la TVA</h2>
-        <%= bar_chart({ "TVA collecté" => vta_visualisation[:received], "TVA déductible" => vta_visualisation[:payed] }, suffix: "€", thousands: " ", adapter: "highcharts", colors: ["#44A9A8", "#95CDFE"]) %>
-      </div>
-    </div>
-    <div class="column-chart">
-      <h2>Relevé mensuel <%= @company.operations.order(:date).first.date.strftime("%Y") %>/<%=@company.operations.order(:date).first.date.strftime("%Y").to_i + 1 %></h2>
-      <% data_month = @company.operations %>
-      <% data_month.each do |d|%>
-        <% d.date = d.date.strftime("%d/%m/%Y") %>
-      <% end %>
-      <%= column_chart [{data: data_month.where("amount >= ?", "0").group_by_month(:date, format: "%B").sum(:amount)}, {data: data_month.where("amount < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount)")}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
-    </div>
-  </div>
+  <%if current_user.accountant_id != nil %>
+    <%= render 'shared/dashboard_accountant'%>
+  <% else %>
+    <%= render 'shared/dashboard_company'%>
+  <% end %>
 </div>
-
