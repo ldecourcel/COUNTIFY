@@ -68,14 +68,14 @@
                 <div class="title-header">
                   <%= sortable "amount_cents", "Montant"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "amount" %>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up' id="up"></i>
-                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up active arrow' id="up"></i>
+                      <i class='fas fa-sort-down arrow' style = "color:grey"></i>
                     </div>
                   <%else%>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
-                      <i class='fas fa-sort-down'></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up arrow' id="up"></i>
+                      <i class='fas fa-sort-down active arrow'></i>
                     </div>
                   <% end %>
                 </div>
@@ -85,14 +85,14 @@
                 <div class="title-header">
                   <%= sortable "date", "Date"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "date" %>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up' id="up"></i>
-                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up active arrow' id="up"></i>
+                      <i class='fas fa-sort-down arrow' style = "color:grey"></i>
                     </div>
                   <%else%>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
-                      <i class='fas fa-sort-down'></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up arrow' id="up"></i>
+                      <i class='fas fa-sort-down active arrow'></i>
                     </div>
                   <% end %>
                 </div>
@@ -102,14 +102,14 @@
                 <div class="title-header">
                   <%= sortable "details", "Description"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "details" %>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up' id="up"></i>
-                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up active arrow' id="up"></i>
+                      <i class='fas fa-sort-down arrow' style = "color:grey"></i>
                     </div>
                   <%else%>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
-                      <i class='fas fa-sort-down'></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up arrow' id="up"></i>
+                      <i class='fas fa-sort-down active arrow'></i>
                     </div>
                   <% end %>
                 </div>
@@ -119,14 +119,14 @@
                 <div class="title-header">
                   <%= sortable "category", "Catégorie"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "category" %>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up' id="up"></i>
-                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up active arrow' id="up"></i>
+                      <i class='fas fa-sort-down arrow' style = "color:grey"></i>
                     </div>
                   <%else%>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
-                      <i class='fas fa-sort-down'></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up arrow' id="up"></i>
+                      <i class='fas fa-sort-down active arrow'></i>
                     </div>
                   <% end %>
                 </div>
@@ -136,14 +136,14 @@
                 <div class="title-header">
                   <%= sortable "account_id", "Compte"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "account_id" %>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up' id="up"></i>
-                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up active arrow' id="up"></i>
+                      <i class='fas fa-sort-down arrow' style = "color:grey"></i>
                     </div>
                   <%else%>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
-                      <i class='fas fa-sort-down'></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up arrow' id="up"></i>
+                      <i class='fas fa-sort-down active arrow'></i>
                     </div>
                   <% end %>
                 </div>
@@ -153,14 +153,14 @@
                 <div class="title-header">
                   <%= sortable "validated", "Statut"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "validated" %>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up' id="up"></i>
-                      <i class='fas fa-sort-down' style = "color:grey"></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up active arrow' id="up"></i>
+                      <i class='fas fa-sort-down arrow' style = "color:grey"></i>
                     </div>
                   <%else%>
-                    <div class="arrows">
-                      <i class='fas fa-sort-up done' style = "color:grey" id="up"></i>
-                      <i class='fas fa-sort-down'></i>
+                    <div class="arrows" data-sorting-target="arrows">
+                      <i class='fas fa-sort-up arrow' id="up"></i>
+                      <i class='fas fa-sort-down active arrow'></i>
                     </div>
                   <% end %>
                 </div>
