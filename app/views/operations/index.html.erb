@@ -5,14 +5,21 @@
     <h1><%= @company.name %></h1>
       <div id="div-operation-export">
         <div class="cards-operations-stats">
-          <p class="tag-amount-violet-stat"><span class="bolder font-size-24px"><%= @operations.where(validated: false).count %></span><span class="font-size-16px mr-2">/<%= @operations.count %></span>réconciliées</p>
-          <div class="display-stat-banner-operations mb-3">
+          <div class="display-stat-banner-operations">
+            <div class="tag-amount-yellow-stat">
+              <p class="mb-0">A réconcilier</p>
+              <p class="bolder mb-0 center"><%= @operations.where(validated: false).count %></p>
+            </div>
+            <div class="tag-amount-violet-stat">
+              <p class="mb-0">Transactions</p>
+              <p class="mb-0 bolder"><%= @operations.count %></p>
+            </div>
             <div class="tag-amount-red-stat">
-              <p class="mb-0">Dépenses </p>
+              <p class="mb-0">Dépenses</p>
               <p class="bolder mb-0"><%= @expenses.sum %></p>
             </div>
             <div class="tag-amount-green-stat">
-              <p class="mb-0">Recettes </p>
+              <p class="mb-0">Recettes</p>
               <p class="bolder mb-0"><%= @gains.sum%></p>
             </div>
           </div>
@@ -59,7 +66,7 @@
 
               <th class="th-sm" >
                 <div class="title-header">
-                  <%= sortable "amount", "Montant"%>
+                  <%= sortable "amount_cents", "Montant"%>
                   <% if params[:direction] == 'asc' && params[:sort] == "amount" %>
                     <div class="arrows">
                       <i class='fas fa-sort-up' id="up"></i>
@@ -162,12 +169,14 @@
           </thead>
 
           <tbody>
+            <%# <%raise%>
             <% @operations.each do |operation| %>
             <div class="link">
               <tr onclick="window.location='/companies/<%=params[:company_id]%>/operations/<%= operation.id %>';">
                   <td class="table-amount-center">
                     <div class="<%= operation.amount > 0 ? 'tag-amount-green' : 'tag-amount-red'%>">
                       <strong><%= operation.amount%></strong>
+                      <%# <%=raise%>
                     </div>
                   </td>
                 <td><%= operation.date.strftime("%d/%m/%Y")%></td>
@@ -211,7 +220,7 @@
                   <%= f.input "Du", as: :date, html5: true %>
                   <%= f.input "au", as: :date, html5: true %>
                 </div>
-                 <div class="modal-export-params-format">
+                <div class="modal-export-params-format">
                   <%= f.input :format, collection: [ ".csv", ".xlsx", ".aze", ".pdf" ]%>
                 </div>
                 <div class="modal-export-params-status">

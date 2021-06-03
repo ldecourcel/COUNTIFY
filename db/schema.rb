@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_090057) do
+ActiveRecord::Schema.define(version: 2021_06_03_080437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,16 +78,16 @@ ActiveRecord::Schema.define(version: 2021_06_02_090057) do
 
   create_table "invoices", force: :cascade do |t|
     t.date "date"
-    t.float "net_amount"
+    t.integer "net_amount_cents"
     t.string "issuer"
     t.float "vta"
     t.bigint "company_id", null: false
     t.string "payment_method"
-    t.float "tax_amount"
+    t.integer "tax_amount_cents"
     t.string "label"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "total_amount"
+    t.integer "total_amount_cents"
     t.string "client"
     t.string "invoice_number"
     t.index ["company_id"], name: "index_invoices_on_company_id"
@@ -105,7 +105,6 @@ ActiveRecord::Schema.define(version: 2021_06_02_090057) do
 
   create_table "operations", force: :cascade do |t|
     t.date "date"
-    t.float "amount"
     t.string "details"
     t.string "category"
     t.bigint "account_id", null: false
@@ -114,6 +113,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_090057) do
     t.boolean "validated", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "amount_cents"
     t.index ["account_id"], name: "index_operations_on_account_id"
     t.index ["invoice_id"], name: "index_operations_on_invoice_id"
   end

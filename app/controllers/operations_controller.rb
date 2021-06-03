@@ -24,7 +24,7 @@ class OperationsController < ApplicationController
         end
       end
     end
-    
+
   end
 
   def new
@@ -43,7 +43,7 @@ class OperationsController < ApplicationController
     @operation.account = @account
     @company = @operation.account.company
     authorize @operation
-    
+
     if @operation.save
       redirect_to company_operation_path(@company, @operation)
     else

@@ -91,8 +91,11 @@ td img {
   background-color: rgba($green, 0.2) !important;
   padding: 4px 12px 4px 12px;
   border-radius: 16px;
-  width: 60%;
+  width: 70%;
   justify-content: center;
+  p {
+    text-align: center;
+  }
 }
 
 .tag-amount-red {
@@ -101,7 +104,7 @@ td img {
   background-color: rgba($red, 0.2) !important;
   padding: 4px 12px 4px 12px;
   border-radius: 16px;
-  width: 60%;
+  width: 70%;
   justify-content: center;
 }
 
@@ -112,9 +115,12 @@ td img {
   background-color: rgba($red, 0.2) !important;
   padding: 4px 12px 4px 12px;
   border-radius: 16px;
-  width: 60%;
+  width: 100%;
   justify-content: center;
   margin-right: 19px;
+  p {
+    text-align: center;
+  }
 }
 
 .tag-amount-green-stat {
@@ -124,20 +130,41 @@ td img {
   background-color: rgba($green, 0.2) !important;
   padding: 4px 12px 4px 12px;
   border-radius: 16px;
-  width: 60%;
+  width: 100%;
   justify-content: center;
+  p {
+    text-align: center;
+  }
 }
 
 .tag-amount-violet-stat {
+  flex-direction: column;
   display: flex;
   color: $violet;
   background-color: rgba($violet, 0.2) !important;
   padding: 4px 12px 4px 12px;
   border-radius: 16px;
   justify-content: center;
-  align-items: baseline;
   width: 100%;
   margin-right: 19px;
+  p {
+    text-align: center;
+  }
+}
+
+.tag-amount-yellow-stat {
+  flex-direction: column;
+  display: flex;
+  color: $orange;
+  background-color: rgba($orange, 0.2) !important;
+  padding: 4px 12px 4px 12px;
+  border-radius: 16px;
+  justify-content: center;
+  width: 100%;
+  margin-right: 19px;
+  p {
+    text-align: center;
+  }
 }
 
 .bolder {
@@ -173,31 +200,35 @@ td img {
   }
 }
 
-.th-sm{
-  .title-header{
+.th-sm {
+  .title-header {
     display:flex;
     align-items: center;
     justify-content: center;
-    a:hover{
+    a:hover {
       text-decoration: none;
       color: $dark-blue;
     }
-    .arrows{
+    .arrows {
       display:flex;
       flex-direction:column;
       padding-left: 7px;
-      #up{
-         margin-bottom: -20px;
+      #up {
+        margin-bottom: -20px;
       }
-      .fa-sort-up{
+      .fa-sort-up {
         font-size: 25px;
         color: $violet;
 
       }
-      .fa-sort-down{
+      .fa-sort-down {
         font-size: 25px;
         color: $violet;
       }
     }
   }
+}
+
+.medium-grey {
+  color: $medium-grey;
 }

@@ -8,6 +8,8 @@ class Operation < ApplicationRecord
   scope :to_validate, -> { where.not(invoice_id: nil).where(validated: false) }
   scope :validated, -> { where(validated: true) }
 
+  monetize :amount_cents, with_currency: :eur
+
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [ :amount, :details, :date ],

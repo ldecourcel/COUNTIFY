@@ -42,11 +42,11 @@ chat2 = Chat.create(name: "#Messages", company: company2, accountant: accountant
 puts "Chat DONE creating account ..."
 
 
-account1_company1 = Account.create(iban: "FR5230003000509811414747Q31", swift: "AGFBFRCC", account_name: "Pro1", company: company1)
-account2_company1 = Account.create(iban: "FR5230003000509811414747Q32", swift: "AGFBFRCC", account_name: "Pro2", company: company1)
+account1_company1 = Account.create(iban: "FR5230003000509811414747Q31", swift: "AGFBFRCC", account_name: "BNP", company: company1)
+account2_company1 = Account.create(iban: "FR5230003000509811414747Q32", swift: "AGFBFRCC", account_name: "HSBC", company: company1)
 
-account1_company2 = Account.create(iban: "FR5230003000509811414747Q33", swift: "AGFBFRCD", account_name: "Pro3", company: company2)
-account2_company2 = Account.create(iban: "FR5230003000509811414747Q34", swift: "AGFBFRCD", account_name: "Pro4", company: company2)
+account1_company2 = Account.create(iban: "FR5230003000509811414747Q33", swift: "AGFBFRCD", account_name: "BRED", company: company2)
+account2_company2 = Account.create(iban: "FR5230003000509811414747Q34", swift: "AGFBFRCD", account_name: "BNP", company: company2)
 
 accounts = [ account1_company1, account2_company1, account1_company2, account2_company2 ]
 
