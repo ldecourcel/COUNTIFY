@@ -41,7 +41,7 @@
           <thead>
             <tr>
               <th class="th-sm"><strong>Montant TTC</strong> (€)</th>
-              <th class="th-sm">Montant taxe (€)</th>
+              <th class="th-sm">Montant HT (€)</th>
               <th class="th-sm">TVA (%)</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">Bénéficaire</th>
@@ -50,16 +50,40 @@
             </tr>
           </thead>
           <tbody data-controller="display-invoices">
-            <div class="link" >
+            <div class="link">
               <tr class="no-hover">
-                <td><strong><%= @operation.invoice.tax_amount + @operation.invoice.net_amount %></strong></td>
-                <td><%= @operation.invoice.tax_amount %></td>
-                <td><%= @operation.invoice.vta %></td>
-                <td><%= @operation.invoice.date.strftime("%d/%m/%Y") %></td>
-                <td><%= @operation.invoice.issuer %></td>
-                <td><%= @operation.invoice.client %></td>
-                <td data-display-invoices-target="btndisplayone" data-action="click->display-invoices#displayRowOne" class="clickable"><i class="fas fa-plus-circle" ></i> Afficher</td>
-                <td data-display-invoices-target="btnhideone" data-action="click->display-invoices#displayRowOne" class="d-none clickable" ><i class="fas fa-caret-up"></i></i> Masquer</td>
+                <% if @operation.invoice.total_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><strong><%= @operation.invoice.total_amount %></strong></td>
+                <% end %>
+                <% if @operation.invoice.net_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.net_amount %></td>
+                <% end %>
+                <% if @operation.invoice.vta.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.vta %></td>
+                <% end %>
+                <% if @operation.invoice.date.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.date.strftime("%d/%m/%Y") %></td>
+                <% end %>
+                <% if @operation.invoice.issuer.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.issuer %></td>
+                <% end %>
+                <% if @operation.invoice.client.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.client %></td>
+                <% end %>
+                  <td data-display-invoices-target="btndisplayone" data-action="click->display-invoices#displayRowOne" class="clickable"><i class="fas fa-plus-circle" ></i> Afficher</td>
+                  <td data-display-invoices-target="btnhideone" data-action="click->display-invoices#displayRowOne" class="d-none clickable" ><i class="fas fa-caret-up"></i></i> Masquer</td>
               </tr>
               <tr class="d-none no-hover" data-display-invoices-target="rowone">
                 <td class="td-img" colspan = 7>
@@ -79,7 +103,7 @@
           <thead>
             <tr>
               <th class="th-sm"><strong>Montant TTC</strong> (€)</th>
-              <th class="th-sm">Montant taxe (€)</th>
+              <th class="th-sm">Montant HT (€)</th>
               <th class="th-sm">TVA (%)</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">Bénéficaire</th>
@@ -90,12 +114,36 @@
           <tbody data-controller="display-invoices">
             <div class="link">
               <tr class="no-hover">
-                <td><strong><%= @operation.invoice.total_amount %></strong></td>
-                <td><%= @operation.invoice.tax_amount %></td>
-                <td><%= @operation.invoice.vta %></td>
-                <td><%= @operation.invoice.date.strftime("%d/%m/%Y") %></td>
-                <td><%= @operation.invoice.issuer %></td>
-                <td><%= @operation.invoice.client %></td>
+                <% if @operation.invoice.total_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><strong><%= @operation.invoice.total_amount %></strong></td>
+                <% end %>
+                <% if @operation.invoice.net_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.net_amount %></td>
+                <% end %>
+                <% if @operation.invoice.vta.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.vta %></td>
+                <% end %>
+                <% if @operation.invoice.date.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.date.strftime("%d/%m/%Y") %></td>
+                <% end %>
+                <% if @operation.invoice.issuer.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.issuer %></td>
+                <% end %>
+                <% if @operation.invoice.client.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @operation.invoice.client %></td>
+                <% end %>
                 <td data-display-invoices-target="btndisplayone" data-action="click->display-invoices#displayRowOne" class="clickable"><i class="fas fa-plus-circle" ></i> Afficher</td>
                 <td data-display-invoices-target="btnhideone" data-action="click->display-invoices#displayRowOne" class="d-none clickable" ><i class="fas fa-caret-up"></i></i> Masquer</td>
               </tr>
@@ -113,12 +161,36 @@
                 </td>
               </tr>
               <tr class="no-hover">
-                <td><strong><%= @invoices_to_display[1][0].total_amount %></strong></td>
-                <td><%= @invoices_to_display[1][0].tax_amount %></td>
-                <td><%= @invoices_to_display[1][0].vta %></td>
-                <td><%= @invoices_to_display[1][0].date.strftime("%d/%m/%Y") %></td>
-                <td><%= @invoices_to_display[1][0].issuer %></td>
-                <td><%= @invoices_to_display[1][0].client %></td>
+                <% if @invoices_to_display[1][0].total_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><strong><%= @invoices_to_display[1][0].total_amount %></strong></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].net_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].net_amount %></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].vta.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].vta %></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].date.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].date.strftime("%d/%m/%Y") %></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].issuer.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].issuer %></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].client.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].client %></td>
+                <% end %>
                 <td data-display-invoices-target="btndisplaytwo" data-action="click->display-invoices#displayRowTwo" class="clickable"><i class="fas fa-plus-circle" ></i> Afficher</td>
                 <td data-display-invoices-target="btnhidetwo" data-action="click->display-invoices#displayRowTwo" class="d-none clickable" ><i class="fas fa-caret-up"></i></i> Masquer</td>
               </tr>
@@ -136,12 +208,36 @@
                 </td>
               </tr>
               <tr class="no-hover">
-                <td><strong><%= @invoices_to_display[2][0].total_amount %></strong></td>
-                <td><%= @invoices_to_display[2][0].tax_amount %></td>
-                <td><%= @invoices_to_display[2][0].vta %></td>
-                <td><%= @invoices_to_display[2][0].date.strftime("%d/%m/%Y") %></td>
-                <td><%= @invoices_to_display[2][0].issuer %></td>
-                <td><%= @invoices_to_display[2][0].client %></td>
+                <% if @invoices_to_display[2][0].total_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><strong><%= @invoices_to_display[2][0].total_amount %></strong></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].net_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].net_amount %></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].vta.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].vta %></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].date.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].date.strftime("%d/%m/%Y") %></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].issuer.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].issuer %></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].client.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].client %></td>
+                <% end %>
                 <td data-display-invoices-target="btndisplaythree" data-action="click->display-invoices#displayRowThree" class="clickable"><i class="fas fa-plus-circle" ></i> Afficher</td>
                 <td data-display-invoices-target="btnhidethree" data-action="click->display-invoices#displayRowThree" class="d-none clickable" ><i class="fas fa-caret-up"></i></i> Masquer</td>
               </tr>
@@ -167,7 +263,7 @@
           <thead>
             <tr>
               <th class="th-sm"><strong>Montant TTC</strong> (€)</th>
-              <th class="th-sm">Montant taxe (€)</th>
+              <th class="th-sm">Montant HT (€)</th>
               <th class="th-sm">TVA (%)</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">Bénéficaire</th>
@@ -178,12 +274,36 @@
           <tbody data-controller="display-invoices">
             <div class="link">
               <tr class="no-hover">
-                <td><strong><%= @invoices_to_display[0][0].total_amount %></strong></td>
-                <td><%= @invoices_to_display[0][0].tax_amount %></td>
-                <td><%= @invoices_to_display[0][0].vta %></td>
-                <td><%= @invoices_to_display[0][0].date.strftime("%d/%m/%Y") %></td>
-                <td><%= @invoices_to_display[0][0].issuer %></td>
-                <td><%= @invoices_to_display[0][0].client %></td>
+                <% if @invoices_to_display[0][0].total_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><strong><%= @invoices_to_display[0][0].total_amount %></strong></td>
+                <% end %>
+                <% if @invoices_to_display[0][0].net_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[0][0].net_amount %></td>
+                <% end %>
+                <% if @invoices_to_display[0][0].vta.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[0][0].vta %></td>
+                <% end %>
+                <% if @invoices_to_display[0][0].date.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[0][0].date.strftime("%d/%m/%Y") %></td>
+                <% end %>
+                <% if @invoices_to_display[0][0].issuer.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[0][0].issuer %></td>
+                <% end %>
+                <% if @invoices_to_display[0][0].client.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[0][0].client %></td>
+                <% end %>
                 <td data-display-invoices-target="btndisplayone" data-action="click->display-invoices#displayRowOne" class="clickable"><i class="fas fa-plus-circle" ></i> Afficher</td>
                 <td data-display-invoices-target="btnhideone" data-action="click->display-invoices#displayRowOne" class="d-none clickable" ><i class="fas fa-caret-up"></i></i> Masquer</td>
               </tr>
@@ -201,12 +321,36 @@
                 </td>
               </tr>
               <tr class="no-hover">
-                <td><strong><%= @invoices_to_display[1][0].total_amount %></strong></td>
-                <td><%= @invoices_to_display[1][0].tax_amount %></td>
-                <td><%= @invoices_to_display[1][0].vta %></td>
-                <td><%= @invoices_to_display[1][0].date.strftime("%d/%m/%Y") %></td>
-                <td><%= @invoices_to_display[1][0].issuer %></td>
-                <td><%= @invoices_to_display[1][0].client %></td>
+                <% if @invoices_to_display[1][0].total_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><strong><%= @invoices_to_display[1][0].total_amount %></strong></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].net_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].net_amount %></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].vta.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].vta %></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].date.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].date.strftime("%d/%m/%Y") %></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].issuer.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].issuer %></td>
+                <% end %>
+                <% if @invoices_to_display[1][0].client.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[1][0].client %></td>
+                <% end %>
                 <td data-display-invoices-target="btndisplaytwo" data-action="click->display-invoices#displayRowTwo" class="clickable"><i class="fas fa-plus-circle" ></i> Afficher</td>
                 <td data-display-invoices-target="btnhidetwo" data-action="click->display-invoices#displayRowTwo" class="d-none clickable" ><i class="fas fa-caret-up"></i></i> Masquer</td>
               </tr>
@@ -224,12 +368,36 @@
                 </td>
               </tr>
               <tr class="no-hover">
-                <td><strong><%= @invoices_to_display[2][0].total_amount %></strong></td>
-                <td><%= @invoices_to_display[2][0].tax_amount %></td>
-                <td><%= @invoices_to_display[2][0].vta %></td>
-                <td><%= @invoices_to_display[2][0].date.strftime("%d/%m/%Y") %></td>
-                <td><%= @invoices_to_display[2][0].issuer %></td>
-                <td><%= @invoices_to_display[2][0].client %></td>
+                <% if @invoices_to_display[2][0].total_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><strong><%= @invoices_to_display[2][0].total_amount %></strong></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].net_amount.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].net_amount %></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].vta.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].vta %></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].date.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].date.strftime("%d/%m/%Y") %></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].issuer.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].issuer %></td>
+                <% end %>
+                <% if @invoices_to_display[2][0].client.nil? %>
+                  <td class="medium-grey"><em>N/A</em></td>
+                <% else %>
+                  <td><%= @invoices_to_display[2][0].client %></td>
+                <% end %>
                 <td data-display-invoices-target="btndisplaythree" data-action="click->display-invoices#displayRowThree" class="clickable"><i class="fas fa-plus-circle" ></i> Afficher</td><br>
                 <td data-display-invoices-target="btnhidethree" data-action="click->display-invoices#displayRowThree" class="d-none clickable" ><i class="fas fa-caret-up"></i></i> Masquer</td>
               </tr>
@@ -260,7 +428,7 @@
           <thead>
             <tr>
               <th class="th-sm"><strong>Montant TTC</strong> (€)</th>
-              <th class="th-sm">Montant taxe (€)</th>
+              <th class="th-sm">Montant HT (€)</th>
               <th class="th-sm">TVA (%)</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">Bénéficaire</th>
@@ -272,7 +440,7 @@
             <% @invoices.each do |invoice| %>
                 <tr onclick="window.location='/companies/<%=params[:company_id]%>/invoices/<%= invoice.id %>';">
                   <td><strong><%= invoice.total_amount%></strong></td>
-                  <td><%= invoice.tax_amount%></td>
+                  <td><%= invoice.net_amount%></td>
                   <td> <%= invoice.vta %></td>
                   <td><%= invoice.date.strftime("%d/%m/%Y") %></td>
                   <td><%= invoice.issuer %></td>

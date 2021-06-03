@@ -167,37 +167,37 @@
                   <% end %>
                 </td>
                 <% if invoice.invoice_number.nil? %>
-                  <td></td>
+                  <td class="medium-grey"><em>N/A</em></td>
                 <% else %>
                   <td><%= invoice.invoice_number %></td>
                 <% end %>
                 <% if invoice.total_amount.nil? %>
-                  <td></td>
+                  <td class="medium-grey"><em>N/A</em></td>
                 <% else %>
                   <td><%= invoice.total_amount %></td>
                 <% end %>
                 <% if invoice.net_amount.nil? %>
-                  <td></td>
+                  <td class="medium-grey"><em>N/A</em></td>
                 <% else %>
                   <td><%= invoice.net_amount %></td>
                 <% end %>
                 <% if invoice.vta.nil? %>
-                  <td></td>
+                  <td class="medium-grey"><em>N/A</em></td>
                 <% else %>
                   <td><%= invoice.vta %></td>
                 <% end %>
                 <% if invoice.date.nil? %>
-                  <td></td>
+                  <td class="medium-grey"><em>N/A</em></td>
                 <% else %>
                   <td><%= invoice.date.strftime("%d/%m/%Y")  %></td>
                 <% end %>
                 <% if invoice.issuer.nil? %>
-                  <td></td>
+                  <td class="medium-grey"><em>N/A</em></td>
                 <% else %>
                   <td><%= invoice.issuer %></td>
                 <% end %>
                 <% if invoice.client.nil? %>
-                  <td></td>
+                  <td class="medium-grey"><em>N/A</em></td>
                 <% else %>
                   <td><%= invoice.client %></td>
                 <% end %>
