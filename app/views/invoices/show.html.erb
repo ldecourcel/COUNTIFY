@@ -35,7 +35,7 @@
                   <tr class="show-rows">
                     <td><strong>Date</strong></td>
                     <% if @invoice.date.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.date.strftime("%d/%m/%Y")  %></td>
                     <% end %>
@@ -43,7 +43,7 @@
                   <tr class="show-rows">
                     <td><strong>N° Facture</strong></td>
                     <% if @invoice.invoice_number.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.invoice_number %></td>
                     <% end %>
@@ -51,7 +51,7 @@
                   <tr class="show-rows">
                     <td><strong>Bénéficiaire</strong></td>
                     <% if @invoice.issuer.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.issuer %></td>
                     <% end %>
@@ -59,7 +59,7 @@
                   <tr class="show-rows">
                     <td><strong>Montant TTC</strong> (€)</td>
                     <% if @invoice.total_amount.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.total_amount %></td>
                     <% end %>
@@ -67,7 +67,7 @@
                   <tr class="show-rows">
                     <td><strong>Montant HT</strong> (€)</td>
                     <% if @invoice.net_amount.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.net_amount %></td>
                     <% end %>
@@ -75,7 +75,7 @@
                   <tr class="show-rows">
                     <td><strong>Montant taxe</strong> (€)</td>
                     <% if @invoice.tax_amount.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.tax_amount %></td>
                     <% end %>
@@ -83,7 +83,7 @@
                   <tr class="show-rows">
                     <td><strong>TVA</strong> (%)</td>
                     <% if @invoice.vta.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.vta %></td>
                     <% end %>
@@ -91,7 +91,7 @@
                   <tr class="show-rows">
                     <td><strong>Type de paiement</strong></td>
                     <% if @invoice.payment_method.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.payment_method %></td>
                     <% end %>
@@ -99,7 +99,7 @@
                   <tr class="show-rows">
                     <td><strong>Client</strong></td>
                     <% if @invoice.client.nil? %>
-                      <td></td>
+                      <td class="medium-grey"><em>N/A</em></td>
                     <% else %>
                       <td><%= @invoice.client %></td>
                     <% end %>

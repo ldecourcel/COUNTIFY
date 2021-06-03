@@ -38,5 +38,10 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initChatCable();
+
+
+  document.getElementById('export-btn').addEventListener('click', () => {
+    document.getElementById('close-export-modal').click();
+  })
 });
 

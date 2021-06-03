@@ -1,60 +1,60 @@
 date;amount;description;category;validated;invoice_id;account_id;bankin_uu_id;account_name
-15/05/2021;-1331;Cardable sas;Internet;;;;;Pro1
-09/05/2021;8798;VIR Wagon;Recette;;;;;Pro1
-12/04/2021;2854,33;VIR SEPA Vibrary.io;Recette;;;;;Pro1
-01/04/2021;-829;CHQ. N.0983774;Fourniture;;;;;Pro1
-26/02/2021;7719;REM CHQ 843984328540850 45283480 ;Recette;;;;;Pro1
-19/02/2021;-32;VIR SEPA Wagon;Transport;;;;;Pro1
-05/02/2021;1033;VIR Dimitri Bosch;Recette;;;;;Pro1
-25/12/2020;-7065;VIR SEPA EDF;A categoriser;;;;;Pro1
-08/12/2020;-2835;AMAZON EU SARL;Loyer;;;;;Pro1
-11/11/2020;-400;RETRAIT DAB 11/04/2021 CDN PARIS P;Internet;;;;;Pro1
-11/11/2020;8836;VIR Julien DA SILVA;Recette;;;;;Pro1
-11/09/2020;-7084;Jobify sas;Taxes;;;;;Pro1
-10/09/2020;-2835;AMAZON EU SARL;Alimentation;;;;;Pro1
-02/09/2020;-6349;Friendstrip sarl eu;Telephone;;;;;Pro1
-10/06/2020;-8606;CHQ. N.0949732;Fourniture;;;;;Pro1
-10/08/2020;-9242;Amazon online;Alimentation;;;;;Pro2
-26/11/2020;-2363;carrefour Villepinte;Taxes;;;;;Pro2
-24/10/2020;-9627;HP online;Transport;;;;;Pro2
-27/11/2020;-8419;EDF comtpe en ligne;Transport;;;;;Pro2
-16/05/2021;-354;Paul Champs Elysees;Fourniture;;;;;Pro2
-24/04/2021;-7262;Le Wagon SAS;Alimentation;;;;;Pro2
-16/05/2021;-7307;VIR SEPA Vibrary.io;Telephone;;;;;Pro2
-04/04/2021;-25;VIR Helpling;Telephone;;;;;Pro2
-29/08/2020;-6853;VIR Jobify.carrer;Fourniture;;;;;Pro2
-03/02/2021;-9508;CHQ. N.03819372;Taxes;;;;;Pro2
-31/05/2021;-5872;VIR FriensTrip Paris;Internet;;;;;Pro2
-11/07/2020;9781;Le Wagon SAS;Recette;;;;;Pro2
-20/12/2020;7788;CHQ. N.03234372;Recette;;;;;Pro2
-15/07/2020;1959;JDS SARL;Recette;;;;;Pro2
-23/10/2020;358;VIR Than Prof;Recette;;;;;Pro2
-06/03/2021;-7373;CHQ. N.03827194;Internet;;;;;Pro3
-22/06/2020;-6310;VIR Paul;Telephone;;;;;Pro3
-03/06/2020;-8225;Le Wagon SAS;Telephone;;;;;Pro3
-03/06/2020;-1581;VIR SEPA Vibrary.io;Alimentation;;;;;Pro3
-07/05/2021;-2128;VIR Helpling ;Transport;;;;;Pro3
-17/07/2020;-3508;Vir Cardable;A categoriser;;;;;Pro3
-17/05/2021;-6682;CHQ. N.02323523;Telephone;;;;;Pro3
-16/02/2021;382;VIR Le Wagon;Recette;;;;;Pro3
-15/12/2020;395;CMG Bastille;Recette;;;;;Pro3
-25/08/2020;432;VIR Tran;Recette;;;;;Pro3
-10/02/2021;1984;VIR Le Wagon;Recette;;;;;Pro3
-13/06/2020;-5287;CHQ.N.0235235;Taxes;;;;;Pro4
-18/03/2021;-509;CHQ.N.0235234;Fourniture;;;;;Pro4
-04/03/2021;-6989;Intel SF;Telephone;;;;;Pro4
-07/06/2020;-2210;Paul Opera;Transport;;;;;Pro4
-17/07/2020;-8660;VIR Le Wagon;A categoriser;;;;;Pro4
-27/08/2020;-6111;Vibrary online;Taxes;;;;;Pro4
-19/12/2020;-5945;Helpling paris;Loyer;;;;;Pro4
-29/06/2020;-4582;Total A14;Transport;;;;;Pro4
-12/12/2020;-3875;CHQ.N.0235734;A categoriser;;;;;Pro4
-11/08/2020;9121;CHQ.N.0285235;Recette;;;;;Pro4
-04/10/2020;4533;DBO;Recette;;;;;Pro4
-09/04/2021;1004;Than Prof;Recette;;;;;Pro4
-06/12/2020;-3320;Uber France;Loyer;;;;;Pro4
-28/06/2020;-8938;GDF 530;A categoriser;;;;;Pro4
-10/01/2021;-5765;VIR Nespresso Paris;Loyer;;;;;Pro4
-25/07/2020;-8671;Le Wagon Paris;Loyer;;;;;Pro4
-17/06/2020;-2137;VIR Bobby;Telephone;;;;;Pro4
-28/08/2020;-3362;La vie la vraie;Taxes;;;;;Pro4
+15/05/2021;-1331;Cardable sas;Internet;;;;;BNP
+09/05/2021;8798;VIR Wagon;Recette;;;;;BNP
+12/04/2021;2854,33;VIR SEPA Vibrary.io;Recette;;;;;BNP
+01/04/2021;-829;CHQ. N.0983774;Fourniture;;;;;BNP
+26/02/2021;7719;REM CHQ 843984328540850 45283480 ;Recette;;;;;BNP
+19/02/2021;-32;VIR SEPA Wagon;Transport;;;;;BNP
+05/02/2021;1033;VIR Dimitri Bosch;Recette;;;;;BNP
+25/12/2020;-7065;VIR SEPA EDF;A categoriser;;;;;BNP
+08/12/2020;-2835;AMAZON EU SARL;Loyer;;;;;BNP
+11/11/2020;-400;RETRAIT DAB 11/04/2021 CDN PARIS P;Internet;;;;;BNP
+11/11/2020;8836;VIR Julien DA SILVA;Recette;;;;;BNP
+11/09/2020;-7084;Jobify sas;Taxes;;;;;BNP
+10/09/2020;-2835;AMAZON EU SARL;Alimentation;;;;;BNP
+02/09/2020;-6349;Friendstrip sarl eu;Telephone;;;;;BNP
+10/06/2020;-8606;CHQ. N.0949732;Fourniture;;;;;BNP
+10/08/2020;-9242;Amazon online;Alimentation;;;;;HSBC
+26/11/2020;-2363;carrefour Villepinte;Taxes;;;;;HSBC
+24/10/2020;-9627;HP online;Transport;;;;;HSBC
+27/11/2020;-8419;EDF comtpe en ligne;Transport;;;;;HSBC
+16/05/2021;-354;Paul Champs Elysees;Fourniture;;;;;HSBC
+24/04/2021;-7262;Le Wagon SAS;Alimentation;;;;;HSBC
+16/05/2021;-7307;VIR SEPA Vibrary.io;Telephone;;;;;HSBC
+04/04/2021;-25;VIR Helpling;Telephone;;;;;HSBC
+29/08/2020;-6853;VIR Jobify.carrer;Fourniture;;;;;HSBC
+03/02/2021;-9508;CHQ. N.03819372;Taxes;;;;;HSBC
+31/05/2021;-5872;VIR FriensTrip Paris;Internet;;;;;HSBC
+11/07/2020;9781;Le Wagon SAS;Recette;;;;;HSBC
+20/12/2020;7788;CHQ. N.03234372;Recette;;;;;HSBC
+15/07/2020;1959;JDS SARL;Recette;;;;;HSBC
+23/10/2020;358;VIR Than Prof;Recette;;;;;HSBC
+06/03/2021;-7373;CHQ. N.03827194;Internet;;;;;BRED
+22/06/2020;-6310;VIR Paul;Telephone;;;;;BRED
+03/06/2020;-8225;Le Wagon SAS;Telephone;;;;;BRED
+03/06/2020;-1581;VIR SEPA Vibrary.io;Alimentation;;;;;BRED
+07/05/2021;-2128;VIR Helpling ;Transport;;;;;BRED
+17/07/2020;-3508;Vir Cardable;A categoriser;;;;;BRED
+17/05/2021;-6682;CHQ. N.02323523;Telephone;;;;;BRED
+16/02/2021;382;VIR Le Wagon;Recette;;;;;BRED
+15/12/2020;395;CMG Bastille;Recette;;;;;BRED
+25/08/2020;432;VIR Tran;Recette;;;;;BRED
+10/02/2021;1984;VIR Le Wagon;Recette;;;;;BRED
+13/06/2020;-5287;CHQ.N.0235235;Taxes;;;;;LCL
+18/03/2021;-509;CHQ.N.0235234;Fourniture;;;;;LCL
+04/03/2021;-6989;Intel SF;Telephone;;;;;LCL
+07/06/2020;-2210;Paul Opera;Transport;;;;;LCL
+17/07/2020;-8660;VIR Le Wagon;A categoriser;;;;;LCL
+27/08/2020;-6111;Vibrary online;Taxes;;;;;LCL
+19/12/2020;-5945;Helpling paris;Loyer;;;;;LCL
+29/06/2020;-4582;Total A14;Transport;;;;;LCL
+12/12/2020;-3875;CHQ.N.0235734;A categoriser;;;;;LCL
+11/08/2020;9121;CHQ.N.0285235;Recette;;;;;LCL
+04/10/2020;4533;DBO;Recette;;;;;LCL
+09/04/2021;1004;Than Prof;Recette;;;;;LCL
+06/12/2020;-3320;Uber France;Loyer;;;;;LCL
+28/06/2020;-8938;GDF 530;A categoriser;;;;;LCL
+10/01/2021;-5765;VIR Nespresso Paris;Loyer;;;;;LCL
+25/07/2020;-8671;Le Wagon Paris;Loyer;;;;;LCL
+17/06/2020;-2137;VIR Bobby;Telephone;;;;;LCL
+28/08/2020;-3362;La vie la vraie;Taxes;;;;;LCL

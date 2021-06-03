@@ -8,13 +8,13 @@ class InvoicesController < ApplicationController
 
     # raise
     if params[:type] && params[:direction] == "desc" || params[:direction].nil?
-      @invoices_neg = policy_scope(Invoice).where(company_id: @company.id).where(client: @company.name).order("total_amount desc")
-      @invoices_pos = policy_scope(Invoice).where(company_id: @company.id).where.not(client: @company.name).order("total_amount asc")
+      @invoices_neg = policy_scope(Invoice).where(company_id: @company.id).where(client: @company.name).order("total_amount_cents desc")
+      @invoices_pos = policy_scope(Invoice).where(company_id: @company.id).where.not(client: @company.name).order("total_amount_cents asc")
       @invoices = @invoices_neg + @invoices_pos
       @direction = "asc"
     elsif params[:type] && params[:direction] == "asc"
-      @invoices_neg = policy_scope(Invoice).where(company_id: @company.id).where(client: @company.name).order("total_amount asc")
-      @invoices_pos = policy_scope(Invoice).where(company_id: @company.id).where.not(client: @company.name).order("total_amount desc")
+      @invoices_neg = policy_scope(Invoice).where(company_id: @company.id).where(client: @company.name).order("total_amount_cents asc")
+      @invoices_pos = policy_scope(Invoice).where(company_id: @company.id).where.not(client: @company.name).order("total_amount_cents desc")
       @invoices = @invoices_pos + @invoices_neg
       @direction = "desc"
     elsif params[:query].present?
@@ -69,7 +69,7 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.require(:invoice).permit(:date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client, :invoice_number, photos: [])
+    params.require(:invoice).permit(:date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client, :invoice_number,:total_amount_cents, :net_amount_cents, :tax_amount_cents, photos: [])
   end
 
   def sort_column
