@@ -213,17 +213,23 @@ td img {
       display:flex;
       flex-direction:column;
       padding-left: 7px;
+
+      .arrow {
+        color:grey !important;
+      }
+      .arrow.active {
+        color: $violet !important;
+      }
       #up {
         margin-bottom: -20px;
       }
       .fa-sort-up {
         font-size: 25px;
-        color: $violet;
-
+        // color: $violet;
       }
       .fa-sort-down {
         font-size: 25px;
-        color: $violet;
+        // color: $violet;
       }
     }
   }

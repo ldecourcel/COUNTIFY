@@ -1,13 +1,13 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['button', 'body', 'arrow']
+  static targets = ['button', 'body', 'arrows']
   static values = { company: String }
 
-  connect() {
-    console.log(this.buttonTargets)
-    console.log(this.arrowTargets)
-  }
+  // connect() {
+  //   console.log(this.buttonTargets)
+  //   console.log(this.arrowTargets)
+  // }
 
   async fetch(event) {
     event.preventDefault();
@@ -20,16 +20,18 @@ export default class extends Controller {
 
     const data = await response.json()
     this.swap(data)
+    // console.log(event.target)
+    this.arrow(event.target)
   }
 
   swap(data) {
     this.bodyTarget.innerHTML = data.html
-
-    this.arrow()
   }
 
-  arrow() {
-
+  arrow(target) {
+    target.closest('.title-header')
+          .querySelectorAll('i')
+          .forEach((arrow) => arrow.classList.toggle('active'))
   }
 }
 
