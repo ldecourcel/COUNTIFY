@@ -40,21 +40,21 @@ date;amount;description;category;validated;invoice_id;account_id;bankin_uu_id;ac
 15/12/2020;395;CMG Bastille;Recette;;;;;BRED
 25/08/2020;432;VIR Tran;Recette;;;;;BRED
 10/02/2021;1984;VIR Le Wagon;Recette;;;;;BRED
-13/06/2020;-5287;CHQ.N.0235235;Taxes;;;;;BNP
-18/03/2021;-509;CHQ.N.0235234;Fourniture;;;;;BNP
-04/03/2021;-6989;Intel SF;Telephone;;;;;BNP
-07/06/2020;-2210;Paul Opera;Transport;;;;;BNP
-17/07/2020;-8660;VIR Le Wagon;A categoriser;;;;;BNP
-27/08/2020;-6111;Vibrary online;Taxes;;;;;BNP
-19/12/2020;-5945;Helpling paris;Loyer;;;;;BNP
-29/06/2020;-4582;Total A14;Transport;;;;;BNP
-12/12/2020;-3875;CHQ.N.0235734;A categoriser;;;;;BNP
-11/08/2020;9121;CHQ.N.0285235;Recette;;;;;BNP
-04/10/2020;4533;DBO;Recette;;;;;BNP
-09/04/2021;1004;Than Prof;Recette;;;;;BNP
-06/12/2020;-3320;Uber France;Loyer;;;;;BNP
-28/06/2020;-8938;GDF 530;A categoriser;;;;;BNP
-10/01/2021;-5765;VIR Nespresso Paris;Loyer;;;;;BNP
-25/07/2020;-8671;Le Wagon Paris;Loyer;;;;;BNP
-17/06/2020;-2137;VIR Bobby;Telephone;;;;;BNP
-28/08/2020;-3362;La vie la vraie;Taxes;;;;;BNP
+13/06/2020;-5287;CHQ.N.0235235;Taxes;;;;;LCL
+18/03/2021;-509;CHQ.N.0235234;Fourniture;;;;;LCL
+04/03/2021;-6989;Intel SF;Telephone;;;;;LCL
+07/06/2020;-2210;Paul Opera;Transport;;;;;LCL
+17/07/2020;-8660;VIR Le Wagon;A categoriser;;;;;LCL
+27/08/2020;-6111;Vibrary online;Taxes;;;;;LCL
+19/12/2020;-5945;Helpling paris;Loyer;;;;;LCL
+29/06/2020;-4582;Total A14;Transport;;;;;LCL
+12/12/2020;-3875;CHQ.N.0235734;A categoriser;;;;;LCL
+11/08/2020;9121;CHQ.N.0285235;Recette;;;;;LCL
+04/10/2020;4533;DBO;Recette;;;;;LCL
+09/04/2021;1004;Than Prof;Recette;;;;;LCL
+06/12/2020;-3320;Uber France;Loyer;;;;;LCL
+28/06/2020;-8938;GDF 530;A categoriser;;;;;LCL
+10/01/2021;-5765;VIR Nespresso Paris;Loyer;;;;;LCL
+25/07/2020;-8671;Le Wagon Paris;Loyer;;;;;LCL
+17/06/2020;-2137;VIR Bobby;Telephone;;;;;LCL
+28/08/2020;-3362;La vie la vraie;Taxes;;;;;LCL
