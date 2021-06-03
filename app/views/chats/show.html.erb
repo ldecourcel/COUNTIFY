@@ -1,7 +1,14 @@
 
 <div class="big-container">
-  <div class="container-show-chat">
+  <div class="container-show-chat pb-5">
     <h1><%= @chat.name %></h1>
+
+     <div class="chat-form" data-controller="clear-submit">
+      <%= simple_form_for [ @chat, @message ], data: { clear_submit_target: 'form', action: 'submit->clear-submit#submit' } do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message" %>
+        <p><%= f.button :submit, value: "Envoyer", class: 'button-display-invoices', data: { clear_submit_target: 'btnsubmit', disable_with: false } %></p>
+      <% end %>
+    </div>
 
     <div id="messages" data-chat-id="<%= @chat.id %>">
 
@@ -9,13 +16,6 @@
         <%= render "messages/message", message: message %>
       <% end %>
 
-    </div>
-
-    <div class="chat-form" data-controller="clear-submit">
-      <%= simple_form_for [ @chat, @message ], data: { clear_submit_target: 'form', action: 'submit->clear-submit#submit' } do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message" %>
-        <p><%= f.button :submit, value: "Envoyer", class: 'button-display-invoices', data: { clear_submit_target: 'btnsubmit', disable_with: false } %></p>
-      <% end %>
     </div>
   </div>
 </div>
