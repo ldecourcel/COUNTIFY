@@ -13,7 +13,7 @@ class InvoicesApi
     @invoice.date = Date.parse(result["document"]["inference"]["pages"][0]["prediction"]["date"]["value"])
     @invoice.issuer = result["document"]["inference"]["pages"][0]["prediction"]["supplier"]["value"]
     @invoice.total_amount = result["document"]["inference"]["pages"][0]["prediction"]["total_incl"]["value"]
-    @invoice.net_amount = result["document"]["inference"]["pages"][0]["prediction"]["total_excl"]["value"]
+    @invoice.net_amount_cents = result["document"]["inference"]["pages"][0]["prediction"]["total_excl"]["value"]
 
     if result["document"]["inference"]["pages"][0]["prediction"]["taxes"] != []
       @invoice.tax_amount = result["document"]["inference"]["pages"][0]["prediction"]["taxes"][0]["value"]

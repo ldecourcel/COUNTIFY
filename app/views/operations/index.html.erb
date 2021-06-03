@@ -169,12 +169,14 @@
           </thead>
 
           <tbody>
+            <%# <%raise%>
             <% @operations.each do |operation| %>
             <div class="link">
               <tr onclick="window.location='/companies/<%=params[:company_id]%>/operations/<%= operation.id %>';">
                   <td class="table-amount-center">
                     <div class="<%= operation.amount > 0 ? 'tag-amount-green' : 'tag-amount-red'%>">
                       <strong><%= operation.amount%></strong>
+                      <%# <%=raise%>
                     </div>
                   </td>
                 <td><%= operation.date.strftime("%d/%m/%Y")%></td>
