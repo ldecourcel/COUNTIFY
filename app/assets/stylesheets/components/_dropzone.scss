@@ -1,7 +1,23 @@
 
 @import url(https://fonts.googleapis.com/css?family=Exo+2:400,700,500,300);
+// @media screen and (max-width: 640px) {
+//   .bloc {
+//     display:block;
+//     clear:both;
+//   }
+// }
 
+/* Media Queries: Tablet Landscape */
+@media screen and (max-width: 1060px) {
+    #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;}
+}
 
+/* Media Queries: Tabled Portrait */
+@media screen and (max-width: 768px) {
+    #primary { width:100%; }
+    #secondary { width:100%; margin:0; border:none; }
+}
 
 
 // body {
@@ -28,12 +44,7 @@
     margin: 50px 0 50px 0;
 
     .preview {
-      // .fa-trash {
-      //   text-decoration: none;
-      //   &:hover {
-      //     display: block;
-      //   }
-      // }
+
       img {
         width: 60px;
         height: 60px;
@@ -52,7 +63,6 @@
 
     .active {
       background: #dee2ff;
-      // color:white;
     }
   }
   i {
@@ -66,7 +76,7 @@
     margin: 20px auto;
     position: relative;
     width: 200px;
-    // color: white;
+
   }
 
   label, input {

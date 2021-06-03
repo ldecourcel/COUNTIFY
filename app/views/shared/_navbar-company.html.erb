@@ -7,7 +7,7 @@
   </div>
 
 
-  <div class="nav-flex" id="navbarSupportedContent">
+  <div class="nav-flex collapse navbar-collapse" id="navbarSupportedContent">
     <div class="navbar-nav nav-flex">
       <% unless controller_name == "companies" && action_name == "index" || controller_name == "pages" %>
 
@@ -63,6 +63,9 @@
               <p>Informations</p>
             </div>
           <% end %>
+        </div>
+        <div class="nav-item smaller">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item", id:"log-out-responsive" %>
         </div>
       <% end %>
     </div>

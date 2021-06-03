@@ -1,6 +1,6 @@
 class OperationsController < ApplicationController
-
   helper_method :sort_column, :sort_direction
+  include OperationsConcern
 
   def index
     find_company
@@ -24,6 +24,7 @@ class OperationsController < ApplicationController
         end
       end
     end
+    search_and_filter
   end
 
   def new
@@ -76,6 +77,22 @@ class OperationsController < ApplicationController
     if @operation.save!
       redirect_to company_operation_path(params[:company_id], @operation)
     end
+  end
+
+  def fetch
+    search_and_filter
+    respond_to do |format|
+      format.json do
+        response = {
+          operations: @operations,
+          html: render_to_string(partial: "table_body_operations", locals: { operations: @operations }, layout: false, formats: :html)
+        }
+
+        render json: response.to_json
+      end
+    end
+
+    skip_authorization
   end
 
 
