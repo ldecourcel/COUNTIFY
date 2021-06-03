@@ -1,0 +1,23 @@
+<% operations.each do |operation| %>
+<div class="link">
+  <tr onclick="window.location='/companies/<%=params[:company_id]%>/operations/<%= operation.id %>';">
+      <td class="table-amount-center">
+        <div class="<%= operation.amount > 0 ? 'tag-amount-green' : 'tag-amount-red'%>">
+          <strong><%= operation.amount%></strong>
+        </div>
+      </td>
+    <td><%= operation.date.strftime("%d/%m/%Y")%></td>
+    <td id="description"><%= operation.details %></td>
+    <td><%= operation.category %></td>
+    <td><%= operation.account.account_name %></td>
+    <% if operation.validated == true %>
+      <td><i class="fas fa-check-circle"></i></td>
+    <% elsif operation.invoice != nil && operation.validated == false %>
+      <td><i class="fas fa-question-circle"></i></td>
+    <% elsif operation.validated == false && operation.invoice == nil %>
+      <td><i class="fas fa-times-circle"></i></td>
+    <% end %>
+  </tr>
+</div>
+<% end %>
+

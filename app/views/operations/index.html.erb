@@ -59,7 +59,7 @@
         </div classe="responsive-table">
           <%= link_to raw('<i class="fas fa-plus-circle"></i>  Ajouter une transaction'), new_company_operation_path(@company), id: "btn-add-ope"%>
       </div>
-      <div>
+      <div data-controller="sorting" data-sorting-company-value="<%= @company.id %>">
         <table>
           <thead>
             <tr>
@@ -167,32 +167,8 @@
               </th>
             </tr>
           </thead>
-
-          <tbody>
-            <%# <%raise%>
-            <% @operations.each do |operation| %>
-            <div class="link">
-              <tr onclick="window.location='/companies/<%=params[:company_id]%>/operations/<%= operation.id %>';">
-                  <td class="table-amount-center">
-                    <div class="<%= operation.amount > 0 ? 'tag-amount-green' : 'tag-amount-red'%>">
-                      <strong><%= operation.amount%></strong>
-                      <%# <%=raise%>
-                    </div>
-                  </td>
-                <td><%= operation.date.strftime("%d/%m/%Y")%></td>
-                <td id="description"><%= operation.details %></td>
-                <td><%= operation.category %></td>
-                <td><%= operation.account.account_name %></td>
-                <% if operation.validated == true %>
-                  <td><i class="fas fa-check-circle"></i></td>
-                <% elsif operation.invoice != nil && operation.validated == false %>
-                  <td><i class="fas fa-question-circle"></i></td>
-                <% elsif operation.validated == false && operation.invoice == nil %>
-                  <td><i class="fas fa-times-circle"></i></td>
-                <% end %>
-              </tr>
-            </div>
-            <% end %>
+          <tbody data-sorting-target="body">
+            <%= render 'table_body_operations', operations: @operations %>
           </tbody>
         </table>
       </div>
