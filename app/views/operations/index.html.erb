@@ -240,8 +240,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-          <%= link_to "Exporter", asset_path("Export_02062021.zip"), class:"btn btn-primary modal-btn", html_safe: { data: {dismiss:"modal"}, role: "button"}  %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-export-modal">Annuler</button>
+          <%= link_to "Exporter", pages_download_path(company: @company.id), class:"btn btn-primary modal-btn", id:"export-btn", html_safe: { data: {dismiss:"modal"}, role: "button"}  %>
         </div>
       </div>
     </div>
