@@ -26,15 +26,15 @@
           <% data.each do |key, value| %>
             <% data[key] = -value %>
           <% end %>
-          <%= pie_chart(data, donut: true, legend: "left", suffix: "€", thousands: " ", adapter: "highcharts" ) %>
+          <%= pie_chart(data.transform_values { |v| v / 100}, donut: true, legend: "left", suffix: "€", thousands: " ", adapter: "highcharts" ) %>
           <% vta_visualisation = {received: 0, payed: 0 } %>
           <% @company.invoices.each do |invoice| %>
-            <% invoice.issuer == @company.name ? vta_visualisation[:received] += invoice.tax_amount : vta_visualisation[:payed] += invoice.tax_amount%>
+            <% invoice.issuer == @company.name ? vta_visualisation[:received] += invoice.tax_amount_cents : vta_visualisation[:payed] += invoice.tax_amount_cents%>
           <% end %>
         </div>
         <div class="bar-chart">
           <h2>Répartition de la TVA</h2>
-          <%= bar_chart({ "TVA collecté" => vta_visualisation[:received], "TVA déductible" => vta_visualisation[:payed] }, suffix: "€", thousands: " ", adapter: "highcharts", colors: ["#44A9A8", "#95CDFE"]) %>
+          <%= bar_chart({ "TVA collecté" => vta_visualisation[:received] / 100, "TVA déductible" => vta_visualisation[:payed] / 100 }, suffix: "€", thousands: " ", adapter: "highcharts", colors: ["#44A9A8", "#95CDFE"]) %>
         </div>
       </div>
       <div class="column-chart">
@@ -43,7 +43,7 @@
         <% data_month.each do |d|%>
           <% d.date = d.date.strftime("%d/%m/%Y") %>
         <% end %>
-        <%= column_chart [{name: "Recettes", data: data_month.where("amount_cents >= ?", "0").group_by_month(:date, format: "%B").sum(:amount_cents)}, {name: "Dépenses", data: data_month.where("amount_cents < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount_cents)")}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
+        <%= column_chart [{name: "Recettes", data: data_month.where("amount_cents >= ?", "0").group_by_month(:date, format: "%B").sum(:amount_cents).transform_values { |v| v / 100}}, {name: "Dépenses", data: data_month.where("amount_cents < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount_cents)").transform_values { |v| v / 100}}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
       </div>
     </div>
   </div>
