@@ -69,7 +69,7 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.require(:invoice).permit(:date, :net_amount, :issuer, :vta, :payment_method, :tax_amount, :total_amount, :client, :invoice_number,:total_amount_cents, :net_amount_cents, :tax_amount_cents, photos: [])
+    params.require(:invoice).permit(:date, :issuer, :vta, :payment_method, :client, :invoice_number, :total_amount_cents, :net_amount_cents, :tax_amount_cents, photos: [])
   end
 
   def sort_column

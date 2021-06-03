@@ -24,7 +24,7 @@ class InvoicesApi
       @invoice.tax_amount = (result["document"]["inference"]["pages"][0]["prediction"]["taxes"][0]["value"]*100).to_i
       @invoice.vta = result["document"]["inference"]["pages"][0]["prediction"]["taxes"][0]["rate"]
     else
-      @invoice.tax_amount = @invoice.total_amount - @invoice.net_amount
+      @invoice.tax_amount = @invoice.total_amount - @invoice.net_amount unless @invoice.total_amount.nil? || @invoice.net_amount.nil?
     end
 
     #LOGIC TO FILL THE INVOICE
