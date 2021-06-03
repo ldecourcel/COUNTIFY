@@ -1,14 +1,35 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['arrow']
+  static targets = ['button', 'body', 'arrow']
+  static values = { company: String }
 
   connect() {
-    console.log(this.amountTarget);
-    console.log(this.dateTarget);
+    console.log(this.buttonTargets)
+    console.log(this.arrowTargets)
   }
 
-  // change() {
-  //   this.arrowTargets.forEach(item => item.classList.toggle('d-none'))
-  // }
+  async fetch(event) {
+    event.preventDefault();
+    const sort = event.target.dataset.sort
+
+    const response = await fetch(`
+                      /companies/${this.companyValue}/fetch_operations?direction=asc&sort=${sort}`,
+                      { Accept: 'application/json' }
+                     )
+
+    const data = await response.json()
+    this.swap(data)
+  }
+
+  swap(data) {
+    this.bodyTarget.innerHTML = data.html
+
+    this.arrow()
+  }
+
+  arrow() {
+
+  }
 }
+
