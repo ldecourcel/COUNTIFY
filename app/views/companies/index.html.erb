@@ -3,7 +3,7 @@
     <h1>Mes clients</h1>
     <div class="cards-disposition">
       <% @companies.each do |company| %>
-        <%= link_to company_operations_path(company) do %>
+        <%= link_to company_dashboard_path(company) do %>
           <div class="cards-company">
             <div class="cards-company-avatar">
               <p><%= company.initial%></p>
