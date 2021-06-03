@@ -2,14 +2,14 @@
   <div class="dashboard-top">
     <div class="pie-chart">
       <h2>Catégorisation des dépenses</h2>
-      <% data = @company.operations.group(:category).sum(:amount) %>
+      <% data = @company.operations.group(:category).sum(:amount_cents) %>
       <% data.each do |key, value| %>
         <% data[key] = -value %>
       <% end %>
-      <%= pie_chart(data, donut: true, legend: "left", suffix: "€", thousands: " ", adapter: "highcharts" ) %>
+      <%= pie_chart(data.transform_values { |v| v / 100}, donut: true, legend: "left", suffix: "€", thousands: " ", adapter: "highcharts" ) %>
       <% vta_visualisation = {received: 0, payed: 0 } %>
       <% @company.invoices.each do |invoice| %>
-        <% invoice.issuer == @company.name ? vta_visualisation[:received] += invoice.tax_amount : vta_visualisation[:payed] += invoice.tax_amount%>
+        <% invoice.issuer == @company.name ? vta_visualisation[:received] += invoice.tax_amount_cents / 100 : vta_visualisation[:payed] += invoice.tax_amount_cents / 100%>
       <% end %>
     </div>
     <div class="bar-chart">
@@ -23,6 +23,8 @@
     <% data_month.each do |d|%>
       <% d.date = d.date.strftime("%d/%m/%Y") %>
     <% end %>
-    <%= column_chart [{data: data_month.where("amount >= ?", "0").group_by_month(:date, format: "%B").sum(:amount)}, {data: data_month.where("amount < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount)")}], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
+    <% data_cents_pos = data_month.where("amount_cents >= ?", "0").group_by_month(:date, format: "%B").sum(:amount_cents) %>
+    <% data_cents_neg = data_month.where("amount_cents < ?", "0").group_by_month(:date, format: "%B").sum("ABS(amount_cents)") %>
+    <%= column_chart [{data:  data_cents_pos.transform_values { |v| v / 100} }, {data: data_cents_neg.transform_values { |v| v / 100} }], suffix: "€", thousands: " ", colors: ["#90EE7D", "#FF7473"], adapter: "highcharts", legend: true %>
   </div>
 </div>
