@@ -44,7 +44,7 @@
             </th>
             <th class="th-sm">
               <div class="title-header">
-                <%= sortable "invoice_number", "N° Facture"%>
+                <%= sortable_invoice "invoice_number", "N° Facture"%>
                 <% if params[:direction] == 'asc' && params[:sort] == "invoice_number" %>
                       <div class="arrows">
                         <i class='fas fa-sort-up' id="up"></i>
@@ -60,7 +60,7 @@
             </th>
             <th class="th-sm">
               <div class="title-header">
-                <%= sortable "total_amount", "Montant TTC (€)"%>
+                <%= sortable_invoice "total_amount", "Montant TTC (€)"%>
                 <% if params[:direction] == 'asc' && params[:sort] == "total_amount" %>
                       <div class="arrows">
                         <i class='fas fa-sort-up' id="up"></i>
@@ -76,7 +76,7 @@
             </th>
             <th class="th-sm">
               <div class="title-header">
-                <%= sortable "net_amount", "Montant HT (€)"%>
+                <%= sortable_invoice "net_amount", "Montant HT (€)"%>
                 <% if params[:direction] == 'asc' && params[:sort] == "net_amount" %>
                       <div class="arrows">
                         <i class='fas fa-sort-up' id="up"></i>
@@ -92,7 +92,7 @@
             </th>
             <th class="th-sm">
               <div class="title-header">
-                <%= sortable "vta", "TVA"%>
+                <%= sortable_invoice "vta", "TVA"%>
                 <% if params[:direction] == 'asc' && params[:sort] == "vta" %>
                       <div class="arrows">
                         <i class='fas fa-sort-up' id="up"></i>
@@ -108,7 +108,7 @@
             </th>
             <th class="th-sm">
               <div class="title-header">
-                <%= sortable "date", "Date"%>
+                <%= sortable_invoice "date", "Date"%>
                 <% if params[:direction] == 'asc' && params[:sort] == "date" %>
                       <div class="arrows">
                         <i class='fas fa-sort-up' id="up"></i>
@@ -124,7 +124,7 @@
             </th>
             <th class="th-sm">
               <div class="title-header">
-                <%= sortable "issuer", "Bénéficiaire"%>
+                <%= sortable_invoice "issuer", "Bénéficiaire"%>
                 <% if params[:direction] == 'asc' && params[:sort] == "issuer" %>
                       <div class="arrows">
                         <i class='fas fa-sort-up' id="up"></i>
@@ -140,7 +140,7 @@
             </th>
             <th class="th-sm">
               <div class="title-header">
-                <%= sortable "client", "Client"%>
+                <%= sortable_invoice "client", "Client"%>
                 <% if params[:direction] == 'asc' && params[:sort] == "client" %>
                       <div class="arrows">
                         <i class='fas fa-sort-up' id="up"></i>
