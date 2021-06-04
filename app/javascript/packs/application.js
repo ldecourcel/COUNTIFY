@@ -39,9 +39,12 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initChatCable();
 
+  const exportBtn = document.getElementById('export-btn');
 
-  document.getElementById('export-btn').addEventListener('click', () => {
-    document.getElementById('close-export-modal').click();
-  })
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      document.getElementById('close-export-modal').click();
+    })
+  }
 });
 
