@@ -204,8 +204,8 @@
                 <div class="modal-export-params-status">
                   <%= f.input :tout, as: :boolean%>
                   <%= f.input :validé, as: :boolean%>
-                  <%= f.input "à Valider", as: :boolean%>
-                  <%= f.input "à Affecter", as: :boolean%>
+                  <%= f.input "A Valider", as: :boolean%>
+                  <%= f.input "A Affecter", as: :boolean%>
                 </div>
                 <div class="modal-export-params-stats">
                   <p>Paiements réconciliés: <%= 100 - ( @operations.where(validated: false).count * 100 ) / @operations.count %>%</p>
