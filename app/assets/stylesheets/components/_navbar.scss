@@ -278,5 +278,44 @@
     overflow: hidden;
     overflow-x: scroll;
   }
+
+  .btn-responsive {
+    width: 100%;
+    display: block;
+  }
+
+  .container-operations-new-invoice, .container-show-operations {
+    width: 100%;
+    margin-top: 0;
+  }
+
+
+  .big-container {
+    padding-top: 104px;
+  }
+
+  .grid-show {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-show-invoice img {
+    width: 100%;
+  }
+
+  #grid-table {
+    padding-left: 0px;
+    .show-rows td {
+      padding-right: 52px;
+    }
+    .show-rows td:last-of-type {
+      padding-right: 0;
+      text-align: right;
+    }
+  }
+
+
 }
 
