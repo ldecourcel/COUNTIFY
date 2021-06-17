@@ -8,6 +8,7 @@ class InvoicesApi
 
   def call(file)
     response = HTTP.auth("Token #{@token}").post(BASE_URL, form: { document: base64_image(file) })
+    p response
     result = response.parse
     # raise
     @invoice.date = Date.parse(result["document"]["inference"]["pages"][0]["prediction"]["date"]["value"])
@@ -37,6 +38,5 @@ class InvoicesApi
     Base64.encode64(file.read)
   end
 end
-
 
 # InvoicesApi.new.call("....") # => JSON

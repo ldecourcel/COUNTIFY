@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   end
 
   get 'pages/download', to: 'pages#download'
+
+  get '/new_user', to: 'bankin#new_user'
+
+  get 'list_transactions', to: 'bankin#list_transactions'
 end
