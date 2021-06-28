@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  get '/new_accountant', to: 'accountants#new'
+  post '/new_accountant', to: 'accountants#create'
+
+  get '/new_role', to: 'subscriptions#new_role'
+
   get 'pages/download', to: 'pages#download'
 
   get '/new_user', to: 'bankin#new_user'
