@@ -29,6 +29,7 @@
   <body class="body-background">
     <% if !user_signed_in? %>
       <%= render 'shared/navbar' %>
+
     <% elsif user_signed_in? && current_user.accountant_id? %>
       <%= render 'shared/navbar-accountant' %>
     <% elsif user_signed_in? && current_user.company_id? %>

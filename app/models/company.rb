@@ -10,4 +10,5 @@ class Company < ApplicationRecord
   def initial
     name[0].upcase
   end
+
 end

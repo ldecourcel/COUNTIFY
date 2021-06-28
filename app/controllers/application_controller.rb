@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -20,6 +22,12 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
+
+  protected
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :accountant_id])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :accountant_id])
+    end
 
   private
 
