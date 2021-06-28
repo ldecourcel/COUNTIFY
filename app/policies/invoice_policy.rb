@@ -29,7 +29,7 @@ class InvoicePolicy < ApplicationPolicy
   end
 
   def update?
-    Company.find(record.company_id).accountant_id == user.accountant_id|| user.company_id == record.company_id
+    Company.find(record.company_id).accountant_id == user.accountant_id || user.company_id == record.company_id
   end
 
   def destroy?

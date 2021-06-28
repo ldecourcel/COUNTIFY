@@ -1,0 +1,12 @@
+<h1>hello</h1>
+<ul>
+  <% @data7["resources"].each do |trans| %>
+    <li>
+      <%= trans["description"]%>
+      <%= trans["date"]%>
+      <%= trans["amount"]%>€
+      <%= trans["category"]["name"]%>
+    </li>
+  <% end %>
+</ul>
+
