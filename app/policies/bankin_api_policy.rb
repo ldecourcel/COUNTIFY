@@ -5,7 +5,7 @@ class BankinPolicy < ApplicationPolicy
     end
   end
 
- def new_user?
+  def new_user?
     true
   end
 

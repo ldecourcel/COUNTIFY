@@ -10,7 +10,7 @@ class BankinApi
     @list_items_url = "https://sync.bankin.com/v2/items?limit=100"
     @list_accounts_url = "https://sync.bankin.com/v2/accounts?limit=10"
     @get_account_url = "https://sync.bankin.com/v2/accounts/24995965"
-    @list_transaction_by_account_url = "https://sync.bankin.com/v2/accounts/24995965/transactions?limit=12&until=2021-06-14"
+    @list_transaction_by_account_url = "https://sync.bankin.com/v2/accounts/24995965/transactions?limit=12&until=2021-06-28" #until today
     @list_categories_url = "https://sync.bankin.com/v2/categories?limit=12"
 
   end

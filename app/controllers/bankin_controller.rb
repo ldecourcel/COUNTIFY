@@ -18,7 +18,8 @@ class BankinController < ApplicationController
 
   def new_user
     data0 = @bankin_instance.create_b(@headers, @credentials)
-    raise
+    # raise
+    skip_authorization
   end
 
   def list_users
@@ -61,6 +62,7 @@ class BankinController < ApplicationController
 
   def list_transactions
     get_account
+
     @data8 = @bankin_instance.list_categories_b(@headers)
 
     @data7 = @bankin_instance.list_transactions_b(@headers, @access_token)
@@ -68,6 +70,7 @@ class BankinController < ApplicationController
       trans["category"] = @bankin_instance.single_category_b(@headers, trans["category"]["id"])
     end
     skip_authorization
+
   end
 
 
