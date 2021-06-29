@@ -63,7 +63,7 @@
                       label: "Confirmation du mot de passe",
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
-          <% f.hidden_field :company_id,
+          <%= f.hidden_field :company_id,
                       value: params["param"][1].to_i  %>
         </div>
 
