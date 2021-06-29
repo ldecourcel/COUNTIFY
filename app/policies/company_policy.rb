@@ -36,5 +36,4 @@ class CompanyPolicy < ApplicationPolicy
       record.id == user.company_id
     end
   end
-
 end
