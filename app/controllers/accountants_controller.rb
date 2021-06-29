@@ -11,10 +11,9 @@ class AccountantsController < ApplicationController
   def create
     @accountant = Accountant.new(accountant_params)
     authorize @accountant
-    # raise
 
     if @accountant.save
-      redirect_to new_user_registration_path(param: @accountant)
+      redirect_to new_user_registration_path(param: ["comptable", @accountant])
     else
       render :new
     end
