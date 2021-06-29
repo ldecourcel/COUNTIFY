@@ -1,11 +1,13 @@
-<h1>Add new Company</h1>
+<h1>Inscription entreprise</h1>
 
 <%= simple_form_for(@company) do |f| %>
-<%= f.input :name %>
-<%= f.input :siren %>
-<%= f.input :siret %>
-<%= f.input :fiscal_regim %>
-<%= f.input :address %>
-<%= f.input :phone_number %>
-<%= f.submit "Add new company"%>
+  <%= f.input :name %>
+  <%= f.input :siren %>
+  <%= f.input :siret %>
+  <%= f.input :fiscal_regim %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :accountant_id, as: :integer %>
+
+  <%= f.submit "Add new company"%>
 <% end %>

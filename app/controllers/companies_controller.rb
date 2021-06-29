@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def index
     @companies = policy_scope(Company).order(created_at: :desc)
@@ -17,12 +18,13 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    company_params[:accountant_id] = company_params[:accountant_id].to_i
     @company = Company.new(company_params)
     authorize @company
-    @company.accountant_id = current_user
     if @company.save
-      redirect_to companies
+      redirect_to new_user_registration_path(param: ["company", @company])
     else
+      raise
       render :new
     end
   end
@@ -43,6 +45,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :siren, :siret, :fiscal_regim, :address, :phone_number)
+    params.require(:company).permit(:name, :siren, :siret, :fiscal_regim, :address, :phone_number, :accountant_id)
   end
 end
