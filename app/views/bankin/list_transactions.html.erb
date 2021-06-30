@@ -1,4 +1,10 @@
 <h1>hello</h1>
+<p><%@data5["resources"].each do |account|%></p>
+     <%= account["name"] %>
+     <%= account["id"] %>
+     <% end %>
+
+
 <ul>
   <% @data7["resources"].each do |trans| %>
     <li>

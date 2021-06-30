@@ -1,6 +1,7 @@
 class BankinController < ApplicationController
 
   def initialize
+    super
     @headers = {
         'bankin-version': "2019-02-18",
         'Client-Id': "01d9b9a2c3d8483ba22310bf161fa5c8",
@@ -28,6 +29,10 @@ class BankinController < ApplicationController
   end
 
   def authenticate_user
+    @credentials = {
+          email: current_user.email,
+          password: "password123456"
+        }
     @data1 = @bankin_instance.authenticate_b(@headers, @credentials)
     @access_token = "Bearer #{@data1["access_token"]}"
   end
@@ -52,6 +57,7 @@ class BankinController < ApplicationController
 
     @account_id = @data5["resources"][0]["id"]
     # PROBLEME AVEC L'INTERPOLLATION
+    create_account
   end
 
   def get_account
@@ -59,12 +65,9 @@ class BankinController < ApplicationController
     @data6 = @bankin_instance.get_account_b(@headers, @access_token)
   end
 
-  def list_categories
-  end
-
   def list_transactions
     get_account
-
+    @company = Company.find(current_user.company_id)
     @data8 = @bankin_instance.list_categories_b(@headers)
 
     @data7 = @bankin_instance.list_transactions_b(@headers, @access_token)
@@ -75,5 +78,23 @@ class BankinController < ApplicationController
 
   end
 
+
+  def list_categories
+  end
+
+  def create_account
+    @company = Company.find(current_user.company_id)
+    uuid_accounts = []
+    @company.accounts.each do |account|
+      uuid_accounts << account[:bankin_uu_id]
+    end
+
+    @data5["resources"].each do |account|
+
+      if !uuid_accounts.include?(account["id"])
+        Account.new(iban: account["iban"], account_name: account["name"], company_id: current_user.company_id, bankin_uu_id: account["id"].to_i, swift: 000000).save
+      end
+    end
+  end
 
 end
