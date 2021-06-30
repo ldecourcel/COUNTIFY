@@ -21,11 +21,16 @@ class ApplicationController < ActionController::Base
     if user.accountant_id?
       companies_path
     elsif user.company_id?
-      company_operations_path(user.company)
+      if Company.find(user.company_id).accounts.size > 0
+        company_operations_path(user.company)
+      else
+        add_account_path
+      end
     else
       root_path
     end
   end
+
 
   protected
 

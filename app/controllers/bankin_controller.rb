@@ -8,36 +8,38 @@ class BankinController < ApplicationController
         'Content-Type': 'application/json'
       }
 
-    @credentials = {
-        email: "test@counti.fr",
-        password: "password123456"
-      }
 
-    @bankin_instance = BankinApi.new
-  end
+      @bankin_instance = BankinApi.new
+    end
 
-  def new_user
-    data0 = @bankin_instance.create_b(@headers, @credentials)
-    # raise
-    skip_authorization
-  end
+    def new_user
+      @credentials = {
+          email: current_user.email,
+          password: "password123456"
+        }
+      @data0 = @bankin_instance.create_b(@headers, @credentials)
+      skip_authorization
+      authenticate_user
+      synchronize_item
+    end
 
   def list_users
     BankinApi.new.list_b(@headers)
   end
 
   def authenticate_user
-    data1 = @bankin_instance.authenticate_b(@headers, @credentials)
-    @access_token = "Bearer #{data1["access_token"]}"
+    @data1 = @bankin_instance.authenticate_b(@headers, @credentials)
+    @access_token = "Bearer #{@data1["access_token"]}"
   end
 
   def synchronize_item
-    data2 = @bankin_instance.sync_item_b(@headers, @access_token)
+    @data2 = @bankin_instance.sync_item_b(@headers, @access_token)
+    redirect_to @data2["redirect_url"]
   end
 
   def connect_item
     authenticate_user
-    data3 = @bankin_instance.connect_item_b(@headers, @access_token)
+    @data3 = @bankin_instance.connect_item_b(@headers, @access_token)
   end
 
   def list_items

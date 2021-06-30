@@ -47,14 +47,17 @@
           <% end %>
         </div>
 
-        <div class="nav-item smaller <%= 'nav-active' if controller_name == "chats" && action_name == "show" %>">
-          <%= link_to chat_path(@company.chat) do %>
-            <div class="navbar-logo-other">
-              <%= image_tag("chat.png") %>
-              <p>Chat</p>
-            </div>
-          <% end %>
-        </div>
+        <%# <div class="nav-item smaller <%= 'nav-active' if controller_name == "chats" && action_name == "show" %>
+          <%# <%= link_to chat_path(@company.chat) do %>
+
+            <%# <div class="navbar-logo-other"> %>
+              <%# <%= image_tag("chat.png") %>
+
+              <%# <p>Chat</p> %>
+            <%# </div> %>
+          <%# <% end %>
+
+        <%# </div> %>
 
         <div class="nav-item smaller <%= 'nav-active' if controller_name == "companies" && action_name == "show" %>">
           <%= link_to company_path(@company) do %>

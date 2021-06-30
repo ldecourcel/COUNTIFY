@@ -1,0 +1,11 @@
+<div class="big-container">
+  <h1>Ajouter votre compte bancaire</h1>
+
+  <%if @company.accounts.size > 0%>
+    <%= link_to 'Authentification' %>
+  <%else%>
+    <%= link_to 'Ajouter votre compte bancaire', new_user_path %>
+  <%end%>
+
+  <%= link_to 'Passer cette étape', company_path(current_user.company_id)%>
+</div>

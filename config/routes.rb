@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post '/new_accountant', to: 'accountants#create'
 
   get '/new_role', to: 'subscriptions#new_role'
+  get '/add_account', to: 'subscriptions#add_account'
 
   get 'pages/download', to: 'pages#download'
 
