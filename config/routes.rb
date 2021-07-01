@@ -27,5 +27,5 @@ Rails.application.routes.draw do
 
   get '/new_user', to: 'bankin#new_user'
 
-  get 'list_transactions', to: 'bankin#list_transactions'
+  get '/list_transactions', to: 'bankin#list_transactions'
 end
