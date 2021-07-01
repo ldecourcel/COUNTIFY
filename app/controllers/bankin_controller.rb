@@ -53,6 +53,7 @@ class BankinController < ApplicationController
 
   def list_account
     connect_item
+    authenticate_user
     @data5 = @bankin_instance.list_accounts_b(@headers, @access_token)
 
     @account_id = @data5["resources"][0]["id"]
@@ -66,16 +67,17 @@ class BankinController < ApplicationController
   end
 
   def list_transactions
-    get_account
+    list_account
+    authenticate_user
     @company = Company.find(current_user.company_id)
-    @data8 = @bankin_instance.list_categories_b(@headers)
 
     @data7 = @bankin_instance.list_transactions_b(@headers, @access_token)
     @data7["resources"].each do |trans|
       trans["category"] = @bankin_instance.single_category_b(@headers, trans["category"]["id"])
     end
-    skip_authorization
 
+    skip_authorization
+    create_operation
   end
 
 
@@ -96,5 +98,23 @@ class BankinController < ApplicationController
       end
     end
   end
+
+  def create_operation
+
+    @company = Company.find(current_user.company_id)
+    uuid_operations = []
+    @company.operations.each do |operation|
+      uuid_operations << operation[:bankin_uu_id].to_s.split("").last(5).join.to_i
+    end
+
+  @data7["resources"].each do |operation|
+    if !uuid_operations.include?(operation["id"].to_s.split("").last(5).join.to_i)
+      a = Operation.new(date: operation["date"], details: operation["description"], category: operation["category"]["name"], amount_cents: operation["amount"], bankin_uu_id: operation["id"].to_s.split("").last(5).join.to_i)
+      a.account = Account.find_by(bankin_uu_id: operation["account"]["id"])
+      a.save!
+      end
+    end
+  end
+
 
 end
